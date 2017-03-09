@@ -5,10 +5,35 @@
  */
 package com.tt.ticinterview.beans.user;
 
+import java.util.Objects;
+import java.util.logging.Logger;
+
 /**
- * @since  09/03/2017
- * @author  tictumTarde - PNM
+ *
+ * @author tictumTarde
  */
-public interface BasicUser {
+public interface BasicUser{
+    
+
+
+    public  long getId();
+
+    public  String getUsername();
+
+    public  String getPassword();
+    
+    public void setUsername(String username);
+    
+    public void setPassword(String password);
+
+    @Override
+    public  String toString();
+
+    @Override
+    public  int hashCode();
+
+    @Override
+    public boolean equals(Object obj);
+    
     
 }

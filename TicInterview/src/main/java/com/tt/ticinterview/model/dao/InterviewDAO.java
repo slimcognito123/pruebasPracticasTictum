@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tt.ticinterview.beans.user;
+package com.tt.ticinterview.model.dao;
 
 /**
  *
  * @author tictumTarde
  */
-public class Interviewer {
+public class InterviewDAO implements CrudDAO{
     
 }
