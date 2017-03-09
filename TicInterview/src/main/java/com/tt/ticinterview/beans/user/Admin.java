@@ -17,6 +17,7 @@ import javax.persistence.Table;
  * @since 09/03/2017
  * @author tictumTarde - PNM
  * @version 0.1
+ * @
  */
 
 @Entity
