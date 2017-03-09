@@ -11,5 +11,17 @@ package com.tt.ticinterview.beans.video;
  * @version 0.1
  */
 public interface Video {
-    
+
+    public long getId();
+
+    public void setId(long id);
+
+    public String getPath();
+
+    public void setPath(String path);
+
+    public String getName();
+
+    public void setName(String name);
+
 }

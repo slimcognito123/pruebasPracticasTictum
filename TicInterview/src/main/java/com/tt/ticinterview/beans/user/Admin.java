@@ -30,33 +30,37 @@ public class Admin implements BasicUser, Serializable{
     private String username;
     
     private String password;
-    
-    
-    
-    
+
+
+    public Admin() {
+    }
+
     @Override
     public long getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override
     public String getUsername() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return username;
     }
 
     @Override
     public void setUsername(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.username = username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override
     public void setPassword(String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.password = password;
     }
-    
 }

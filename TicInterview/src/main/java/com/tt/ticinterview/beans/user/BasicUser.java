@@ -13,8 +13,6 @@ import java.util.logging.Logger;
  * @author tictumTarde
  */
 public interface BasicUser{
-    
-
 
     public  long getId();
 
