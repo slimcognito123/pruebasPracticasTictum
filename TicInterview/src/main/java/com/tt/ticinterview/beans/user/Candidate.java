@@ -8,10 +8,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by J on 09/03/2017.
+ * @since 09/03/2017
+ * @author tictumTarde -JRB
+ * @version 0.1
  */
 
 @Entity
+//@Table (name = "Candidate" )
 public class Candidate implements BasicUser, Serializable {
 
     @Id

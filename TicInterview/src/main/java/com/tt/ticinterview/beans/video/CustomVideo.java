@@ -5,6 +5,10 @@
  */
 package com.tt.ticinterview.beans.video;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -12,8 +16,13 @@ import java.io.Serializable;
  * @author tictumTarde -PNM
  * @version 0.1
  */
+
+@Entity
+//@Table (name = "CostumVideo" )
 public class CustomVideo implements Video, Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String path;
     private String name;

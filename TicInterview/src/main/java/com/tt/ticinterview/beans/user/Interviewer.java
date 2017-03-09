@@ -12,12 +12,15 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- *
- * @author tictumTarde
+ * @since 09/03/2017
+ * @author tictumTarde -JRB
+ * @version 0.1
  */
 
 @Entity
+//@Table (name = "Interviewer" )
 public class Interviewer implements BasicUser, Serializable{
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;

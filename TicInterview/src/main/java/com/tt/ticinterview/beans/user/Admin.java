@@ -24,7 +24,8 @@ import javax.persistence.Table;
 //@Table (name = "Admin" ) 
 public class Admin implements BasicUser, Serializable{
     
-    @Id @GeneratedValue(strategy =GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy =GenerationType.AUTO)
     private long id;
     @Column (name = "Username" , nullable = false)
     private String username;

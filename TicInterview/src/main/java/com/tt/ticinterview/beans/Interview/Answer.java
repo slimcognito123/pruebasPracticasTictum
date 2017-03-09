@@ -2,14 +2,25 @@ package com.tt.ticinterview.beans.Interview;
 
 import com.tt.ticinterview.beans.video.CandidateVideo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by J on 09/03/2017.
+ * @since 09/03/2017
+ * @author tictumTarde -JRB
+ * @version 0.1
  */
+
+@Entity
+//@Table (name = "Answer" )
 public class Answer implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idAnswer;
     private long idCandidate;
     private long idInterviewer;
