@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tt.ticinterview.beans.from;
+package com.tt.ticinterview.beans.form;
 
 /**
  *
  * @author tictumTarde
  */
-public class Form {
+public class Question {
     
 }
