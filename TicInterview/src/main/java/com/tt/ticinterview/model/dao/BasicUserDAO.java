@@ -5,12 +5,14 @@
  */
 package com.tt.ticinterview.model.dao;
 
+import com.tt.ticinterview.beans.user.BasicUser;
+
 /**
  *  @since 09/03/2017
  * @author tictumTarde
  * @version 0.1
  * 
  */
-public class BasicUserDAO implements CrudDAO{
+public class BasicUserDAO<T> extends CrudDAO<T>{
     
 }
