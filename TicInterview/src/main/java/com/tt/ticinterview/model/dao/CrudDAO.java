@@ -37,8 +37,14 @@ public interface CrudDAO<T extends GenericBean> {
         return entityManager.find(object,id);
     }
     default List<T> getAll(){
+       /* try {
+            this.getClass().getMethod("getAll").getTypeParameters();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }*/
         List<T> lista;
         Class<T> object = null;
+
         String prepareQuery = "select something from "+this.getClass()+" something";
         Query query = entityManager.createQuery(prepareQuery);
         return query.getResultList();

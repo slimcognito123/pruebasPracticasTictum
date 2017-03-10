@@ -9,6 +9,6 @@ package com.tt.ticinterview.model.dao;
  *
  * @author tictumTarde
  */
-public class InterviewDAO extends CrudDAO {
+public class InterviewDAO implements CrudDAO {
     
 }
