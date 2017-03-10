@@ -1,5 +1,6 @@
 package com.tt.ticinterview.model.manager;
 
+import com.tt.ticinterview.model.dao.VideoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,6 @@ public class VideoManager<T> {
 
     @Transactional
     public void save(T object){
-
     }
 
     @Transactional

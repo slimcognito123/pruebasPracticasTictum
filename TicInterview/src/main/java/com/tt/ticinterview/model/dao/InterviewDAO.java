@@ -5,10 +5,12 @@
  */
 package com.tt.ticinterview.model.dao;
 
+import com.tt.ticinterview.beans.Interview.Interview;
+
 /**
  *
  * @author tictumTarde
  */
-public class InterviewDAO implements CrudDAO {
+public class InterviewDAO implements CrudDAO<Interview> {
     
 }

@@ -1,6 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.user.Interviewer;
+import com.tt.ticinterview.model.dao.BasicUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,8 @@ import java.util.List;
 public class InterviewerManager {
 
     @Autowired
-    @Qualifier("InterviewerDAO")
-    InterviewerDAO interviewerDAO;
+    @Qualifier("basicUserDAO")
+    BasicUserDAO interviewerDAO;
 
     @Transactional
     public void save(Interviewer interviewer){
