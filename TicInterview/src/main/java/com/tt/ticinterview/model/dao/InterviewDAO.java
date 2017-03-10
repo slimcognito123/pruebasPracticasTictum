@@ -11,6 +11,6 @@ import com.tt.ticinterview.beans.Interview.Interview;
  *
  * @author tictumTarde
  */
+
 public class InterviewDAO implements CrudDAO<Interview> {
-    
 }

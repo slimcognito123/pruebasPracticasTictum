@@ -8,8 +8,6 @@ package com.tt.ticinterview.model.dao;
 import com.tt.ticinterview.beans.basic.GenericBean;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
-
 /**
  *  @since 09/03/2017
  * @author tictumTarde
