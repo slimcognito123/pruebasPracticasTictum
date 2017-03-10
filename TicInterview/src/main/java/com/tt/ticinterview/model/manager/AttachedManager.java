@@ -45,11 +45,11 @@ public class AttachedManager {
 
     @Transactional
     public Attached getById(long id){
-        return null;
+        return attachedDAO.getById(id);
     }
 
     @Transactional
     public List<Attached> getAll(){
-        return null;
+        return attachedDAO.getAll();
     }
 }
