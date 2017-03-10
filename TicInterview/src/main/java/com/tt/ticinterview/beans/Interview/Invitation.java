@@ -1,5 +1,7 @@
 package com.tt.ticinterview.beans.Interview;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,23 +16,23 @@ import java.io.Serializable;
 
 @Entity
 //@Table (name = "Invitation" )
-public class Invitation implements Serializable {
+public class Invitation extends GenericBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idInvitation;
+    private long id;
     private long idInterview;
     private long idCandidate;
 
     public Invitation() {
     }
 
-    public long getIdInvitation() {
-        return idInvitation;
+    public long getId() {
+        return id;
     }
 
-    public void setIdInvitation(long idInvitation) {
-        this.idInvitation = idInvitation;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getIdInterview() {
