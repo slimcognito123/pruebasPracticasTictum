@@ -5,6 +5,8 @@
  */
 package com.tt.ticinterview.beans.user;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +24,7 @@ import javax.persistence.Table;
 
 @Entity
 //@Table (name = "Admin" ) 
-public class Admin implements BasicUser, Serializable{
+public class Admin  extends GenericBean implements BasicUser, Serializable{
     
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)

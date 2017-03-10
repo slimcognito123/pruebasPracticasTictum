@@ -5,7 +5,7 @@
  */
 package com.tt.ticinterview.model.dao;
 
-import com.tt.ticinterview.beans.user.BasicUser;
+import com.tt.ticinterview.beans.basic.GenericBean;
 
 /**
  *  @since 09/03/2017
@@ -13,6 +13,8 @@ import com.tt.ticinterview.beans.user.BasicUser;
  * @version 0.1
  * 
  */
-public class BasicUserDAO<T> extends CrudDAO<T>{
-    
+public interface BasicUserDAO<T extends GenericBean> extends CrudDAO<T>{
+
+    T GetUserMail(String mail) throws Exception;
+    void modify(T object) throws Exception;
 }

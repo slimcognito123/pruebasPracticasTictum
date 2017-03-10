@@ -1,5 +1,6 @@
 package com.tt.ticinterview.beans.Interview;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
 import com.tt.ticinterview.beans.form.Form;
 import com.tt.ticinterview.beans.video.Video;
 
@@ -18,7 +19,7 @@ import java.util.List;
 
 @Entity
 //@Table (name = "Interview" )
-public class Interview implements Serializable {
+public class Interview extends GenericBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

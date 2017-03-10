@@ -5,8 +5,7 @@
  */
 package com.tt.ticinterview.beans.user;
 
-import java.util.Objects;
-import java.util.logging.Logger;
+import com.tt.ticinterview.beans.basic.GenericBean;
 
 /**
  *

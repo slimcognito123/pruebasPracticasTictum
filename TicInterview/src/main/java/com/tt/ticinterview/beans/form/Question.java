@@ -5,6 +5,10 @@
  */
 package com.tt.ticinterview.beans.form;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.HashMap;
 
 /**
@@ -13,10 +17,10 @@ import java.util.HashMap;
  * @version 0.1
  * @
  */
-
-public class Question {
-
-    private long idQuestion;
+@Entity
+public class Question extends GenericBean {
+    @Id
+    private long id;
     private String Question;
     private Type type;
     private HashMap<Boolean, String> killingQuestion;
@@ -24,12 +28,12 @@ public class Question {
     public Question() {
     }
 
-    public long getIdQuestion() {
-        return idQuestion;
+    public long getId() {
+        return id;
     }
 
-    public void setIdQuestion(long idQuestion) {
-        this.idQuestion = idQuestion;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getQuestion() {

@@ -1,5 +1,7 @@
 package com.tt.ticinterview.beans.video;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +16,7 @@ import java.io.Serializable;
 
 @Entity
 //@Table (name = "CandidateVideo" )
-public class CandidateVideo implements Video, Serializable{
+public class CandidateVideo extends GenericBean implements Video, Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

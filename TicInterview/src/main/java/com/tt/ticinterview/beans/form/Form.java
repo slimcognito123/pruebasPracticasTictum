@@ -5,6 +5,8 @@
  */
 package com.tt.ticinterview.beans.form;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +23,7 @@ import java.util.List;
 
 @Entity
 //@Table (name = "Form" )
-public class Form implements Serializable{
+public class Form extends GenericBean implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +32,7 @@ public class Form implements Serializable{
 
     public Form() {
     }
-
+    @Override
     public long getId() {
         return id;
     }

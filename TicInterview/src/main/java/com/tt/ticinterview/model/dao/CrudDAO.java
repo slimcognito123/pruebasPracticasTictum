@@ -5,6 +5,8 @@
  */
 package com.tt.ticinterview.model.dao;
 
+import com.tt.ticinterview.beans.basic.GenericBean;
+import com.tt.ticinterview.beans.basic.InstanceEntityManager;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -19,26 +21,25 @@ import java.util.List;
  */
 
 @Repository(value = "CrudDAO")
-public abstract class CrudDAO<T> {
+public interface CrudDAO<T extends GenericBean> {
 
-    @PersistenceContext
-    EntityManager entityManager;
+    EntityManager entityManager= new InstanceEntityManager().getEm();
 
-    void save(T object){
+    default void save(T object){
         entityManager.persist(object);
     }
-    void delete (T object){
+    default void delete(T object){
         object = this.entityManager.merge(object);
         this.entityManager.remove(object);
     }
-    T getById(Long id){
+    default T getById(Long id){
         Class<T> object = null;
         return entityManager.find(object,id);
     }
-    List<T> getAll(){
+    default List<T> getAll(){
         List<T> lista;
         Class<T> object = null;
-        String prepareQuery = "select something from "+object+" something";
+        String prepareQuery = "select something from "+this.getClass()+" something";
         Query query = entityManager.createQuery(prepareQuery);
         return query.getResultList();
     }
