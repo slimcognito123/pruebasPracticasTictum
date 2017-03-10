@@ -1,7 +1,10 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.user.Interviewer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,26 +18,36 @@ import java.util.List;
 @Service
 public class InterviewerManager {
 
+    @Autowired
+    @Qualifier("InterviewerDAO")
+    InterviewerDAO interviewerDAO;
+
+    @Transactional
     public void save(Interviewer interviewer){
 
     }
 
+    @Transactional
     public void delete (Interviewer interviewer){
 
     }
 
+    @Transactional
     public Interviewer getById(long id){
         return null;
     }
 
+    @Transactional
     public List<Interviewer> getAll(){
         return null;
     }
 
+    @Transactional
     public List<Interviewer> getManager(){
         return null;
     }
 
+    @Transactional
     public List<Interviewer> getInterviewers(){
         return null;
     }

@@ -3,7 +3,9 @@ package com.tt.ticinterview.model.manager;
 import com.tt.ticinterview.beans.Interview.Attached;
 import com.tt.ticinterview.model.dao.AttachedDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,8 +20,10 @@ import java.util.List;
 public class AttachedManager {
 
     @Autowired
+    @Qualifier("AttachedDAO")
     AttachedDAO attachedDAO;
 
+    @Transactional
     public void save(Attached attached){
         try{
             attachedDAO.save(attached);
@@ -29,6 +33,7 @@ public class AttachedManager {
         }
     }
 
+    @Transactional
     public void delete (Attached attached){
         try{
             attachedDAO.delete(attached);
@@ -38,10 +43,12 @@ public class AttachedManager {
         }
     }
 
+    @Transactional
     public Attached getById(long id){
         return null;
     }
 
+    @Transactional
     public List<Attached> getAll(){
         return null;
     }
