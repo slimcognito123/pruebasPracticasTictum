@@ -29,20 +29,29 @@ public class Admin  extends GenericBean implements BasicUser, Serializable{
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
     private long id;
-    @Column (name = "Username" , nullable = false)
+    @Column (name = "username" , nullable = false)
     private String username;
-    
+    @Column (name = "password" , nullable = false)
     private String password;
 
-
+    
     public Admin() {
     }
 
+    public Admin(long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+  
+    
     @Override
     public long getId() {
         return id;
     }
 
+    @Override
     public void setId(long id) {
         this.id = id;
     }
@@ -65,5 +74,10 @@ public class Admin  extends GenericBean implements BasicUser, Serializable{
     @Override
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+      @Override
+    public String toString() {
+        return "Admin{" + "id=" + id + ", username=" + username + ", password=" + password + '}';
     }
 }

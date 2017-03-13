@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 /**
  * Created by Tictum on 10/03/2017.
  */
+
 public class InstanceEntityManager {
 
         @PersistenceContext(unitName = "myPersistenceUnit")
