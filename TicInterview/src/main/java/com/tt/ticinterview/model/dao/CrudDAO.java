@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 @Repository(value = "CrudDAO")
-public interface CrudDAO<T extends GenericBean> {
+public interface CrudDAO<T> {
 
     EntityManager entityManager= new InstanceEntityManager().getEm();
 
@@ -32,21 +32,6 @@ public interface CrudDAO<T extends GenericBean> {
         object = this.entityManager.merge(object);
         this.entityManager.remove(object);
     }
-    default T getById(Long id){
-        Class<T> object = null;
-        return entityManager.find(object,id);
-    }
-    default List<T> getAll(){
-       /* try {
-            this.getClass().getMethod("getAll").getTypeParameters();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }*/
-        List<T> lista;
-        Class<T> object = null;
-
-        String prepareQuery = "select something from "+this.getClass()+" something";
-        Query query = entityManager.createQuery(prepareQuery);
-        return query.getResultList();
-    }
+    T getById(Long id) throws Exception;
+    List<T> getAll();
 }
