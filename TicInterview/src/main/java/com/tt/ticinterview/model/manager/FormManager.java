@@ -25,21 +25,41 @@ public class FormManager {
 
     @Transactional
     public void save(Form form){
+        try{
+            formDAO.save(form);
+        }catch (Exception e){
+            System.out.println("ERROR save " + e);
+        }
 
     }
 
     @Transactional
     public void delete (Form form){
+        try{
+            formDAO.delete(form);
+        }catch(Exception e){
+            System.out.println("ERROR delete " + e);
+        }
 
     }
 
     @Transactional
     public Form getById(long id){
+        try{
+            return formDAO.getById(id);
+        }catch (Exception e){
+            System.out.println("ERROR getById " + e);
+        }
         return null;
     }
 
     @Transactional
     public List<Form> getAll(){
+        try {
+            return formDAO.getAll();
+        }catch (Exception e){
+            System.out.println("ERROR getAll " + e);
+        }
         return null;
     }
 
