@@ -12,11 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import javax.persistence.Column;
 
 /**
  * @since 09/03/2017
  * @author tictumTarde -PNM
- * @version 0.1
+ * @version 0.2
  */
 
 @Entity
@@ -26,7 +27,9 @@ public class CustomVideo extends GenericBean implements Video, Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "path" , nullable = false, unique = true)
     private String path;
+    
     private String name;
 
     public CustomVideo() {
