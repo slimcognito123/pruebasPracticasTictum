@@ -1,7 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.user.Interviewer;
-import com.tt.ticinterview.model.dao.BasicUserDAO;
+import com.tt.ticinterview.model.dao.InterviewerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,11 @@ import java.util.List;
 public class InterviewerManager {
 
     @Autowired
-    @Qualifier("basicUserDAO")
-    BasicUserDAO interviewerDAO;
+    @Qualifier("InterviewerDAO")
+    InterviewerDAO interviewerDAO;
 
     @Transactional
-    public void save(Interviewer interviewer){
+    public void register(Interviewer interviewer){
         try{
             interviewerDAO.save(interviewer);
         }
@@ -51,6 +51,7 @@ public class InterviewerManager {
         catch (Exception e){
             System.out.println("Error getById: " + e);
         }
+        return null;
     }
 
     @Transactional
@@ -61,6 +62,7 @@ public class InterviewerManager {
         catch (Exception e){
             System.out.println("Error getAll: " + e);
         }
+        return null;
     }
 
     @Transactional
@@ -71,15 +73,17 @@ public class InterviewerManager {
         catch (Exception e){
             System.out.println("Error getManager: " + e);
         }
+        return null;
     }
 
     @Transactional
     public List<Interviewer> getInterviewers(){
         try{
-            interviewerDAO.getInterviewers();
+            return interviewerDAO.getInterviewers();
         }
         catch (Exception e){
             System.out.println("Error getInterviewers: " + e);
         }
+        return null;
     }
 }

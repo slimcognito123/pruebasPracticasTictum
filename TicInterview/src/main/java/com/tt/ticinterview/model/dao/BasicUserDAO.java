@@ -5,8 +5,10 @@
  */
 package com.tt.ticinterview.model.dao;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.Query;
+import java.util.List;
 
 /**
  *  @since 09/03/2017
@@ -15,8 +17,17 @@ import org.springframework.stereotype.Repository;
  * 
  */
 @Repository(value = "BasicUserDAO")
-public interface BasicUserDAO<T extends GenericBean> extends CrudDAO<T>{
+public interface BasicUserDAO<T> extends CrudDAO<T>{
 
-    T GetUserMail(String mail) throws Exception;
+    T getUserMail(String mail) throws Exception;
     void modify(T object) throws Exception;
+
+    T getById(Long id) throws Exception;
+
+
+    default List<T> getAll(){
+        String prepareQuery = "select something from "+this.getClass()+" something";
+        Query query = entityManager.createQuery(prepareQuery);
+        return query.getResultList();
+    }
 }

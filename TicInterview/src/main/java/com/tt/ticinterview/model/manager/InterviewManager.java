@@ -28,7 +28,7 @@ public class InterviewManager {
         try{
             interviewDAO.save(interview);
         }catch(Exception e){
-            System.err.println(e.getStackTrace());
+            System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
@@ -37,32 +37,57 @@ public class InterviewManager {
         try{
             interviewDAO.delete(interview);
         }catch(Exception e){
-            System.err.println(e.getStackTrace());
+            System.err.println("ERROR delete " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public Interview getById(long id){
-        return interviewDAO.getById(id);
+    public Interview getById(long id) {
+        try {
+            return interviewDAO.getById(id);
+        } catch (Exception e) {
+            System.out.println("ERROR getById " + e.getStackTrace());
+        }
+        return null;
     }
 
     @Transactional
     public List<Interview> getAll(){
-        return interviewDAO.getAll();
+        try{
+            return interviewDAO.getAll();
+        } catch (Exception e) {
+            System.out.println("ERROR getAll " + e.getStackTrace());
+        }
+        return null;
     }
 
     @Transactional
-    public List<Interview> searchByInterviewName(String name){
+    public List<Interview> searchByInterviewName(String name) {
+        try {
+            return interviewDAO.searchByInterviewName(name);
+        } catch (Exception e) {
+            System.out.println("ERROR searchByInterviewName " + e.getStackTrace());
+        }
         return null;
     }
 
     @Transactional
     public List<Interview> getPublicInterview(){
+        try{
+            return interviewDAO.getPublicInterview();
+        }catch (Exception e){
+            System.out.println("ERROR getPublicInterview " + e.getStackTrace());
+        }
         return null;
     }
 
     @Transactional
     public List<Interview> searchByCreator(long id){
+        try{
+            return interviewDAO.searchByCreator(id);
+        }catch (Exception e){
+            System.out.println("ERROR searchByCreator " + e.getStackTrace());
+        }
         return null;
     }
 }
