@@ -21,7 +21,7 @@ import com.tt.ticinterview.model.manager.UserManager;
 import com.tt.ticinterview.model.manager.VideoManager;
 
 @Controller
-@RequestMapping("/Aniadir.do")
+@RequestMapping("/SendInterviewAnswer.do")
 @SessionAttributes("user")
 public class SendInterviewAnswer {
 	@Autowired
