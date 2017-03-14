@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde - PNM
+ * @author tictumTarde - PNM - JRB
  * @version 0.1
  * @
  */
@@ -28,8 +28,7 @@ public class AttachedManager {
         try{
             attachedDAO.save(attached);
         }catch (Exception e){
-            System.out.println("algo ha ido mal al guardar");
-            System.err.println(e.getStackTrace());
+            System.out.println("ERROR save " + e.getStackTrace());
         }
     }
 
@@ -38,18 +37,27 @@ public class AttachedManager {
         try{
             attachedDAO.delete(attached);
         }catch (Exception e){
-            System.out.println("algo ha ido mal al recibir");
-            System.err.println(e.getStackTrace());
+            System.out.println("ERROR delete " + e.getStackTrace());
         }
     }
 
     @Transactional
     public Attached getById(long id){
-        return attachedDAO.getById(id);
+        try{
+            return attachedDAO.getById(id);
+        }catch (Exception e){
+            System.out.println("ERROR getById " + e.getStackTrace());
+        }
+        return null;
     }
 
     @Transactional
     public List<Attached> getAll(){
-        return attachedDAO.getAll();
+        try{
+            return attachedDAO.getAll();
+        }catch (Exception e){
+            System.out.println("ERROR getAll " + e.getStackTrace());
+        }
+        return null;
     }
 }
