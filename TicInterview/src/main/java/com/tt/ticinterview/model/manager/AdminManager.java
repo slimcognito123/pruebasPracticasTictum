@@ -1,6 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
-import com.tt.ticinterview.model.dao.BasicUserDAO;
+import com.tt.ticinterview.beans.user.Admin;
+import com.tt.ticinterview.model.dao.AdminDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -10,31 +11,31 @@ import java.util.List;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde - PNM
+ * @author tictumTarde - JRB
  * @version 0.1
  * @
  */
 
-@Service("UserManager")
-public class UserManager<T>{
+@Service
+public class AdminManager {
 
     @Autowired
-    @Qualifier("BasicUserDAO")
-    BasicUserDAO basicUserDAO;
+    @Qualifier("AdminDAO")
+    AdminDAO adminDAO;
 
     @Transactional
-    public void register(T object){
+    public void register(Admin admin){
         try{
-            basicUserDAO.save(object);
+            adminDAO.save(admin);
         }catch(Exception e){
             System.out.println("ERROR save " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public T getById(long id){
+    public Admin getById(long id){
         try{
-            return basicUserDAO.getById(id);
+            return adminDAO.getById(id);
         }catch(Exception e){
             System.out.println("ERROR getById " + e.getStackTrace());
         }
@@ -42,9 +43,9 @@ public class UserManager<T>{
     }
 
     @Transactional
-    public T getByMail(String mail){
+    public Admin getByMail(String mail){
         try{
-            return basicUserDAO.getUserMail(mail);
+            return adminDAO.getUserMail(mail);
         }catch(Exception e){
             System.out.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -52,9 +53,9 @@ public class UserManager<T>{
     }
 
     @Transactional
-    public List<T> getAll(){
+    public List<Admin> getAll(){
         try{
-            return basicUserDAO.getAll();
+            return adminDAO.getAll();
         }catch(Exception e){
             System.out.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -62,18 +63,18 @@ public class UserManager<T>{
     }
 
     @Transactional
-    public void modify(T object){
+    public void modify(Admin admin){
         try{
-            basicUserDAO.modify(object);
+            adminDAO.modify(admin);
         }catch(Exception e){
             System.out.println("ERROR modify " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public void delete(T object){
+    public void delete(Admin admin){
         try{
-            basicUserDAO.delete(object);
+            adminDAO.delete(admin);
         }catch(Exception e){
             System.out.println("ERROR delete " + e.getStackTrace());
         }

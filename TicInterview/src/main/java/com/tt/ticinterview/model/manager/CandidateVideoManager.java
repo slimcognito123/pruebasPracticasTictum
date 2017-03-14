@@ -1,6 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
-import com.tt.ticinterview.model.dao.VideoDAO;
+import com.tt.ticinterview.beans.video.CandidateVideo;
+import com.tt.ticinterview.model.dao.CandidateVideoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -10,40 +11,39 @@ import java.util.List;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde - PNM
+ * @author tictumTarde -JRB
  * @version 0.1
- * @
  */
 
 @Service
-public class VideoManager<T> {
+public class CandidateVideoManager {
 
     @Autowired
-    @Qualifier("VideoDAO")
-    VideoDAO videoDAO;
+    @Qualifier("CandidateVideoDAO")
+    CandidateVideoDAO candidateVideoDAO;
 
     @Transactional
-    public void save(T object){
+    public void save(CandidateVideo candidateVideo){
         try{
-            videoDAO.save(object);
+            candidateVideoDAO.save(candidateVideo);
         }catch (Exception e){
             System.out.println("ERROR save " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public void delete (T object){
+    public void delete (CandidateVideo candidateVideo){
         try{
-            videoDAO.delete(object);
+            candidateVideoDAO.delete(candidateVideo);
         }catch (Exception e){
             System.out.println("ERROR delete " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public T getById(long id){
+    public CandidateVideo getById(long id){
         try{
-            return videoDAO.getById(id);
+            return candidateVideoDAO.getById(id);
         }catch (Exception e){
             System.out.println("ERROR getById " + e.getStackTrace());
         }
@@ -51,9 +51,9 @@ public class VideoManager<T> {
     }
 
     @Transactional
-    public List<T> getAll(){
+    public List<CandidateVideo> getAll(){
         try{
-            return videoDAO.getAll();
+            return candidateVideoDAO.getAll();
         }catch (Exception e){
             System.out.println("ERROR getAll " + e.getStackTrace());
         }
@@ -61,9 +61,9 @@ public class VideoManager<T> {
     }
 
     @Transactional
-    public List<T> searchVideo(String name){
+    public List<CandidateVideo> searchVideo(String name){
         try{
-            return videoDAO.searchVideo(name);
+            return candidateVideoDAO.searchVideo(name);
         }catch (Exception e){
             System.out.println("ERROR searchVideo " + e.getStackTrace());
         }
