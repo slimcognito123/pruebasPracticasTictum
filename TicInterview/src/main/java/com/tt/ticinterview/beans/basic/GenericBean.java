@@ -6,6 +6,7 @@ package com.tt.ticinterview.beans.basic;
 public abstract class GenericBean {
     private long id;
     public long getId(){
+        
         return id;
     }
     /**

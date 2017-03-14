@@ -50,4 +50,9 @@ public class Attached extends GenericBean implements Serializable {
     public void setPath(String path) {
         this.path = path;
     }
+
+    @Override
+    public String getInstanceName() {
+       return "attached";
+    }
 }

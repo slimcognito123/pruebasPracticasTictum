@@ -97,4 +97,9 @@ public class Answer extends GenericBean implements Serializable {
     public void setSelected(boolean selected) {
         isSelected = selected;
     }
+
+    @Override
+    public String getInstanceName() {
+       return "answer";
+    }
 }

@@ -50,4 +50,9 @@ public class Invitation extends GenericBean implements Serializable {
     public void setIdCandidate(long idCandidate) {
         this.idCandidate = idCandidate;
     }
+
+    @Override
+    public String getInstanceName() {
+        return "invitatation";
+    }
 }

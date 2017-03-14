@@ -24,11 +24,13 @@ public class Interview extends GenericBean implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idInterview;
+    
     private long idInterviewer;
     private List<Video> video;
     private Form form;
     private Attached attached;
     private boolean isPrivate;
+    private boolean isSchema;
 
     public Interview() {
     }
@@ -79,5 +81,10 @@ public class Interview extends GenericBean implements Serializable {
 
     public void setPrivate(boolean aPrivate) {
         isPrivate = aPrivate;
+    }
+
+    @Override
+    public String getInstanceName() {
+        return "interview";
     }
 }
