@@ -12,11 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde -JRB
- * @version 0.1
+ * @author tictumTarde -JRB -PNM
+ * @version 0.2
  */
 
 @Entity
@@ -25,20 +27,33 @@ public class Interviewer extends GenericBean implements BasicUser, Serializable{
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private long id;    
+    @Column (name = "username" , nullable = false)
     private String username;
+    @Column (name = "password" , nullable = false)
     private String password;
+    @Column (name = "mail" , nullable = false)
     private String mail;
+    @Column (name = "isManager" , nullable = true)
     private boolean isManager;
 
     public Interviewer() {
     }
 
+    public Interviewer(long id, String username, String password, String mail, boolean isManager) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.mail = mail;
+        this.isManager = isManager;
+    }
+    
     @Override
     public long getId() {
         return id;
     }
-
+    
+    @Override
     public void setId(long id) {
         this.id = id;
     }
@@ -63,6 +78,16 @@ public class Interviewer extends GenericBean implements BasicUser, Serializable{
         this.password = password;
     }
 
+    public boolean isIsManager() {
+        return isManager;
+    }
+
+    public void setIsManager(boolean isManager) {
+        this.isManager = isManager;
+    }
+    
+    
+    
     public String getMail() {
         return mail;
     }
@@ -78,4 +103,41 @@ public class Interviewer extends GenericBean implements BasicUser, Serializable{
     public void setManager(boolean manager) {
         isManager = manager;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 67 * hash + Objects.hashCode(this.username);
+        hash = 67 * hash + Objects.hashCode(this.mail);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Interviewer other = (Interviewer) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Interviewer{" + "id=" + id + ", username=" + username + ", password=" + password + ", mail=" + mail + ", isManager=" + isManager + '}';
+    }
+    
+    
 }

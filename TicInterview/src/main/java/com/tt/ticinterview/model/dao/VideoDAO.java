@@ -1,10 +1,17 @@
 package com.tt.ticinterview.model.dao;
 
-import com.tt.ticinterview.beans.video.Video;
+import javax.persistence.Query;
+import java.util.List;
 
 /**
  * Created by Tictum on 10/03/2017.
  */
-public class VideoDAO<T> implements CrudDAO<T>{
+public interface VideoDAO<T> extends CrudDAO<T> {
+
+    public T getById(Long id);
+
+    public List<T> getAll();
+
+    List<T> searchVideo(String nombreVideo);
 
 }

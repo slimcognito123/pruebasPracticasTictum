@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @since 09/03/2017
  * @author tictumTarde - PNM
  * @version 0.1
  * @
+ * @since 09/03/2017
  */
 
 @Service
@@ -24,31 +24,40 @@ public class QuestionManager {
     QuestionDAO questionDAO;
 
     @Transactional
-    public void save(Question question){
-        try{
+    public void save(Question question) {
+        try {
             questionDAO.save(question);
-        }catch (Exception e){
-            System.out.println("algo ha ido mal");
-            System.err.println(e.getStackTrace());
+        } catch (Exception e) {
+            System.out.println("ERROR save " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public void delete (Question question){
-        try{
+    public void delete(Question question) {
+        try {
             questionDAO.delete(question);
-        }catch(Exception e){
-            System.err.println(e.getStackTrace());
+        } catch (Exception e) {
+            System.out.println("ERROR delete " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public Question getById(long id){
-        return questionDAO.getById(id);
+    public Question getById(long id) {
+        try {
+            return questionDAO.getById(id);
+        } catch (Exception e) {
+            System.out.println("ERROR getById " + e.getStackTrace());
+        }
+        return null;
     }
 
     @Transactional
-    public List<Question> getAll(){
-        return questionDAO.getAll();
+    public List<Question> getAll() {
+        try {
+            return questionDAO.getAll();
+        } catch (Exception e) {
+            System.out.println("ERROR getAll " + e.getStackTrace());
+        }
+        return null;
     }
 }
