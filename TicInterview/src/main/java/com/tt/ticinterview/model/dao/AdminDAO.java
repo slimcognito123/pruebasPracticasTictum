@@ -11,7 +11,7 @@ import javax.persistence.Query;
 public class AdminDAO implements BasicUserDAO<Admin> {
 
     @Override
-    public Admin GetUserMail(String mail) throws Exception {
+    public Admin getUserMail(String mail) throws Exception {
         String sql = "Select user from Admin user where user.mail = :mail";
         Query query = entityManager.createQuery(sql);
         query.setParameter("mail", mail);
