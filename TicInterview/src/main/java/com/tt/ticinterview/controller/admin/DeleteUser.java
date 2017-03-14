@@ -13,16 +13,15 @@ import javax.servlet.http.HttpSession;
  * Created by Tictum on 14/03/2017.
  */
 @Controller
-@RequestMapping("/CreateUser.do")
-public class createUser {
+@RequestMapping("/DeleteUser.do")
+public class DeleteUser {
     @Autowired
     private InterviewerManager business;
 
     @RequestMapping(method = RequestMethod.POST)
     public String createUser(Interviewer interviewer, HttpSession session) {
         if (session == null) return "index";
-        business.register(interviewer);
-        //TODO mandar mail al interiviewer el correo con un pass predeterminado
+        business.delete(interviewer);
         return "adminGlobal";
     }
 }

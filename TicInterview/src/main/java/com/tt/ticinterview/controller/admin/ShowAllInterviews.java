@@ -30,6 +30,7 @@ public class ShowAllInterviews {
         if (session == null) return "index";
         ArrayList<Interview> listaInterviews = (ArrayList<Interview>) business.getAll();
         if (listaInterviews == null) listaInterviews = new ArrayList<>();
+        session.setAttribute("listaInterviews",listaInterviews);
         return "showAllInterviews";
     }
 }
