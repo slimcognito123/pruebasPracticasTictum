@@ -25,4 +25,18 @@ public class InterviewDAO implements CrudDAO<Interview> {
         Query query = entityManager.createQuery(prepareQuery);
         return query.getResultList();
     }
+
+
+    public List<Interview> searchByInterviewName(String name) {
+    }
+
+    public List<Interview> getPublicInterview() {
+        return null;
+    }
+
+    public List<Interview> searchByCreator(long id) {
+        String prepareQuery = "select something from Interview something";
+        Query query = entityManager.createQuery(prepareQuery);
+        return query.getResultList();
+    }
 }

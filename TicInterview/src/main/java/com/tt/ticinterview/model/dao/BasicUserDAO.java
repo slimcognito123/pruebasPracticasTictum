@@ -19,7 +19,7 @@ import java.util.List;
 @Repository(value = "BasicUserDAO")
 public interface BasicUserDAO<T> extends CrudDAO<T>{
 
-    T GetUserMail(String mail) throws Exception;
+    T getUserMail(String mail) throws Exception;
     void modify(T object) throws Exception;
 
     T getById(Long id) throws Exception;

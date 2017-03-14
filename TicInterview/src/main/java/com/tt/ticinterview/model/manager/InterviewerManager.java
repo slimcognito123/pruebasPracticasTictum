@@ -23,7 +23,7 @@ public class InterviewerManager {
     InterviewerDAO interviewerDAO;
 
     @Transactional
-    public void save(Interviewer interviewer){
+    public void register(Interviewer interviewer){
         try{
             interviewerDAO.save(interviewer);
         }
@@ -66,24 +66,21 @@ public class InterviewerManager {
     }
 
     @Transactional
-    public List<Interviewer> getManager(){
+    public Interviewer getByMail(String mail){
         try{
-            return interviewerDAO.getManagers();
-        }
-        catch (Exception e){
-            System.out.println("Error getManager: " + e);
+            return interviewerDAO.getUserMail(mail);
+        }catch(Exception e){
+            System.out.println("ERROR getByMail " + e.getStackTrace());
         }
         return null;
     }
 
     @Transactional
-    public List<Interviewer> getInterviewers(){
+    public void modify(Interviewer interviewer){
         try{
-            return interviewerDAO.getInterviewers();
+            interviewerDAO.modify(interviewer);
+        }catch(Exception e){
+            System.out.println("ERROR modify " + e.getStackTrace());
         }
-        catch (Exception e){
-            System.out.println("Error getInterviewers: " + e);
-        }
-        return null;
     }
 }
