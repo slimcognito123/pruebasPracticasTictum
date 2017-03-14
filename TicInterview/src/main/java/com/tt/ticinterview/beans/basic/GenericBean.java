@@ -8,4 +8,9 @@ public abstract class GenericBean {
     public long getId(){
         return id;
     }
+    /**
+     * Devolvera el nombre
+     * @return 
+     */
+    public abstract String getInstanceName();
 }

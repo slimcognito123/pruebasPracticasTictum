@@ -1,5 +1,6 @@
 package com.tt.ticinterview.model.dao;
 
+import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.Candidate;
 
 import javax.persistence.Query;
@@ -32,5 +33,18 @@ public class CandidateDAO implements BasicUserDAO<Candidate> {
         String prepareQuery = "select something from Candidate something";
         Query query = entityManager.createQuery(prepareQuery);
         return query.getResultList();
+    }
+    /**
+     * 
+     * @param candidate
+     * @return Invitaciones a entrevista
+     */
+    public List<Interview> getOwnInterviews(Candidate candidate){
+        
+        String prepareQuery ="Select Invitation i from Invitation where i.id = :candidateId";
+        Query query =entityManager.createQuery(prepareQuery);
+        query.setParameter("candidateId", candidate.getId());
+        return query.getResultList();
+                
     }
 }
