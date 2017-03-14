@@ -27,14 +27,13 @@ public class SendInterviewAnswer {
 	@Autowired
 	VideoManager videoManager;
 	@Autowired
-	UserManager userManager;
-	@Autowired
 	InterviewManager interviewManager;
 	@RequestMapping(method = RequestMethod.GET)
 	public String saveVideo(@RequestParam(value = "name") String name,@ModelAttribute("user") Candidate user, Model modelo) {
 		
 		CandidateVideo video = new CandidateVideo();	
 		video.setId(0);
+		video.setIdCandidate(user.getId());
 		video.setPath(name);
 		video.setName(name);
 		videoManager.save(video);

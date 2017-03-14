@@ -1,5 +1,7 @@
 package com.tt.ticinterview.model.dao;
 
+import com.tt.ticinterview.beans.Interview.Interview;
+import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.user.Interviewer;
 
 import javax.persistence.Query;

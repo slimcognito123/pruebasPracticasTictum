@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.video.CandidateVideo;
+import com.tt.ticinterview.model.manager.CandidateManager;
 import com.tt.ticinterview.model.manager.InterviewManager;
 import com.tt.ticinterview.model.manager.UserManager;
 import com.tt.ticinterview.model.manager.VideoManager;
@@ -25,26 +26,19 @@ import com.tt.ticinterview.model.manager.VideoManager;
 @SessionAttributes("user")
 public class OwnInvitations {
 	@Autowired
-	VideoManager videoManager;
-	@Autowired
-	UserManager userManager;
-	@Autowired
 	InterviewManager interviewManager;
+	@Autowired
+	CandidateManager candidateManager;
 	@RequestMapping(method = RequestMethod.GET)
-	public String saveVideo(@RequestParam(value = "name") String name,@ModelAttribute("user") Candidate user, Model modelo) {
+	public String showPublicGet(@ModelAttribute("user") Candidate user,Model modelo) {
 		
-		CandidateVideo video = new CandidateVideo();	
-		video.setId(0);
-		video.setPath(name);
-		video.setName(name);
-		videoManager.save(video);
-		System.out.println("Destinatario: "+video.getName());
-		return "GetInterview.do";
+		modelo.addAttribute("list", candidateManager.getOwnInterview(user));
+		return "PanelCandidate.jsp";
 
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String saveVideoPost(@RequestParam(value = "name") String name,@ModelAttribute("user") Candidate user, Model modelo) {
-		return saveVideo(name,user, modelo);
+	public String saveVideoPost( @ModelAttribute("user") Candidate user,Model modelo) {
+		return showPublicGet(user,modelo);
 	}
 }
