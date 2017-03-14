@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.tt.ticinterview.controller.admin;
 
 import com.tt.ticinterview.beans.Interview.Interview;
@@ -16,17 +11,16 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
- * @author tictumTarde
+ * Created by Tictum on 14/03/2017.
  */
 @Controller
-@RequestMapping("/ShowAllInterviews.do")
-public class ShowAllInterviews {
+@RequestMapping("/CreateUser.do")
+public class createUser {
     @Autowired
     private InterviewManager business;
 
     @RequestMapping(method = RequestMethod.POST)
-    public String showAllInterviews(HttpSession session) {
-
+    public String createUser(HttpSession session) {
         if (session == null) return "index";
         ArrayList<Interview> listaInterviews = (ArrayList<Interview>) business.getAll();
         if (listaInterviews == null) listaInterviews = new ArrayList<>();
