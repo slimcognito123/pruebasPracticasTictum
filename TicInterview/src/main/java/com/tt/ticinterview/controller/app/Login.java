@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -16,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @Controller
-@SessionAttributes("user")
 @RequestMapping("/login.do")
 public class Login {
 
@@ -40,18 +37,18 @@ public class Login {
             user = (BasicUser) userManager.getByMail(mail);
 
             if (user.getPassword().equals(password)){
-                switch (user.getClass().getName()){
+                switch (user.getInstanceName()){
 
-                    case "Admin":
-                        modelo.setViewName("PanelManager");
+                    case "admin":
+                        modelo.setViewName("/Admin/PanelAdmin");
                         modelo.addObject("user",user);
                         break;
-                    case "Interviewer":
-                        modelo.setViewName("PanelInterviewer");
+                    case "interviewer":
+                        modelo.setViewName("/Interview/PanelInterviewer");
                         modelo.addObject("user",user);
                         break;
-                    case "Candidate":
-                        modelo.setViewName("PanelCandidate");
+                    case "candidate":
+                        modelo.setViewName("/Candidate/PanelCandidate");
                         modelo.addObject("user",user);
                         break;
                 }
@@ -61,8 +58,8 @@ public class Login {
         return modelo;
     }
 
-    @RequestMapping(method=RequestMethod.POST)
-    public ModelAndView loginPost(HttpServletRequest request) {
+    @RequestMapping(method= RequestMethod.GET)
+    public ModelAndView loginGet(HttpServletRequest request) {
 
         //Creamos una variable modelo/vista en la que guardaremos redireccionamiento y usario
         ModelAndView modelo = new ModelAndView();
@@ -78,18 +75,18 @@ public class Login {
             user = (BasicUser) userManager.getByMail(mail);
 
             if (user.getPassword().equals(password)){
-                switch (user.getClass().getName()){
+                switch (user.getInstanceName()){
 
-                    case "Admin":
-                        modelo.setViewName("PanelManager");
+                    case "admin":
+                        modelo.setViewName("/Admin/PanelAdmin");
                         modelo.addObject("user",user);
                         break;
-                    case "Interviewer":
-                        modelo.setViewName("PanelInterviewer");
+                    case "interviewer":
+                        modelo.setViewName("/Interview/PanelInterviewer");
                         modelo.addObject("user",user);
                         break;
-                    case "Candidate":
-                        modelo.setViewName("PanelCandidate");
+                    case "candidate":
+                        modelo.setViewName("/Candidate/PanelCandidate");
                         modelo.addObject("user",user);
                         break;
                 }
@@ -98,5 +95,6 @@ public class Login {
 
         return modelo;
     }
+
 }
 

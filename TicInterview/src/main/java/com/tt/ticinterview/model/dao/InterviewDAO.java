@@ -28,15 +28,22 @@ public class InterviewDAO implements CrudDAO<Interview> {
 
 
     public List<Interview> searchByInterviewName(String name) {
+        String prepareQuery = "select something from Interview something where something.name like :name";
+        Query query = entityManager.createQuery(prepareQuery);
+        query.setParameter("name","%"+name+"%");
+        return query.getResultList();
     }
 
     public List<Interview> getPublicInterview() {
-        return null;
+        String prepareQuery = "select something from Interview something where something.isPrivate = 0";
+        Query query = entityManager.createQuery(prepareQuery);
+        return query.getResultList();
     }
 
     public List<Interview> searchByCreator(long id) {
-        String prepareQuery = "select something from Interview something";
+        String prepareQuery = "select something from Interview something where something.id = :idInterview";
         Query query = entityManager.createQuery(prepareQuery);
+        query.setParameter("idInterview",id);
         return query.getResultList();
     }
 }
