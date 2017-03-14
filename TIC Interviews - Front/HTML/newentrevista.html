@@ -3,6 +3,7 @@
 <head>
 <title>TIC Interviews</title>
 <meta charset="UTF-8" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
@@ -12,6 +13,10 @@
 <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
 </head>
 <body>
 
@@ -59,26 +64,30 @@
    <hr>
    <div class="container-fluid">
    
-   <div  class="quick-actions_homepage">
+  <form method="" action="" id="pregunta" hidden>
+	<input type="text" placeholder="Escribe la pregunta" id="textoPregunta" />
+	<button type="submit" >Aceptar</button>
+  </form>
+   <div  class="quick-actions_homepage" id="elementos">
     <ul class="quick-actions">
-      <li class="bg_lr span3"> <a href="#"> <i class="icon-play"></i> Video</a> </li>
-      <li class="bg_lg"> <a href="#"> <i class="icon-check"></i> Checkbox</a> </li>
-      <li class="bg_lb"> <a href="#"> <i class=" icon-font"></i> Texto</a> </li>
-      <li class="bg_ly"> <a href="#"> <i class="icon-list"></i> Radiobutton</a> </li>
-      <li class="bg_ls"> <a href="#"> <i class="icon-phone"></i> Número</a> </li>
-      <li class="bg_ls"> <a href="#"> <i class="icon-star"></i> Range</a> </li>
-      <li class="bg_ly"> <a href="#"> <i class="icon-cloud"></i> URL</a> </li>
-      <li class="bg_lb"> <a href="#"> <i class=" icon-list-ol"></i> Option</a> </li>
-      <li class="bg_lg"> <a href="#"> <i class="icon-edit"></i> Select</a> </li>
-      <li class="bg_lb"> <a href="#"> <i class="icon-calendar"></i> Fecha</a> </li>
-      <button class="btn btn-danger"> <span class="icon-trash"></span> Deshacer</button>
+      <li class="bg_lr span3" > <a href="#" id="video" name="video" > <i class="icon-play"></i> Video</a> </li>
+      <li class="bg_lg" > <a href="#" id="checkbox" name="checkbox" > <i class="icon-check"></i> Checkbox</a> </li>
+      <li class="bg_lb" > <a href="#" id="text" name="text" > <i class="icon-font"></i> Texto</a> </li>
+      <li class="bg_ly" > <a href="#" id="radioButton" name="rabioButton" > <i class="icon-list"></i> Radiobutton</a> </li>
+      <li class="bg_ls" > <a href="#" id="number" name="number" > <i class="icon-phone"></i> Número</a> </li>
+      <li class="bg_ls" > <a href="#" id="range" name="range" > <i class="icon-star"></i> Range</a> </li>
+      <li class="bg_ly" > <a href="#" id="url" name="url" > <i class="icon-globe"></i> URL</a> </li>
+      <!--<li class="bg_lb"> <a href="#" id="icon-list-ol"> <i class="icon-list-ol"></i> Option</a> </li>
+      <li class="bg_lg"> <a href="#" id="icon-edit"> <i class="icon-edit"></i> Select</a> </li>-->
+      <li class="bg_lb"> <a href="#" id="date" name="date" > <i class="icon-calendar"></i> Fecha</a> </li>
+      <button class="btn btn-danger" id="reset" > <span class="icon-trash"></span> Deshacer</button>
     </ul>
   </div>
   </div>
   <!--End-breadcrumbs-->
     <div class="container-fluid">
     <div class="entrevista">
-
+	
       
 
     <h4 style="text-align: center; padding-top: 50px">Suelte aquí los elementos que quieres añadir</h4>
@@ -97,7 +106,7 @@
 </div>
 
 <!--end-Footer-part-->
-
+<!-- 
 <script src="js/excanvas.min.js"></script> 
 <script src="js/jquery.min.js"></script> 
 <script src="js/jquery.ui.custom.js"></script> 
@@ -118,7 +127,7 @@
 <script src="js/select2.min.js"></script> 
 <script src="js/matrix.popover.js"></script> 
 <script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script> 
+<script src="js/matrix.tables.js"></script> -->
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
@@ -143,6 +152,98 @@
 function resetMenu() {
    document.gomenu.selector.selectedIndex = 2;
 }
+
+//Codigo toni JQuery
+	function dragged(id){
+		alert(id);
+	}
+	
+	$(document).ready(function(){
+		var dragged;
+		var video = $("#video");
+		video.draggable();
+		video.data({'originalLeft': video.css('left'), 'origionalTop': video.css('top') });
+		var check = $("#checkbox");
+		check.draggable();
+		check.data({'originalLeft': check.css('left'), 'origionalTop': check.css('top') });
+		var texto = $("#text");
+		texto.draggable();
+		texto.data({'originalLeft': texto.css('left'), 'origionalTop': texto.css('top') });
+		var radiobutton = $("#radioButton");
+		radiobutton.draggable();
+		radiobutton.data({'originalLeft': radiobutton.css('left'), 'origionalTop': radiobutton.css('top') });
+		var number = $("#number");
+		number.draggable();
+		number.data({'originalLeft': number.css('left'), 'origionalTop': number.css('top') });
+		var rango = $("#range");
+		rango.draggable();
+		rango.data({'originalLeft': rango.css('left'), 'origionalTop': rango.css('top') });
+		var url = $("#url");
+		url.draggable();
+		url.data({'originalLeft': url.css('left'), 'origionalTop': url.css('top') });
+		var date = $("#date");
+		date.draggable();
+		date.data({'originalLeft': date.css('left'), 'origionalTop': date.css('top') });
+		//$("#icon-list-ol").draggable();
+		//$("#icon-edit").draggable();
+		
+		
+		$(".entrevista").droppable({
+			drop: function(event, ui) {
+				$(this).css('background', 'rgb(0,200,0)');
+				dragged = ui.draggable.attr('name');
+				if(dragged == "video"){
+					desactivar();
+				}else{
+					video.draggable('disable');
+				}
+			},
+			over: function(event, ui) {
+				//$(this).css('background', 'orange');
+			},
+			out: function(event, ui) {
+				$(this).css('background', '#eeeeee');  
+				activar();
+			}
+        });
+		
+		function desactivar(){
+			$("#pregunta").show();
+			date.draggable('disable');
+			url.draggable('disable');
+			rango.draggable('disable');
+			number.draggable('disable');
+			radiobutton.draggable('disable');
+			texto.draggable('disable');
+			check.draggable('disable');
+		}
+		
+		function activar(){
+			$("#pregunta").hide();
+			video.draggable('enable');
+			date.draggable('enable');
+			url.draggable('enable');
+			rango.draggable('enable');
+			number.draggable('enable');
+			radiobutton.draggable('enable');
+			texto.draggable('enable');
+			check.draggable('enable');
+		}
+		$("#reset").click(function(){
+			video.css({'left': video.data('originalLeft'), 'top': video.data('origionalTop')});
+			date.css({'left': date.data('originalLeft'), 'top': date.data('origionalTop')});
+			url.css({'left': url.data('originalLeft'), 'top': url.data('origionalTop')});
+			rango.css({'left': rango.data('originalLeft'), 'top': rango.data('origionalTop')});
+			number.css({'left': number.data('originalLeft'), 'top': number.data('origionalTop')});
+			radiobutton.css({'left': radiobutton.data('originalLeft'), 'top': radiobutton.data('origionalTop')});
+			texto.css({'left': texto.data('originalLeft'), 'top': texto.data('origionalTop')});
+			check.css({'left': check.data('originalLeft'), 'top': check.data('origionalTop')});
+			$(".entrevista").css('background', '#eeeeee');  
+		});
+		
+	});
+	
+	
 </script>
 </body>
 </html>
