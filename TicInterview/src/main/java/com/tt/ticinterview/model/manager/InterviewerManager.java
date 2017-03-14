@@ -66,21 +66,24 @@ public class InterviewerManager {
     }
 
     @Transactional
-    public Interviewer getByMail(String mail){
+    public List<Interviewer> getManager(){
         try{
-            return interviewerDAO.getUserMail(mail);
-        }catch(Exception e){
-            System.out.println("ERROR getByMail " + e.getStackTrace());
+            return interviewerDAO.getManagers();
+        }
+        catch (Exception e){
+            System.out.println("Error getManager: " + e);
         }
         return null;
     }
 
     @Transactional
-    public void modify(Interviewer interviewer){
+    public List<Interviewer> getInterviewers(){
         try{
-            interviewerDAO.modify(interviewer);
-        }catch(Exception e){
-            System.out.println("ERROR modify " + e.getStackTrace());
+            return interviewerDAO.getInterviewers();
         }
+        catch (Exception e){
+            System.out.println("Error getInterviewers: " + e);
+        }
+        return null;
     }
 }
