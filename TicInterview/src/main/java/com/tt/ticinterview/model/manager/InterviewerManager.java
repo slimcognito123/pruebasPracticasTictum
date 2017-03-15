@@ -20,7 +20,7 @@ public class InterviewerManager {
 
     @Autowired
     @Qualifier("InterviewerDAO")
-    InterviewerDAO interviewerDAO;
+    private InterviewerDAO interviewerDAO;
 
     @Transactional
     public void register(Interviewer interviewer){
@@ -28,7 +28,7 @@ public class InterviewerManager {
             interviewerDAO.save(interviewer);
         }
         catch (Exception e){
-            System.out.println("Error save: " + e);
+            System.err.println("Error save: " + e);
         }
 
     }
@@ -39,7 +39,7 @@ public class InterviewerManager {
             interviewerDAO.delete(interviewer);
         }
         catch (Exception e){
-            System.out.println("Error delete: " + e);
+            System.err.println("Error delete: " + e);
         }
     }
 
@@ -49,7 +49,7 @@ public class InterviewerManager {
             return interviewerDAO.getById(id);
         }
         catch (Exception e){
-            System.out.println("Error getById: " + e);
+            System.err.println("Error getById: " + e);
         }
         return null;
     }
@@ -60,7 +60,7 @@ public class InterviewerManager {
             return interviewerDAO.getAll();
         }
         catch (Exception e){
-            System.out.println("Error getAll: " + e);
+            System.err.println("Error getAll: " + e);
         }
         return null;
     }
@@ -71,7 +71,7 @@ public class InterviewerManager {
             return interviewerDAO.getManagers();
         }
         catch (Exception e){
-            System.out.println("Error getManager: " + e);
+            System.err.println("Error getManager: " + e);
         }
         return null;
     }
@@ -82,7 +82,7 @@ public class InterviewerManager {
             return interviewerDAO.getInterviewers();
         }
         catch (Exception e){
-            System.out.println("Error getInterviewers: " + e);
+            System.err.println("Error getInterviewers: " + e);
         }
         return null;
     }

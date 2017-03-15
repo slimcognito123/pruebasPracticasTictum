@@ -21,7 +21,7 @@ public class InterviewManager {
 
     @Autowired
     @Qualifier("InterviewDAO")
-    InterviewDAO interviewDAO;
+    private InterviewDAO interviewDAO;
 
     @Transactional
     public void save(Interview interview){
@@ -46,7 +46,7 @@ public class InterviewManager {
         try {
             return interviewDAO.getById(id);
         } catch (Exception e) {
-            System.out.println("ERROR getById " + e.getStackTrace());
+            System.err.println("ERROR getById " + e.getStackTrace());
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class InterviewManager {
         try{
             return interviewDAO.getAll();
         } catch (Exception e) {
-            System.out.println("ERROR getAll " + e.getStackTrace());
+            System.err.println("ERROR getAll " + e.getStackTrace());
         }
         return null;
     }
@@ -66,7 +66,7 @@ public class InterviewManager {
         try {
             return interviewDAO.searchByInterviewName(name);
         } catch (Exception e) {
-            System.out.println("ERROR searchByInterviewName " + e.getStackTrace());
+            System.err.println("ERROR searchByInterviewName " + e.getStackTrace());
         }
         return null;
     }
@@ -76,7 +76,7 @@ public class InterviewManager {
         try{
             return interviewDAO.getPublicInterview();
         }catch (Exception e){
-            System.out.println("ERROR getPublicInterview " + e.getStackTrace());
+            System.err.println("ERROR getPublicInterview " + e.getStackTrace());
         }
         return null;
     }
@@ -86,7 +86,7 @@ public class InterviewManager {
         try{
             return interviewDAO.searchByCreator(id);
         }catch (Exception e){
-            System.out.println("ERROR searchByCreator " + e.getStackTrace());
+            System.err.println("ERROR searchByCreator " + e.getStackTrace());
         }
         return null;
     }

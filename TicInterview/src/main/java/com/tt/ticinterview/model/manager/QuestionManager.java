@@ -21,14 +21,14 @@ public class QuestionManager {
 
     @Autowired
     @Qualifier("QuestionDAO")
-    QuestionDAO questionDAO;
+    private QuestionDAO questionDAO;
 
     @Transactional
     public void save(Question question) {
         try {
             questionDAO.save(question);
         } catch (Exception e) {
-            System.out.println("ERROR save " + e.getStackTrace());
+            System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
@@ -37,7 +37,7 @@ public class QuestionManager {
         try {
             questionDAO.delete(question);
         } catch (Exception e) {
-            System.out.println("ERROR delete " + e.getStackTrace());
+            System.err.println("ERROR delete " + e.getStackTrace());
         }
     }
 
@@ -46,7 +46,7 @@ public class QuestionManager {
         try {
             return questionDAO.getById(id);
         } catch (Exception e) {
-            System.out.println("ERROR getById " + e.getStackTrace());
+            System.err.println("ERROR getById " + e.getStackTrace());
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class QuestionManager {
         try {
             return questionDAO.getAll();
         } catch (Exception e) {
-            System.out.println("ERROR getAll " + e.getStackTrace());
+            System.err.println("ERROR getAll " + e.getStackTrace());
         }
         return null;
     }
