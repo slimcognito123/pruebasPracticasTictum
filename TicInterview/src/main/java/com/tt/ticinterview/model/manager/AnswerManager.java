@@ -57,13 +57,12 @@ public class AnswerManager {
     }
 
     @Transactional
-    public List<Answer> getAll(){
+    public List<Answer> getAll() {
         try {
             return answerDAO.getAll();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println("ERROR getAll " + e);
         }
         return null;
     }
-    //TODO hay que hacer el resto de funciones
 }
