@@ -1,25 +1,27 @@
 package com.tt.ticinterview.controller.interviewer;
 
 import com.tt.ticinterview.beans.Interview.Answer;
-import com.tt.ticinterview.beans.Interview.Interview;
+import com.tt.ticinterview.model.manager.AnswerManager;
 import com.tt.ticinterview.model.manager.InterviewManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by tictumTarde on 14/03/2017.
  */
+@Controller
+@RequestMapping("/myAnswers.do")
 public class MyAnswers {
 
     @Autowired
     private InterviewManager interviewManager;
+    private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView myAnswersGet(HttpServletRequest request){
@@ -27,14 +29,30 @@ public class MyAnswers {
         ModelAndView modelo =  new ModelAndView();
 
         long  idInterview = Long.parseLong(request.getParameter("idInterview"));
-        long  idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
+<<<<<<< HEAD
+=======
+        List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview()==idInterview).collect(Collectors.toList());
+
+        modelo.addObject("respuestasEntrevistaSeleccionada", respuestasEntrevistaSeleccionada);
+        modelo.setViewName("/Interviewer/ShowMuyAnwers");
+
+        return  modelo;
+    }
+
+    @RequestMapping(method= RequestMethod.GET)
+    public ModelAndView myAnswersPost(HttpServletRequest request){
+
+        ModelAndView modelo =  new ModelAndView();
+
+        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
+>>>>>>> 7669633aa71e1eea1f27de4f00f69d897b83631f
 //        List<Answer> respuestaEntrevistaSeleccionada = interviewManager.getById(idInterview).getA
 
-        Interview maquetaRecuperada = interviewManager.getById(idInterview);
+        List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview()==idInterview).collect(Collectors.toList());
 
-        modelo.addObject("maquetaRecuperada", maquetaRecuperada);
-        modelo.setViewName("/Interviewer/ShowAnwer");
+        modelo.addObject("respuestasEntrevistaSeleccionada", respuestasEntrevistaSeleccionada);
+        modelo.setViewName("/Interviewer/ShowMuyAnwers");
 
         return  modelo;
     }

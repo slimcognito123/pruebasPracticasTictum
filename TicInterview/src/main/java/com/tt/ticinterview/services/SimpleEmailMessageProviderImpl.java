@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7669633aa71e1eea1f27de4f00f69d897b83631f
 package com.tt.ticinterview.services;
 
 import org.springframework.batch.item.file.separator.ResourceLineReader;

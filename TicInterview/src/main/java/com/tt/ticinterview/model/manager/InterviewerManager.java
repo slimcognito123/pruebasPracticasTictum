@@ -105,4 +105,12 @@ public class InterviewerManager implements UserManager<Interviewer>{
         }
         return null;
     }
+
+    public void sendInvitation(long idCandidate, long idInterviewer) {
+        //implementar
+    }
+
+    public void valorationAnswer(long idInterview, long idInterviewer) {
+        //implementar
+    }
 }
