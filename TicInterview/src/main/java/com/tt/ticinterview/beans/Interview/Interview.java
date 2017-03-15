@@ -91,11 +91,11 @@ public class Interview extends GenericBean implements Serializable {
         this.isPrivate = isPrivate;
     }
 
-    public boolean isIsSchema() {
+    public boolean isSchema() {
         return isSchema;
     }
 
-    public void setIsSchema(boolean isSchema) {
+    public void setSchema(boolean isSchema) {
         this.isSchema = isSchema;
     }
 
