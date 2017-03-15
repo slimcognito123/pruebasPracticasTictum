@@ -44,6 +44,7 @@ public class MyAnswers {
         ModelAndView modelo =  new ModelAndView();
 
         long  idInterview = Long.parseLong(request.getParameter("idInterview"));
+//        List<Answer> respuestaEntrevistaSeleccionada = interviewManager.getById(idInterview).getA
 
         List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview()==idInterview).collect(Collectors.toList());
 

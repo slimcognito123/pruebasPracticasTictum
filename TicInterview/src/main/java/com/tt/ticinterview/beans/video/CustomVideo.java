@@ -32,7 +32,7 @@ public class CustomVideo extends GenericBean implements Video, Serializable{
     
     private String name;
     
-    public long idCandidate
+    public long idCandidate;
     public CustomVideo() {
     }
 

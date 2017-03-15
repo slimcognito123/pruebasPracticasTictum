@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <context:component-scan base-package="java" />
+
+    <!--#lectura del fichero administrable  -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders">
+            <value>true</value>
+        </property>
+        <property name="locations">
+            <list>
+                <value>classpath:app.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--#Configuración del servicio de Spring: MailSernder -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}"/>
+        <property name="port" value="${mail.port}"/>
+        <property name="username" value="${mail.username}"/>
+        <property name="password" value="${mail.password}"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!--#Configuración de nuestro servicio:MailService -->
+    <bean id="mailService" class="MailServiceImpl">
+        <property name="active" value="true"/>
+        <property name="mailSender" ref="mailSender"/>
+        <property name="from" value="default@unknown.com"/>
+    </bean>
+    <!--#Configuración de nuestro proveedor de mensaje: EmailMessageProvider -->
+    <!--<bean id="emailMessageProviderImpl" class="SimpleEmailMessageProviderImpl">-->
+        <!--<property name="subject" value="${email.subject.trainingConfirmation}"/>-->
+        <!--<property name="template" value="classpath:email/trainingConfirmation.html"/>-->
+        <!--<property name="inlineFiles">-->
+            <!--<map>-->
+                <!--<entry>-->
+                    <!--<key>-->
+                        <!--<value>id001</value>-->
+                    <!--</key>-->
+                    <!--<value>classpath:generic.css</value>-->
+                <!--</entry>-->
+                <!--<entry>-->
+                    <!--<key>-->
+                        <!--<value>id002</value>-->
+                    <!--</key>-->
+                    <!--<value>classpath:autentia.gif</value>-->
+                <!--</entry>-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+</beans>
