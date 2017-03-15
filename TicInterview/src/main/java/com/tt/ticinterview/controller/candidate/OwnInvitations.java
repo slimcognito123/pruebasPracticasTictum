@@ -32,7 +32,7 @@ public class OwnInvitations {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showPublicGet(@ModelAttribute("user") Candidate user,Model modelo) {
 		
-		modelo.addAttribute("list", candidateManager.getOwnInterview(user));
+		modelo.addAttribute("list", candidateManager.getOwnInterviews(user));
 		return "PanelCandidate.jsp";
 
 	}
