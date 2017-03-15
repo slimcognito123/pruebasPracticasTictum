@@ -35,10 +35,15 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
     private String path;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
+
     @OneToMany()
     @JoinTable(name = "Interviewer")
     @JoinColumn(name = "idInterviewer")
-    public long idInterviewer;
+    public long idInterviewer;    
+    @OneToMany()
+    @JoinTable(name = "Candidate")
+    @JoinColumn(name = "idCandidate")
+    public long idCandidate;
 
     public CustomVideo() {
     }
@@ -60,7 +65,6 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
     public void setIdInterviewer(long idInterviewer) {
         this.idInterviewer = idInterviewer;
     }
-    
 
     @Override
     public long getId() {
@@ -130,8 +134,7 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
         }
         return true;
     }
-    
-    
+
     @Override
     public String getInstanceName() {
         return "customvideo";

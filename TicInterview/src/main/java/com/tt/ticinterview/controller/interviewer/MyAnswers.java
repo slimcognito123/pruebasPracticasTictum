@@ -29,7 +29,7 @@ public class MyAnswers {
         long  idInterview = Long.parseLong(request.getParameter("idInterview"));
         long  idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
-        List<Answer> respuestaEntrevistaSeleccionada = interviewManager.getById(idInterview).getA
+//        List<Answer> respuestaEntrevistaSeleccionada = interviewManager.getById(idInterview).getA
 
         Interview maquetaRecuperada = interviewManager.getById(idInterview);
 

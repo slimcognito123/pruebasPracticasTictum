@@ -10,7 +10,6 @@ import java.util.List;
  * Created by Tictum on 13/03/2017.
  */
 public class CandidateDAO implements BasicUserDAO<Candidate> {
-    @Override
     public Candidate GetUserMail(String mail) throws Exception {
         String sql = "Select user from Candidate user where user.mail = :mail";
         Query query = entityManager.createQuery(sql);
@@ -46,5 +45,20 @@ public class CandidateDAO implements BasicUserDAO<Candidate> {
         query.setParameter("candidateId", candidate.getId());
         return query.getResultList();
                 
+    }
+
+    @Override
+    public Candidate getUserMail(String mail) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void save(Candidate object) {
+        BasicUserDAO.super.save(object); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Candidate object) {
+        BasicUserDAO.super.delete(object); //To change body of generated methods, choose Tools | Templates.
     }
 }

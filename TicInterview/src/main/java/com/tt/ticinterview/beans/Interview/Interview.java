@@ -35,7 +35,7 @@ public class Interview extends GenericBean implements Serializable {
     private Form form;
     private Attached attached;
     private boolean isPrivate;
-    private boolean isSchema;
+    public boolean isSchema;
 
     public Interview() {
     }
