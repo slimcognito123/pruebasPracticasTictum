@@ -1,12 +1,13 @@
 package com.tt.ticinterview.model.manager;
 
-import com.tt.ticinterview.beans.user.Candidate;
-import com.tt.ticinterview.model.dao.CandidateDAO;
+import com.tt.ticinterview.beans.user.Admin;
+import com.tt.ticinterview.model.dao.AdminDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 /**
@@ -16,26 +17,26 @@ import java.util.List;
  * @
  */
 
-@Service("CandidateManager")
-public class CandidateManager implements UserManager<Candidate> {
+@Service("AdminManager")
+public class AdminManager implements UserManager<Admin> {
 
     @Autowired
-    @Qualifier("CandidateDAO")
-    private CandidateDAO candidateDAO;
+    @Qualifier("AdminDAO")
+    private AdminDAO adminDAO;
 
     @Transactional
-    public void register(Candidate candidate){
+    public void register(Admin admin){
         try{
-            candidateDAO.save(candidate);
+            adminDAO.save(admin);
         }catch(Exception e){
             System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public Candidate getById(long id){
+    public Admin getById(long id){
         try{
-            return candidateDAO.getById(id);
+            return adminDAO.getById(id);
         }catch(Exception e){
             System.err.println("ERROR getById " + e.getStackTrace());
         }
@@ -43,9 +44,9 @@ public class CandidateManager implements UserManager<Candidate> {
     }
 
     @Transactional
-    public Candidate getByMail(String mail){
+    public Admin getByMail(String mail){
         try{
-            return candidateDAO.getUserMail(mail);
+            return adminDAO.getUserMail(mail);
         }catch(Exception e){
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -53,9 +54,9 @@ public class CandidateManager implements UserManager<Candidate> {
     }
 
     @Transactional
-    public List<Candidate> getAll(){
+    public List<Admin> getAll(){
         try{
-            return candidateDAO.getAll();
+            return adminDAO.getAll();
         }catch(Exception e){
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -63,18 +64,18 @@ public class CandidateManager implements UserManager<Candidate> {
     }
 
     @Transactional
-    public void modify(Candidate candidate){
+    public void modify(Admin admin){
         try{
-            candidateDAO.modify(candidate);
+            adminDAO.modify(admin);
         }catch(Exception e){
             System.err.println("ERROR modify " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public void delete(Candidate candidate){
+    public void delete(Admin admin){
         try{
-            candidateDAO.delete(candidate);
+            adminDAO.delete(admin);
         }catch(Exception e){
             System.err.println("ERROR delete " + e.getStackTrace());
         }

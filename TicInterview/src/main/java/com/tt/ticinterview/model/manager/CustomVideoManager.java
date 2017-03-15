@@ -1,7 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
-import com.tt.ticinterview.beans.Interview.Attached;
-import com.tt.ticinterview.model.dao.AttachedDAO;
+import com.tt.ticinterview.beans.video.CustomVideo;
+import com.tt.ticinterview.model.dao.CustomVideoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -11,40 +11,39 @@ import java.util.List;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde - PNM - JRB
+ * @author tictumTarde -JRB
  * @version 0.1
- * @
  */
 
-@Service("AttachedManager")
-public class AttachedManager {
+@Service("CustomVideoManager")
+public class CustomVideoManager implements VideoManager<CustomVideo> {
 
     @Autowired
-    @Qualifier("AttachedDAO")
-    private AttachedDAO attachedDAO;
+    @Qualifier("CustomVideoDAO")
+    private CustomVideoDAO customVideoDAO;
 
     @Transactional
-    public void save(Attached attached){
+    public void save(CustomVideo customVideo){
         try{
-            attachedDAO.save(attached);
+            customVideoDAO.save(customVideo);
         }catch (Exception e){
             System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public void delete (Attached attached){
+    public void delete (CustomVideo customVideo){
         try{
-            attachedDAO.delete(attached);
+            customVideoDAO.delete(customVideo);
         }catch (Exception e){
             System.err.println("ERROR delete " + e.getStackTrace());
         }
     }
 
     @Transactional
-    public Attached getById(long id){
+    public CustomVideo getById(long id){
         try{
-            return attachedDAO.getById(id);
+            return customVideoDAO.getById(id);
         }catch (Exception e){
             System.err.println("ERROR getById " + e.getStackTrace());
         }
@@ -52,11 +51,21 @@ public class AttachedManager {
     }
 
     @Transactional
-    public List<Attached> getAll(){
+    public List<CustomVideo> getAll(){
         try{
-            return attachedDAO.getAll();
+            return customVideoDAO.getAll();
         }catch (Exception e){
             System.err.println("ERROR getAll " + e.getStackTrace());
+        }
+        return null;
+    }
+
+    @Transactional
+    public List<CustomVideo> searchVideo(String name){
+        try{
+            return customVideoDAO.searchVideo(name);
+        }catch (Exception e){
+            System.err.println("ERROR searchVideo " + e.getStackTrace());
         }
         return null;
     }

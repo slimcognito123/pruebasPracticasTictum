@@ -16,7 +16,7 @@ import java.util.List;
  * @
  */
 
-@Service
+@Service("FormManager")
 public class FormManager {
 
     @Autowired
