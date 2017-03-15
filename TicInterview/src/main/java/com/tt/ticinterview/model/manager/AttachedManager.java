@@ -21,14 +21,14 @@ public class AttachedManager {
 
     @Autowired
     @Qualifier("AttachedDAO")
-    AttachedDAO attachedDAO;
+    private AttachedDAO attachedDAO;
 
     @Transactional
     public void save(Attached attached){
         try{
             attachedDAO.save(attached);
         }catch (Exception e){
-            System.out.println("ERROR save " + e.getStackTrace());
+            System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
@@ -37,7 +37,7 @@ public class AttachedManager {
         try{
             attachedDAO.delete(attached);
         }catch (Exception e){
-            System.out.println("ERROR delete " + e.getStackTrace());
+            System.err.println("ERROR delete " + e.getStackTrace());
         }
     }
 
@@ -46,7 +46,7 @@ public class AttachedManager {
         try{
             return attachedDAO.getById(id);
         }catch (Exception e){
-            System.out.println("ERROR getById " + e.getStackTrace());
+            System.err.println("ERROR getById " + e.getStackTrace());
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class AttachedManager {
         try{
             return attachedDAO.getAll();
         }catch (Exception e){
-            System.out.println("ERROR getAll " + e.getStackTrace());
+            System.err.println("ERROR getAll " + e.getStackTrace());
         }
         return null;
     }

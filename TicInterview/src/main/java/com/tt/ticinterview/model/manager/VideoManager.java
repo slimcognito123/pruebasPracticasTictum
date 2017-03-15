@@ -19,14 +19,14 @@ public class VideoManager<T> {
 
     @Autowired
     @Qualifier("VideoDAO")
-    VideoDAO videoDAO;
+    private VideoDAO videoDAO;
 
     @Transactional
     public void save(T object){
         try{
             videoDAO.save(object);
         }catch (Exception e){
-            System.out.println("ERROR save " + e.getStackTrace());
+            System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
@@ -35,7 +35,7 @@ public class VideoManager<T> {
         try{
             videoDAO.delete(object);
         }catch (Exception e){
-            System.out.println("ERROR delete " + e.getStackTrace());
+            System.err.println("ERROR delete " + e.getStackTrace());
         }
     }
 
@@ -44,7 +44,7 @@ public class VideoManager<T> {
         try{
             return videoDAO.getById(id);
         }catch (Exception e){
-            System.out.println("ERROR getById " + e.getStackTrace());
+            System.err.println("ERROR getById " + e.getStackTrace());
         }
         return null;
     }
@@ -54,7 +54,7 @@ public class VideoManager<T> {
         try{
             return videoDAO.getAll();
         }catch (Exception e){
-            System.out.println("ERROR getAll " + e.getStackTrace());
+            System.err.println("ERROR getAll " + e.getStackTrace());
         }
         return null;
     }
@@ -64,7 +64,7 @@ public class VideoManager<T> {
         try{
             return videoDAO.searchVideo(name);
         }catch (Exception e){
-            System.out.println("ERROR searchVideo " + e.getStackTrace());
+            System.err.println("ERROR searchVideo " + e.getStackTrace());
         }
         return null;
     }

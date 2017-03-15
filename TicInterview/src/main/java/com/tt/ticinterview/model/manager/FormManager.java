@@ -21,14 +21,14 @@ public class FormManager {
 
     @Autowired
     @Qualifier("FormDAO")
-    FormDAO formDAO;
+    private FormDAO formDAO;
 
     @Transactional
     public void save(Form form){
         try{
             formDAO.save(form);
         }catch (Exception e){
-            System.out.println("ERROR save " + e);
+            System.err.println("ERROR save " + e);
         }
 
     }
@@ -38,7 +38,7 @@ public class FormManager {
         try{
             formDAO.delete(form);
         }catch(Exception e){
-            System.out.println("ERROR delete " + e);
+            System.err.println("ERROR delete " + e);
         }
 
     }
@@ -48,7 +48,7 @@ public class FormManager {
         try{
             return formDAO.getById(id);
         }catch (Exception e){
-            System.out.println("ERROR getById " + e);
+            System.err.println("ERROR getById " + e);
         }
         return null;
     }
@@ -58,7 +58,7 @@ public class FormManager {
         try {
             return formDAO.getAll();
         }catch (Exception e){
-            System.out.println("ERROR getAll " + e);
+            System.err.println("ERROR getAll " + e);
         }
         return null;
     }
