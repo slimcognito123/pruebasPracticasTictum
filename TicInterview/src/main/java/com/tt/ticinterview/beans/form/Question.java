@@ -59,4 +59,9 @@ public class Question extends GenericBean {
     public void setKillingQuestion(HashMap<Boolean, String> killingQuestion) {
         this.killingQuestion = killingQuestion;
     }
+
+    @Override
+    public String getInstanceName() {
+        return "question";
+    }
 }
