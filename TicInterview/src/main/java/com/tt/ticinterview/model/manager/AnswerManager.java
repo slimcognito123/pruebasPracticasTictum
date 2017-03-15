@@ -65,5 +65,5 @@ public class AnswerManager {
         }
         return null;
     }
-    //TODO hay que hacer el resto de funciones
+
 }
