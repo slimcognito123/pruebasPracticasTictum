@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Table;
 
 /**
  * @since 09/03/2017
@@ -22,7 +23,7 @@ import javax.persistence.Column;
  */
 
 @Entity
-//@Table (name = "Interviewer" )
+@Table (name = "Interviewer" )
 public class Interviewer extends GenericBean implements BasicUser, Serializable{
 
     @Id
@@ -137,6 +138,12 @@ public class Interviewer extends GenericBean implements BasicUser, Serializable{
     @Override
     public String toString() {
         return "Interviewer{" + "id=" + id + ", username=" + username + ", password=" + password + ", mail=" + mail + ", isManager=" + isManager + '}';
+    }
+    
+
+    @Override
+    public String getInstanceName() {
+        return "interviewer";
     }
     
     

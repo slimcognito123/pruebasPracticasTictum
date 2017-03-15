@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -20,7 +22,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
  */
 
 @Entity
-//@Table (name = "Candidate" )
+@Table (name = "Candidate" )
 public class Candidate  extends GenericBean implements BasicUser, Serializable {
 
     @Id
@@ -34,32 +36,73 @@ public class Candidate  extends GenericBean implements BasicUser, Serializable {
     private String dni;
     @Column (name = "address" , nullable = true , length = 500)
     private String address;
-    @Column (name = "date" , nullable = false)
+    @Column (name = "date" , nullable = true)
     @DateTimeFormat(iso = ISO.DATE_TIME)
     private LocalDateTime date;
-    @Column (name = "username" , nullable = false)
+    @Column (name = "phoneNumber" , nullable = true)
     private int phoneNumber;
-    @Column (name = "username" , nullable = false)
+    @Column (name = "mail" , nullable = true)
     private String mail;
-    @Column (name = "username" , nullable = false)
+    @Column (name = "password" , nullable = false)
     private String password;
-
+    /**
+     * Constructor Vacio
+     */
     public Candidate() {
     }
+    /**
+     * Constructor con todos los parámetros menos id
+     * @param username
+     * @param surname
+     * @param dni
+     * @param address
+     * @param date
+     * @param phoneNumber
+     * @param mail
+     * @param password 
+     */
+
+    public Candidate(String username, String surname, String dni, String address, LocalDateTime date, int phoneNumber, String mail, String password) {
+        this.username = username;
+        this.surname = surname;
+        this.dni = dni;
+        this.address = address;
+        this.date = date;
+        this.phoneNumber = phoneNumber;
+        this.mail = mail;
+        this.password = password;
+    }
+        public Candidate(String username, String surname, String dni, String address, String date, int phoneNumber, String mail, String password) {
+        this.username = username;
+        this.surname = surname;
+        this.dni = dni;
+        this.address = address;
+        this.date = LocalDateTime.parse(date);
+        this.phoneNumber = phoneNumber;
+        this.mail = mail;
+        this.password = password;
+    }
+    /**
+     * Getter de id
+     * @return  id
+     */
 
     @Override
     public long getId() {
         return id;
     }
-
+    
+    @Override
     public void setId(long id) {
         this.id = id;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
+    @Override
     public void setUsername(String username) {
         this.username = username;
     }
@@ -121,5 +164,55 @@ public class Candidate  extends GenericBean implements BasicUser, Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String getInstanceName() {
+        return "candidate";
+    }
+
+    @Override
+    public String toString() {
+        return "Candidate{" + "id=" + id + ", username=" + username + ", surname=" + surname + ", dni=" + dni + ", address=" + address + ", date=" + date + ", phoneNumber=" + phoneNumber + ", mail=" + mail + ", password=" + password + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 79 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 79 * hash + Objects.hashCode(this.username);
+        hash = 79 * hash + Objects.hashCode(this.surname);
+        hash = 79 * hash + Objects.hashCode(this.dni);
+        hash = 79 * hash + Objects.hashCode(this.address);
+        hash = 79 * hash + Objects.hashCode(this.date);
+        hash = 79 * hash + this.phoneNumber;
+        hash = 79 * hash + Objects.hashCode(this.mail);
+        hash = 79 * hash + Objects.hashCode(this.password);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Candidate other = (Candidate) obj;
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.dni, other.dni)) {
+            return false;
+        }
+        if (!Objects.equals(this.mail, other.mail)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }

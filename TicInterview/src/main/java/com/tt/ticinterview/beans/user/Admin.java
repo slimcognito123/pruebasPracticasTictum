@@ -8,6 +8,7 @@ package com.tt.ticinterview.beans.user;
 import com.tt.ticinterview.beans.basic.GenericBean;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-//@Table (name = "Admin" ) 
+@Table (name = "Admin" ) 
 public class Admin  extends GenericBean implements BasicUser, Serializable{
     
     @Id
@@ -79,5 +80,41 @@ public class Admin  extends GenericBean implements BasicUser, Serializable{
       @Override
     public String toString() {
         return "Admin{" + "id=" + id + ", username=" + username + ", password=" + password + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 31 * hash + Objects.hashCode(this.username);
+        hash = 31 * hash + Objects.hashCode(this.password);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Admin other = (Admin) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        return true;
+    }
+    
+
+    @Override
+    public String getInstanceName() {
+        return "admin";
     }
 }

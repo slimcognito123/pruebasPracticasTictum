@@ -10,21 +10,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @since 09/03/2017
  * @author tictumTarde -JRB
  * @version 0.1
  */
-
 @Entity
-//@Table (name = "Interview" )
+@Table(name = "Interview")
 public class Interview extends GenericBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idInterview;
-    
+    @OneToMany()
+    @JoinTable(name = "Interviewer")
+    @JoinColumn(name = "idInterviewer")
     private long idInterviewer;
     private List<Video> video;
     private Form form;
@@ -131,9 +136,6 @@ public class Interview extends GenericBean implements Serializable {
         }
         return true;
     }
-    
-    
-    
 
     @Override
     public String getInstanceName() {
