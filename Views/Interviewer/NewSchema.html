@@ -13,15 +13,12 @@
 <link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD:TIC Interviews - Front/HTML/newentrevista.html
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
 
-=======
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
->>>>>>> refs/remotes/origin/master:Views/Interviewer/NewSchema.html
 </head>
 <body>
 
@@ -54,7 +51,7 @@
 
     <li class=""> <a href=""><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
 
-    
+    </ul>
    
 </div>
 <!--sidebar-menu-->
@@ -71,11 +68,10 @@
    
   <form method="" action="" id="pregunta" hidden>
 	<input type="text" placeholder="Escribe la pregunta" id="textoPregunta" />
-	<button type="submit" >Aceptar</button>
+	<button type="button" id="enviarPregunta" >Aceptar</button>
   </form>
    <div  class="quick-actions_homepage" id="elementos">
     <ul class="quick-actions">
-<<<<<<< HEAD:TIC Interviews - Front/HTML/newentrevista.html
       <li class="bg_lr span3" > <a href="#" id="video" name="video" > <i class="icon-play"></i> Video</a> </li>
       <li class="bg_lg" > <a href="#" id="checkbox" name="checkbox" > <i class="icon-check"></i> Checkbox</a> </li>
       <li class="bg_lb" > <a href="#" id="text" name="text" > <i class="icon-font"></i> Texto</a> </li>
@@ -86,20 +82,7 @@
       <!--<li class="bg_lb"> <a href="#" id="icon-list-ol"> <i class="icon-list-ol"></i> Option</a> </li>
       <li class="bg_lg"> <a href="#" id="icon-edit"> <i class="icon-edit"></i> Select</a> </li>-->
       <li class="bg_lb"> <a href="#" id="date" name="date" > <i class="icon-calendar"></i> Fecha</a> </li>
-      <button class="btn btn-danger" id="reset" > <span class="icon-trash"></span> Deshacer</button>
-=======
-      <li class="bg_lr span3"> <a href="#"> <i class="icon-play"></i> Video</a> </li>
-      <li class="bg_lg"> <a href="#"> <i class="icon-check"></i> Checkbox</a> </li>
-      <li class="bg_lb"> <a href="#"> <i class=" icon-font"></i> Texto</a> </li>
-      <li class="bg_ly"> <a href="#"> <i class="icon-list"></i> Radiobutton</a> </li>
-      <li class="bg_ls"> <a href="#"> <i class="icon-phone"></i> Número</a> </li>
-      <li class="bg_ls"> <a href="#"> <i class="icon-star"></i> Range</a> </li>
-      <li class="bg_ly"> <a href="#"> <i class="icon-globe"></i> URL</a> </li>
-      <li class="bg_lb"> <a href="#"> <i class=" icon-list-ol"></i> Option</a> </li>
-      <li class="bg_lg"> <a href="#"> <i class="icon-edit"></i> Select</a> </li>
-      <li class="bg_lb"> <a href="#"> <i class="icon-calendar"></i> Fecha</a> </li>
-      <button class="btn btn-danger"> <span class="icon-trash"></span> Deshacer</button>
->>>>>>> refs/remotes/origin/master:Views/Interviewer/NewSchema.html
+      <!--<button class="btn btn-danger" id="reset" > <span class="icon-trash"></span> Deshacer</button>-->
     </ul>
   </div>
   </div>
@@ -109,13 +92,16 @@
 	
       
 
-    <h4 style="text-align: center; padding-top: 50px">Suelte aquí los elementos que quieres añadir</h4>
+		<h4 style="text-align: center; padding-top: 50px">Suelte aquí los elementos que quieres añadir</h4>
 
 
 
     </div>
     </div>
   </div>
+	<form action="" method="" id="respuesta" >
+		
+	</form>
 <!--end-main-container-part-->
 
 <!--Footer-part-->
@@ -125,35 +111,12 @@
 </div>
 
 <!--end-Footer-part-->
-<<<<<<< HEAD:TIC Interviews - Front/HTML/newentrevista.html
-<!-- 
-<script src="js/excanvas.min.js"></script> 
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flot.min.js"></script> 
-<script src="js/jquery.flot.resize.min.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/fullcalendar.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.dashboard.js"></script> 
-<script src="js/jquery.gritter.min.js"></script> 
-<script src="js/matrix.interface.js"></script> 
-<script src="js/matrix.chat.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.form_validation.js"></script> 
-<script src="js/jquery.wizard.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/matrix.popover.js"></script> 
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script> -->
-=======
 
 <script src="../js/excanvas.min.js"></script> 
 <script src="../js/jquery.min.js"></script> 
 <script src="../js/jquery.ui.custom.js"></script> 
 <script src="../js/bootstrap.min.js"></script> 
+<!--
 <script src="../js/jquery.flot.min.js"></script> 
 <script src="../js/jquery.flot.resize.min.js"></script> 
 <script src="../js/jquery.peity.min.js"></script> 
@@ -170,8 +133,7 @@
 <script src="../js/select2.min.js"></script> 
 <script src="../js/matrix.popover.js"></script> 
 <script src="../js/jquery.dataTables.min.js"></script> 
-<script src="../js/matrix.tables.js"></script> 
->>>>>>> refs/remotes/origin/master:Views/Interviewer/NewSchema.html
+<script src="../js/matrix.tables.js"></script> -->
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
@@ -198,12 +160,17 @@ function resetMenu() {
 }
 
 //Codigo toni JQuery
+
+	var numero = 1;
+	var textForm = "";
+		
 	function dragged(id){
 		alert(id);
 	}
 	
 	$(document).ready(function(){
 		var dragged;
+		var pregunta;
 		var video = $("#video");
 		video.draggable();
 		video.data({'originalLeft': video.css('left'), 'origionalTop': video.css('top') });
@@ -227,20 +194,15 @@ function resetMenu() {
 		url.data({'originalLeft': url.css('left'), 'origionalTop': url.css('top') });
 		var date = $("#date");
 		date.draggable();
-		date.data({'originalLeft': date.css('left'), 'origionalTop': date.css('top') });
-		//$("#icon-list-ol").draggable();
-		//$("#icon-edit").draggable();
-		
+		date.data({'originalLeft': date.css('left'), 'origionalTop': date.css('top') });		
 		
 		$(".entrevista").droppable({
 			drop: function(event, ui) {
 				$(this).css('background', 'rgb(0,200,0)');
 				dragged = ui.draggable.attr('name');
-				if(dragged == "video"){
-					desactivar();
-				}else{
-					video.draggable('disable');
-				}
+				desactivar();
+				$("#pregunta").show();
+				$("#pregunta").focus();
 			},
 			over: function(event, ui) {
 				//$(this).css('background', 'orange');
@@ -252,7 +214,7 @@ function resetMenu() {
         });
 		
 		function desactivar(){
-			$("#pregunta").show();
+			video.draggable('disable');
 			date.draggable('disable');
 			url.draggable('disable');
 			rango.draggable('disable');
@@ -264,7 +226,6 @@ function resetMenu() {
 		
 		function activar(){
 			$("#pregunta").hide();
-			video.draggable('enable');
 			date.draggable('enable');
 			url.draggable('enable');
 			rango.draggable('enable');
@@ -273,7 +234,8 @@ function resetMenu() {
 			texto.draggable('enable');
 			check.draggable('enable');
 		}
-		$("#reset").click(function(){
+		
+		function resetear(){
 			video.css({'left': video.data('originalLeft'), 'top': video.data('origionalTop')});
 			date.css({'left': date.data('originalLeft'), 'top': date.data('origionalTop')});
 			url.css({'left': url.data('originalLeft'), 'top': url.data('origionalTop')});
@@ -283,6 +245,21 @@ function resetMenu() {
 			texto.css({'left': texto.data('originalLeft'), 'top': texto.data('origionalTop')});
 			check.css({'left': check.data('originalLeft'), 'top': check.data('origionalTop')});
 			$(".entrevista").css('background', '#eeeeee');  
+		}
+		
+		$("#enviarPregunta").click(function(){
+			var pregunta = $("#textoPregunta").val();
+			$("#textoPregunta").val("");
+			activar();
+			resetear();
+			textForm = $("#respuesta").html();
+			$("#respuesta").html(textForm);
+			alert("Texto antes: " + textForm);
+			$("#respuesta").html(textForm + "<input type='text' id='question" + numero + "' value='" + pregunta + "' /> <input type='text' id='type" + numero + "' value='" + dragged + "' />");
+			numero = numero + 1;
+			textForm = $("#respuesta").html();
+			$("#respuesta").html(textForm);
+			alert("Testo despues:" + textForm);
 		});
 		
 	});
