@@ -1,5 +1,6 @@
 package com.tt.ticinterview.model.manager;
 
+import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.model.dao.CandidateDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,5 +79,15 @@ public class CandidateManager implements UserManager<Candidate> {
         }catch(Exception e){
             System.err.println("ERROR delete " + e.getStackTrace());
         }
+    }
+
+    @Transactional
+    public List<Interview> getOwnInterviews(Candidate candidate){
+        try{
+            return candidateDAO.getOwnInterviews(candidate);
+        }catch(Exception e){
+            System.err.println("ERROR delete " + e.getStackTrace());
+        }
+        return null;
     }
 }
