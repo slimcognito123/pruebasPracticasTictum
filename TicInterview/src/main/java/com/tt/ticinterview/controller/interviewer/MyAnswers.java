@@ -16,8 +16,6 @@ import java.util.List;
 /**
  * Created by tictumTarde on 14/03/2017.
  */
-@Controller
-@RequestMapping("/myAnswers.do")
 public class MyAnswers {
 
     @Autowired

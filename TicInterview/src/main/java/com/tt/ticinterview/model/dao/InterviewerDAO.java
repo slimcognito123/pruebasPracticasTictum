@@ -37,4 +37,12 @@ public class InterviewerDAO  implements BasicUserDAO<Interviewer>{
         Query query = entityManager.createQuery(prepareQuery);
         return query.getResultList();
     }
+
+    public List<Interviewer> getManagers(){
+        return null;
+    }
+
+    public List<Interviewer> getInterviewers(){
+        return null;
+    }
 }
