@@ -15,68 +15,18 @@ import java.util.List;
  * @
  */
 
-@Service
-public class UserManager<T> {
+public interface UserManager<T> {
 
-    @Autowired
-    @Qualifier("BasicUserDAO")
-    private BasicUserDAO basicUserDAO;
+    void register(T object);
 
-    @Transactional
-    public void register(T object){
-        try{
-            basicUserDAO.save(object);
-        }catch(Exception e){
-            System.err.println("ERROR save " + e.getStackTrace());
-        }
-    }
+    T getById(long id);
 
-    @Transactional
-    public T getById(long id){
-        try{
-            return basicUserDAO.getById(id);
-        }catch(Exception e){
-            System.err.println("ERROR getById " + e.getStackTrace());
-        }
-        return null;
-    }
+    T getByMail(String mail);
 
-    @Transactional
-    public T getByMail(String mail){
-        try{
-            return basicUserDAO.getUserMail(mail);
-        }catch(Exception e){
-            System.err.println("ERROR getByMail " + e.getStackTrace());
-        }
-        return null;
-    }
+    List<T> getAll();
 
-    @Transactional
-    public List<T> getAll(){
-        try{
-            return basicUserDAO.getAll();
-        }catch(Exception e){
-            System.err.println("ERROR getByMail " + e.getStackTrace());
-        }
-        return null;
-    }
+    void modify(T object);
 
-    @Transactional
-    public void modify(T object){
-        try{
-            basicUserDAO.modify(object);
-        }catch(Exception e){
-            System.err.println("ERROR modify " + e.getStackTrace());
-        }
-    }
-
-    @Transactional
-    public void delete(T object){
-        try{
-            basicUserDAO.delete(object);
-        }catch(Exception e){
-            System.err.println("ERROR delete " + e.getStackTrace());
-        }
-    }
+    void delete(T object);
 
 }

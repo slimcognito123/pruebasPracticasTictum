@@ -1,11 +1,5 @@
 package com.tt.ticinterview.model.manager;
 
-import com.tt.ticinterview.model.dao.VideoDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**
@@ -14,58 +8,15 @@ import java.util.List;
  * @version 0.1
  */
 
-@Service
-public class VideoManager<T> {
+public interface VideoManager<T> {
 
-    @Autowired
-    @Qualifier("VideoDAO")
-    private VideoDAO videoDAO;
+    void save(T object);
 
-    @Transactional
-    public void save(T object){
-        try{
-            videoDAO.save(object);
-        }catch (Exception e){
-            System.err.println("ERROR save " + e.getStackTrace());
-        }
-    }
+    void delete (T object);
 
-    @Transactional
-    public void delete (T object){
-        try{
-            videoDAO.delete(object);
-        }catch (Exception e){
-            System.err.println("ERROR delete " + e.getStackTrace());
-        }
-    }
+    T getById(long id);
 
-    @Transactional
-    public T getById(long id){
-        try{
-            return videoDAO.getById(id);
-        }catch (Exception e){
-            System.err.println("ERROR getById " + e.getStackTrace());
-        }
-        return null;
-    }
+    List<T> getAll();
 
-    @Transactional
-    public List<T> getAll(){
-        try{
-            return videoDAO.getAll();
-        }catch (Exception e){
-            System.err.println("ERROR getAll " + e.getStackTrace());
-        }
-        return null;
-    }
-
-    @Transactional
-    public List<T> searchVideo(String name){
-        try{
-            return videoDAO.searchVideo(name);
-        }catch (Exception e){
-            System.err.println("ERROR searchVideo " + e.getStackTrace());
-        }
-        return null;
-    }
+    List<T> searchVideo(String name);
 }
