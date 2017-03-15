@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Table;
 
 /**
  * @since 09/03/2017
@@ -17,15 +18,15 @@ import java.util.List;
  */
 
 @Entity
-//@Table (name = "Answer" )
+@Table (name = "Answer" )
 public class Answer extends GenericBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @
+    
     private long idCandidate;
-    private long idInterviewer;
+    private long idInterview;
     private List<CandidateVideo> videoAnswer;
     private List<String> textAnswer;
     private int valoration;
@@ -51,12 +52,12 @@ public class Answer extends GenericBean implements Serializable {
         this.idCandidate = idCandidate;
     }
 
-    public long getIdInterviewer() {
-        return idInterviewer;
+    public long getIdInterview() {
+        return idInterview;
     }
 
-    public void setIdInterviewer(long idInterviewer) {
-        this.idInterviewer = idInterviewer;
+    public void setIdInterviewer(long idInterview) {
+        this.idInterview = idInterview;
     }
 
     public List<CandidateVideo> getVideoAnswer() {
