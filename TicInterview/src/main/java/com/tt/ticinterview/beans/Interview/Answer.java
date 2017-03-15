@@ -23,6 +23,7 @@ public class Answer extends GenericBean implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @
     private long idCandidate;
     private long idInterviewer;
     private List<CandidateVideo> videoAnswer;
