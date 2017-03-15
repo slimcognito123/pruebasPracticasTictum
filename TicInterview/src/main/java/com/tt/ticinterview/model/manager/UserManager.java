@@ -20,14 +20,14 @@ public class UserManager<T> {
 
     @Autowired
     @Qualifier("BasicUserDAO")
-    BasicUserDAO basicUserDAO;
+    private BasicUserDAO basicUserDAO;
 
     @Transactional
     public void register(T object){
         try{
             basicUserDAO.save(object);
         }catch(Exception e){
-            System.out.println("ERROR save " + e.getStackTrace());
+            System.err.println("ERROR save " + e.getStackTrace());
         }
     }
 
@@ -36,7 +36,7 @@ public class UserManager<T> {
         try{
             return basicUserDAO.getById(id);
         }catch(Exception e){
-            System.out.println("ERROR getById " + e.getStackTrace());
+            System.err.println("ERROR getById " + e.getStackTrace());
         }
         return null;
     }
@@ -46,7 +46,7 @@ public class UserManager<T> {
         try{
             return basicUserDAO.getUserMail(mail);
         }catch(Exception e){
-            System.out.println("ERROR getByMail " + e.getStackTrace());
+            System.err.println("ERROR getByMail " + e.getStackTrace());
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class UserManager<T> {
         try{
             return basicUserDAO.getAll();
         }catch(Exception e){
-            System.out.println("ERROR getByMail " + e.getStackTrace());
+            System.err.println("ERROR getByMail " + e.getStackTrace());
         }
         return null;
     }
@@ -66,7 +66,7 @@ public class UserManager<T> {
         try{
             basicUserDAO.modify(object);
         }catch(Exception e){
-            System.out.println("ERROR modify " + e.getStackTrace());
+            System.err.println("ERROR modify " + e.getStackTrace());
         }
     }
 
@@ -75,7 +75,7 @@ public class UserManager<T> {
         try{
             basicUserDAO.delete(object);
         }catch(Exception e){
-            System.out.println("ERROR delete " + e.getStackTrace());
+            System.err.println("ERROR delete " + e.getStackTrace());
         }
     }
 
