@@ -37,7 +37,7 @@ public class ShowMySchemas {
 
         List<Interview> misEntrevistas  = entrevista.stream().filter(item -> item.getId()==user.getId()).collect(Collectors.toCollection(ArrayList::new));
 
-        List<Interview> misMaquetas = misEntrevistas.stream().filter(item -> item.isSchema()==true).collect(Collectors.toCollection(ArrayList::new));
+        List<Interview> misMaquetas = misEntrevistas.stream().filter(item -> item.isSchema==true).collect(Collectors.toCollection(ArrayList::new));
 
         modelo.addObject("misMaquetas", misMaquetas);
         modelo.setViewName("/Interviewer/ShowMySchemas");
@@ -58,7 +58,7 @@ public class ShowMySchemas {
 
         List<Interview> misEntrevistas  = entrevista.stream().filter(item -> item.getId()==user.getId()).collect(Collectors.toCollection(ArrayList::new));
 
-        List<Interview> misMaquetas = misEntrevistas.stream().filter(item -> item.isSchema()==true).collect(Collectors.toCollection(ArrayList::new));
+        List<Interview> misMaquetas = misEntrevistas.stream().filter(item -> item.isSchema==true).collect(Collectors.toCollection(ArrayList::new));
 
         modelo.addObject("misMaquetas", misMaquetas);
         modelo.setViewName("/Interviewer/ShowMySchemas");
