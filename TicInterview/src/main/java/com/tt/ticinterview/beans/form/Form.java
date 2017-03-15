@@ -48,4 +48,9 @@ public class Form extends GenericBean implements Serializable{
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
+    @Override
+    public String getInstanceName() {
+        return "form";
+    }
 }
