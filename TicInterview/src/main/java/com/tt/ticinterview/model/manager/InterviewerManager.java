@@ -23,7 +23,7 @@ public class InterviewerManager {
     InterviewerDAO interviewerDAO;
 
     @Transactional
-    public void save(Interviewer interviewer){
+    public void register(Interviewer interviewer){
         try{
             interviewerDAO.save(interviewer);
         }

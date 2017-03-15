@@ -21,13 +21,11 @@ import com.tt.ticinterview.model.manager.UserManager;
 import com.tt.ticinterview.model.manager.VideoManager;
 
 @Controller
-@RequestMapping("/Aniadir.do")
+@RequestMapping("/SendInterviewAnswer.do")
 @SessionAttributes("user")
 public class SendInterviewAnswer {
 	@Autowired
 	VideoManager videoManager;
-	@Autowired
-	UserManager userManager;
 	@Autowired
 	InterviewManager interviewManager;
 	@RequestMapping(method = RequestMethod.GET)
@@ -35,6 +33,7 @@ public class SendInterviewAnswer {
 		
 		CandidateVideo video = new CandidateVideo();	
 		video.setId(0);
+		video.setIdCandidate(user.getId());
 		video.setPath(name);
 		video.setName(name);
 		videoManager.save(video);

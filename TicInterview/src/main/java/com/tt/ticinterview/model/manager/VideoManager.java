@@ -10,9 +10,8 @@ import java.util.List;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde - PNM
+ * @author tictumTarde -JRB
  * @version 0.1
- * @
  */
 
 @Service
@@ -24,25 +23,49 @@ public class VideoManager<T> {
 
     @Transactional
     public void save(T object){
+        try{
+            videoDAO.save(object);
+        }catch (Exception e){
+            System.out.println("ERROR save " + e.getStackTrace());
+        }
     }
 
     @Transactional
     public void delete (T object){
-
+        try{
+            videoDAO.delete(object);
+        }catch (Exception e){
+            System.out.println("ERROR delete " + e.getStackTrace());
+        }
     }
 
     @Transactional
     public T getById(long id){
+        try{
+            return videoDAO.getById(id);
+        }catch (Exception e){
+            System.out.println("ERROR getById " + e.getStackTrace());
+        }
         return null;
     }
 
     @Transactional
     public List<T> getAll(){
+        try{
+            return videoDAO.getAll();
+        }catch (Exception e){
+            System.out.println("ERROR getAll " + e.getStackTrace());
+        }
         return null;
     }
 
     @Transactional
     public List<T> searchVideo(String name){
+        try{
+            return videoDAO.searchVideo(name);
+        }catch (Exception e){
+            System.out.println("ERROR searchVideo " + e.getStackTrace());
+        }
         return null;
     }
 }
