@@ -31,7 +31,8 @@ public class CustomVideo extends GenericBean implements Video, Serializable{
     private String path;
     
     private String name;
-
+    
+    public long idCandidate
     public CustomVideo() {
     }
 
@@ -63,5 +64,10 @@ public class CustomVideo extends GenericBean implements Video, Serializable{
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getInstanceName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
