@@ -11,7 +11,7 @@ import com.tt.ticinterview.beans.basic.GenericBean;
  *
  * @author tictumTarde
  */
-public interface BasicUser{
+public interface BasicUser {
 
     public  long getId();
     
@@ -24,7 +24,8 @@ public interface BasicUser{
     public void setUsername(String username);
     
     public void setPassword(String password);
-
+    
+    public String getInstanceName();
 
     @Override
     public  String toString();

@@ -58,8 +58,8 @@ public class Login {
         return modelo;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
-    public ModelAndView loginGet(HttpServletRequest request) {
+    @RequestMapping(method= RequestMethod.POST)
+    public ModelAndView loginPost(HttpServletRequest request) {
 
         //Creamos una variable modelo/vista en la que guardaremos redireccionamiento y usario
         ModelAndView modelo = new ModelAndView();

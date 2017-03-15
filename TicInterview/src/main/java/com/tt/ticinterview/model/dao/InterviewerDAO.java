@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class InterviewerDAO  implements BasicUserDAO<Interviewer>{
-    @Override
+
     public Interviewer GetUserMail(String mail) throws Exception {
         String sql = "Select user from Interviewer user where user.mail = :mail";
         Query query = entityManager.createQuery(sql);
@@ -44,5 +44,20 @@ public class InterviewerDAO  implements BasicUserDAO<Interviewer>{
 
     public List<Interviewer> getInterviewers(){
         return null;
+    }
+
+    @Override
+    public Interviewer getUserMail(String mail) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void save(Interviewer object) {
+        BasicUserDAO.super.save(object); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Interviewer object) {
+        BasicUserDAO.super.delete(object); //To change body of generated methods, choose Tools | Templates.
     }
 }
