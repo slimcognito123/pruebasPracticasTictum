@@ -83,6 +83,58 @@ public class Interview extends GenericBean implements Serializable {
         isPrivate = aPrivate;
     }
 
+    public boolean isIsPrivate() {
+        return isPrivate;
+    }
+
+    public void setIsPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
+    }
+
+    public boolean isIsSchema() {
+        return isSchema;
+    }
+
+    public void setIsSchema(boolean isSchema) {
+        this.isSchema = isSchema;
+    }
+
+    @Override
+    public String toString() {
+        return "Interview{" + "idInterview=" + idInterview + ", idInterviewer=" + idInterviewer + ", video=" + video + ", form=" + form + ", attached=" + attached + ", isPrivate=" + isPrivate + ", isSchema=" + isSchema + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 19 * hash + (int) (this.idInterviewer ^ (this.idInterviewer >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Interview other = (Interview) obj;
+        if (this.idInterview != other.idInterview) {
+            return false;
+        }
+        if (this.idInterviewer != other.idInterviewer) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+
     @Override
     public String getInstanceName() {
         return "interview";
