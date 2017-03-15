@@ -21,5 +21,9 @@ public class AnswerManager {
         }
         return null;
     }
+
+    public Answer getById(long idAnswer) {
+        return null;
+    }
     //TODO hay que hacer el resto de funciones
 }
