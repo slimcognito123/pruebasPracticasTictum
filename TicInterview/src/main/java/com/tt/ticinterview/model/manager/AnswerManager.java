@@ -2,22 +2,33 @@ package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.Interview.Answer;
 import com.tt.ticinterview.model.dao.AnswerDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * Created by Tictum on 14/03/2017.
+ * @since 09/03/2017
+ * @author tictumTarde - JRB
+ * @version 0.1
+ * @
  */
+
+@Service("AnswerManager")
 public class AnswerManager {
-    private AnswerDAO answers;
+
+    @Autowired
+    @Qualifier("AnswerDAO")
+    private AnswerDAO answerDAO;
 
     @Transactional
     public List<Answer> getAll(){
         try {
-            return answers.getAll();
+            return answerDAO.getAll();
         }catch (Exception e){
-            System.out.println("ERROR getAll " + e);
+            System.err.println("ERROR getAll " + e);
         }
         return null;
     }

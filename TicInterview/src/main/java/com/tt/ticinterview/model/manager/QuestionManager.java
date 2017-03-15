@@ -16,7 +16,7 @@ import java.util.List;
  * @since 09/03/2017
  */
 
-@Service
+@Service("QuestionManager")
 public class QuestionManager {
 
     @Autowired

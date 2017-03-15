@@ -15,8 +15,8 @@ import java.util.List;
  * @version 0.1
  */
 
-@Service
-public class InterviewerManager {
+@Service("InterviewerManager")
+public class InterviewerManager implements UserManager<Interviewer>{
 
     @Autowired
     @Qualifier("InterviewerDAO")
@@ -54,6 +54,16 @@ public class InterviewerManager {
         return null;
     }
 
+    @Override
+    public Interviewer getByMail(String mail){
+        try{
+            return interviewerDAO.getUserMail(mail);
+        }catch(Exception e){
+            System.err.println("ERROR getByMail " + e.getStackTrace());
+        }
+        return null;
+    }
+
     @Transactional
     public List<Interviewer> getAll(){
         try{
@@ -63,6 +73,15 @@ public class InterviewerManager {
             System.err.println("Error getAll: " + e);
         }
         return null;
+    }
+
+    @Override
+    public void modify(Interviewer interviewer) {
+        try{
+            interviewerDAO.modify(interviewer);
+        }catch(Exception e){
+            System.err.println("ERROR modify " + e.getStackTrace());
+        }
     }
 
     @Transactional

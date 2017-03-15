@@ -16,7 +16,7 @@ import java.util.List;
  * @
  */
 
-@Service
+@Service("InterviewManager")
 public class InterviewManager {
 
     @Autowired
