@@ -36,19 +36,35 @@ public class Answer extends GenericBean implements Serializable {
     @JoinTable(name = "Interviewer")
     @JoinColumn(name = "idInterviewer")
     private long idInterview;
-    @Column(name ="videoAnswer", nullable = true)
+    @Column(name = "videoAnswer", nullable = true)
+    @OneToMany
     private List<CandidateVideo> videoAnswer;
-    @Column(name ="textAnswer", nullable = true)
+    @Column(name = "textAnswer", nullable = true)
     private List<String> textAnswer;
-    @Column(name ="valoration", nullable = true)
+    @OneToMany
+    @Column(name = "attached", nullable = true)
+    private List<Attached> attached;
+    @Column(name = "valoration", nullable = true)
     private int valoration;
-    @Column(name ="observation", nullable = true ,length = 500)
+    @Column(name = "observation", nullable = true, length = 500)
     private String observation;
-    @Column(name ="isSelected", nullable = true)
+    @Column(name = "isSelected", nullable = true)
     private boolean isSelected;
 
     public Answer() {
     }
+
+    public Answer(long idCandidate, long idInterview, List<CandidateVideo> videoAnswer, List<String> textAnswer, List<Attached> attached, int valoration, String observation, boolean isSelected) {
+        this.idCandidate = idCandidate;
+        this.idInterview = idInterview;
+        this.videoAnswer = videoAnswer;
+        this.textAnswer = textAnswer;
+        this.attached = attached;
+        this.valoration = valoration;
+        this.observation = observation;
+        this.isSelected = isSelected;
+    }
+    
 
     public Answer(long idCandidate, long idInterview, List<CandidateVideo> videoAnswer, List<String> textAnswer, int valoration, String observation, boolean isSelected) {
         this.idCandidate = idCandidate;
@@ -64,7 +80,7 @@ public class Answer extends GenericBean implements Serializable {
         this.idCandidate = idCandidate;
         this.idInterview = idInterview;
     }
-    
+
     public long getId() {
         return id;
     }
@@ -183,7 +199,6 @@ public class Answer extends GenericBean implements Serializable {
         }
         return true;
     }
-    
 
     @Override
     public String getInstanceName() {

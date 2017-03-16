@@ -1,5 +1,5 @@
 package com.tt.ticinterview.services;
-
+import com.tt.ticinterview.services.*;
 /**
  * Created by Tictum on 15/03/2017.
  */
@@ -7,7 +7,7 @@ public class pruebaMain {
     public static void main(String[] args) {
         try {
             MailService mailService= new MailServiceImpl();
-            mailService.send("roxas.grupokh@gmail.com", "patata kawaii","hoiiiiii I'm temmie");
+            mailService.send("fjnebrera@gmail.com", "patata kawaii","hoiiiiii I'm temmie");
         }
         catch(Exception e){
             final String msg = "Excepción en el envío de emails con recursos incrustados.";
