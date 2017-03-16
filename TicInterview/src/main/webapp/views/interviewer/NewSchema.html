@@ -85,6 +85,9 @@
       <!--<button class="btn btn-danger" id="reset" > <span class="icon-trash"></span> Deshacer</button>-->
     </ul>
   </div>
+  <form method="" action="" id="terminar" hidden>
+	<button type="button" id="terminarPregunta" >Terminar pregunta</button>
+  </form>
   </div>
   <!--End-breadcrumbs-->
     <div class="container-fluid">
@@ -102,6 +105,8 @@
 		<div id="respuesta" hidden>
 		</div>
 	</form>
+	<div id="listaPreguntas">
+	</div>
     </div>
   </div>
 <!--end-main-container-part-->
@@ -173,6 +178,7 @@ function resetMenu() {
 	$(document).ready(function(){
 		var dragged;
 		var pregunta;
+		var elementoSeleccionado;
 		var video = $("#video");
 		video.draggable();
 		video.data({'originalLeft': video.css('left'), 'origionalTop': video.css('top') });
@@ -202,16 +208,19 @@ function resetMenu() {
 			drop: function(event, ui) {
 				$(this).css('background', 'rgb(0,200,0)');
 				dragged = ui.draggable.attr('name');
+				encontrarElemento(dragged);
 				desactivar();
+				elementoSeleccionado.draggable('enable');
 				$("#pregunta").show();
 				$("#pregunta").focus();
 			},
 			over: function(event, ui) {
-				//$(this).css('background', 'orange');
+				$(this).css('background', 'orange');
 			},
 			out: function(event, ui) {
 				$(this).css('background', '#eeeeee');  
 				activar();
+				$("#pregunta").hide();
 			}
         });
 		
@@ -227,7 +236,6 @@ function resetMenu() {
 		}
 		
 		function activar(){
-			$("#pregunta").hide();
 			date.draggable('enable');
 			url.draggable('enable');
 			rango.draggable('enable');
@@ -253,9 +261,9 @@ function resetMenu() {
 			pregunta = $("#textoPregunta").val();
 			$("#textoPregunta").val("");
 			if(dragged!="video"){
-				$("#pregunta").hide();
 				activar();
 			}
+			$("#pregunta").hide();
 			resetear();
 			textForm = $("#respuesta").html();
 			alert("Texto antes: " + textForm);
@@ -265,6 +273,21 @@ function resetMenu() {
 			$("#respuesta").html(textForm);
 			alert("Testo despues:" + textForm);
 			prevision();
+			$("#terminar").show();
+		});
+		
+		$("#terminar").click(function(){
+			$(".entrevista").html("<h4 style='text-align: center; padding-top: 50px'>Suelte aquí los elementos que quieres añadir</h4>");
+			activar();
+			$("#pregunta").hide();
+			$("#terminar").hide();
+			var x = $("#listaPreguntas").html();
+			if(dragged == "video"){
+				$("#listaPreguntas").html(x + "Pregunta de video<br/>");
+			}else{
+				$("#listaPreguntas").html(x + "Formulario<br/>");
+			}
+			video.draggable('enable');
 		});
 		
 		function prevision(){
@@ -274,11 +297,40 @@ function resetMenu() {
 				var idVideo = pregunta.split("=");
 				interview.html(txPreview + "<iframe title='YouTube video player' class='youtube-player' type='text/html' width='250' height='250' src='http://www.youtube.com/embed/"+idVideo[1]+"' frameborder='0' allowFullScreen></iframe>");
 			}else{
-				interview.html(txPreview + "<label>" + pregunta + "</label><input type='" + dragged + "' />");
+				interview.html(txPreview + "<label>" + pregunta + " &nbsp &nbsp &nbsp &nbsp &nbsp <input type='" + dragged + "' /></label>");
 			}
 			txPreview = interview.html();
 			alert(txPreview);
 			interview.html(txPreview);
+		}
+		
+		function encontrarElemento(nombre){
+			switch(nombre){
+				case "video":
+					elementoSeleccionado = video;
+				break;
+				case "checkbox":
+					elementoSeleccionado = check;
+				break;
+				case "text":
+					elementoSeleccionado = texto;
+				break;
+				case "radio":
+					elementoSeleccionado = radiobutton;
+				break;
+				case "number":
+					elementoSeleccionado = number;
+				break;
+				case "range":
+					elementoSeleccionado = rango;
+				break;
+				case "url":
+					elementoSeleccionado = url;
+				break;
+				case "date":
+					elementoSeleccionado = date;
+				break;			
+			}
 		}
 		
 	});
