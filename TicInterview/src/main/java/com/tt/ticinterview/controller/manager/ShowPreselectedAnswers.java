@@ -32,7 +32,7 @@ public class ShowPreselectedAnswers {
         List<Answer> preselectedAnswers = answerManager.getAll();
 
         modelo.addObject("respuestasPreseleccionadas", preselectedAnswers);
-        modelo.setViewName("/Manager/ShowAllAnwer");
+        modelo.setViewName("/Manager/ShowAllAnswer");
 
         return  modelo;
     }
@@ -45,7 +45,7 @@ public class ShowPreselectedAnswers {
         List<Answer> preselectedAnswers = answerManager.getAll();
 
         modelo.addObject("respuestasPreseleccionadas", preselectedAnswers);
-        modelo.setViewName("/Manager/ShowAllAnwer");
+        modelo.setViewName("/Manager/ShowAllAnswer");
 
         return  modelo;
     }
