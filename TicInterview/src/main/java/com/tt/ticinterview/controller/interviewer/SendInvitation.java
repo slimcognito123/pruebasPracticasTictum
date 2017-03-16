@@ -27,9 +27,9 @@ public class SendInvitation {
         ModelAndView modelo =  new ModelAndView();
 
         long  idCandidate = Long.parseLong(request.getParameter("idCandidate"));
-        long  idInterviewer = Long.parseLong(request.getParameter("idInterviewer"));
+        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
 
-        interviewerManager.sendInvitation(idCandidate, idInterviewer);
+        interviewerManager.sendInvitation(idCandidate, idInterview);
 
         modelo.setViewName("/Interviewer/PanelInterviewer");
 
@@ -43,9 +43,9 @@ public class SendInvitation {
         ModelAndView modelo =  new ModelAndView();
 
         long  idCandidate = Long.parseLong(request.getParameter("idCandidate"));
-        long  idInterviewer = Long.parseLong(request.getParameter("idInterviewer"));
+        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
 
-        interviewerManager.sendInvitation(idCandidate, idInterviewer);
+        interviewerManager.sendInvitation(idCandidate, idInterview);
 
         modelo.setViewName("/Interviewer/PanelInterviewer");
 

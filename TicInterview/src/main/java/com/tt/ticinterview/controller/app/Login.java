@@ -33,12 +33,11 @@ public class Login {
         String password = request.getParameter("password");
 
         //Con la variable mail recuperamos el usuario
-        if (userManager.getByMail(mail)==null){
+        if (userManager.getByMail(mail)!=null){
             user = (BasicUser) userManager.getByMail(mail);
 
             if (user.getPassword().equals(password)){
                 switch (user.getInstanceName()){
-
                     case "admin":
                         modelo.setViewName("/Admin/PanelAdmin");
                         modelo.addObject("user",user);
@@ -71,7 +70,7 @@ public class Login {
         String password = request.getParameter("password");
 
         //Con la variable mail recuperamos el usuario
-        if (userManager.getByMail(mail)==null){
+        if (userManager.getByMail(mail)!=null){
             user = (BasicUser) userManager.getByMail(mail);
 
             if (user.getPassword().equals(password)){
