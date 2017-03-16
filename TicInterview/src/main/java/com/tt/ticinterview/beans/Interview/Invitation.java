@@ -27,8 +27,8 @@ public class Invitation extends GenericBean implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @JoinTable(name = "Interviewer")
-    @JoinColumn(name = "idInterviewer")
+    @JoinTable(name = "Interview")
+    @JoinColumn(name = "idInterview")
     private long idInterview;
     @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinTable(name = "Candidate")
