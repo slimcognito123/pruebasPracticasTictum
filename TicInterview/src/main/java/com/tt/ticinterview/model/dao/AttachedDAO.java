@@ -1,6 +1,7 @@
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.Interview.Attached;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by Tictum on 10/03/2017.
  */
+@Repository
 public class AttachedDAO implements CrudDAO<Attached> {
 
     public Attached getById(Long id){

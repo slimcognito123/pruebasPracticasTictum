@@ -2,6 +2,7 @@ package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.Candidate;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * Created by Tictum on 13/03/2017.
  */
+@Repository
 public class CandidateDAO implements BasicUserDAO<Candidate> {
     public Candidate GetUserMail(String mail) throws Exception {
         String sql = "Select user from Candidate user where user.mail = :mail";

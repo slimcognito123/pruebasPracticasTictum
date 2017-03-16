@@ -2,12 +2,14 @@ package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.user.Admin;
 import com.tt.ticinterview.beans.user.Interviewer;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 
 /**
  * Created by Tictum on 13/03/2017.
  */
+@Repository
 public class AdminDAO implements BasicUserDAO<Admin> {
 
     @Override
