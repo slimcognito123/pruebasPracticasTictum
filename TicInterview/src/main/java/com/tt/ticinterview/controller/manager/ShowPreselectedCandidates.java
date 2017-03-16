@@ -44,7 +44,7 @@ public class ShowPreselectedCandidates {
         }
 
         modelo.addObject("listaPreseleccionados", listaPreseleccionados);
-        modelo.setViewName("/Manager/ShowAllAnswer");
+        modelo.setViewName("/Manager/...");
 
         return modelo;
     }
@@ -65,7 +65,7 @@ public class ShowPreselectedCandidates {
         }
 
         modelo.addObject("listaPreseleccionados", listaPreseleccionados);
-        modelo.setViewName("/Manager/ShowAllAnswer");
+        modelo.setViewName("/Manager/...");
 
         return modelo;
     }
