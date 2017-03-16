@@ -75,7 +75,7 @@
       <li class="bg_lr span3" > <a href="#" id="video" name="video" > <i class="icon-play"></i> Video</a> </li>
       <li class="bg_lg" > <a href="#" id="checkbox" name="checkbox" > <i class="icon-check"></i> Checkbox</a> </li>
       <li class="bg_lb" > <a href="#" id="text" name="text" > <i class="icon-font"></i> Texto</a> </li>
-      <li class="bg_ly" > <a href="#" id="radioButton" name="rabioButton" > <i class="icon-list"></i> Radiobutton</a> </li>
+      <li class="bg_ly" > <a href="#" id="radioButton" name="radio" > <i class="icon-list"></i> Radiobutton</a> </li>
       <li class="bg_ls" > <a href="#" id="number" name="number" > <i class="icon-phone"></i> Número</a> </li>
       <li class="bg_ls" > <a href="#" id="range" name="range" > <i class="icon-star"></i> Range</a> </li>
       <li class="bg_ly" > <a href="#" id="url" name="url" > <i class="icon-globe"></i> URL</a> </li>
@@ -97,11 +97,13 @@
 
 
     </div>
+	<form action="" method="" align="right">
+		<button type="submit" >Crear Maqueta</button>
+		<div id="respuesta" hidden>
+		</div>
+	</form>
     </div>
   </div>
-	<form action="" method="" id="respuesta" >
-		
-	</form>
 <!--end-main-container-part-->
 
 <!--Footer-part-->
@@ -248,19 +250,35 @@ function resetMenu() {
 		}
 		
 		$("#enviarPregunta").click(function(){
-			var pregunta = $("#textoPregunta").val();
+			pregunta = $("#textoPregunta").val();
 			$("#textoPregunta").val("");
-			activar();
+			if(dragged!="video"){
+				activar();
+			}
 			resetear();
 			textForm = $("#respuesta").html();
-			$("#respuesta").html(textForm);
 			alert("Texto antes: " + textForm);
-			$("#respuesta").html(textForm + "<input type='text' id='question" + numero + "' value='" + pregunta + "' /> <input type='text' id='type" + numero + "' value='" + dragged + "' />");
+			$("#respuesta").html(textForm + "<input type='text' id='question" + numero + "' value='" + pregunta + "' /> <input type='text' id='type" + numero + "' value='" + dragged + "' /> ");
 			numero = numero + 1;
 			textForm = $("#respuesta").html();
 			$("#respuesta").html(textForm);
 			alert("Testo despues:" + textForm);
+			prevision();
 		});
+		
+		function prevision(){
+			var interview = $(".entrevista");
+			var txPreview = interview.html();
+			if(dragged=="video"){
+				var idVideo = pregunta.split("=");
+				interview.html(txPreview + "<iframe title='YouTube video player' class='youtube-player' type='text/html' width='250' height='250' src='http://www.youtube.com/embed/"+idVideo[1]+"' frameborder='0' allowFullScreen></iframe>");
+			}else{
+				interview.html(txPreview + "<label>" + pregunta + "</label><input type='" + dragged + "' />");
+			}
+			txPreview = interview.html();
+			alert(txPreview);
+			interview.html(txPreview);
+		}
 		
 	});
 	
