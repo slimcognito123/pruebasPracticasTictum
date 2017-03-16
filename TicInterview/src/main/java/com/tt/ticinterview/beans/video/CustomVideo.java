@@ -14,7 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -36,11 +38,11 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
     private String path;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinTable(name = "Interviewer")
     @JoinColumn(name = "idInterviewer")
     public long idInterviewer;    
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinTable(name = "Candidate")
     @JoinColumn(name = "idCandidate")
     public long idCandidate;

@@ -10,15 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * @since 09/03/2017
- * @author tictumTarde -JRB
- * @version 0.1
+ * @author tictumTarde -JRB -PNM
+ * @version 0.2
  */
 @Entity
 @Table(name = "Interview")
@@ -32,16 +34,49 @@ public class Interview extends GenericBean implements Serializable {
     @JoinColumn(name = "idInterviewer")
     private long idInterviewer;
     private List<Video> video;
+    @OneToOne
     private Form form;
-    private Attached attached;
+    @Column(name = "isPrivate",nullable = true)
     private boolean isPrivate;
+    @Column(name = "isSchema",nullable = true)
     public boolean isSchema;
 
     public Interview() {
     }
 
+    public Interview(long idInterviewer, boolean isPrivate, boolean isSchema) {
+        this.idInterviewer = idInterviewer;
+        this.isPrivate = isPrivate;
+        this.isSchema = isSchema;
+    }
+    
+    
+    public Interview(long idInterviewer, List<Video> video, Form form, boolean isPrivate, boolean isSchema) {
+        this.idInterviewer = idInterviewer;
+        this.video = video;
+        this.form = form;
+        this.isPrivate = isPrivate;
+        this.isSchema = isSchema;
+    }
+
+    public Interview(long idInterviewer, List<Video> video, Form form) {
+        this.idInterviewer = idInterviewer;
+        this.video = video;
+        this.form = form;
+    }
+    
+    
+    
     public long getIdInterview() {
         return idInterview;
+    }
+
+    public boolean isIsSchema() {
+        return isSchema;
+    }
+
+    public void setIsSchema(boolean isSchema) {
+        this.isSchema = isSchema;
     }
 
     public void setIdInterview(long idInterview) {
@@ -72,14 +107,6 @@ public class Interview extends GenericBean implements Serializable {
         this.form = form;
     }
 
-    public Attached getAttached() {
-        return attached;
-    }
-
-    public void setAttached(Attached attached) {
-        this.attached = attached;
-    }
-
     public boolean isPrivate() {
         return isPrivate;
     }
@@ -106,8 +133,10 @@ public class Interview extends GenericBean implements Serializable {
 
     @Override
     public String toString() {
-        return "Interview{" + "idInterview=" + idInterview + ", idInterviewer=" + idInterviewer + ", video=" + video + ", form=" + form + ", attached=" + attached + ", isPrivate=" + isPrivate + ", isSchema=" + isSchema + '}';
+        return "Interview{" + "idInterview=" + idInterview + ", idInterviewer=" + idInterviewer + ", video=" + video + ", form=" + form + ", isPrivate=" + isPrivate + ", isSchema=" + isSchema + '}';
     }
+
+
 
     @Override
     public int hashCode() {

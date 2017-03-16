@@ -8,7 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -33,7 +35,7 @@ public class CandidateVideo extends GenericBean implements Video, Serializable{
     private String name;
     @Column(name = "tMax", nullable = true)
     private int tMax;
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinTable(name = "Candidate")
     @JoinColumn(name = "idCandidate")
     private long idCandidate;
