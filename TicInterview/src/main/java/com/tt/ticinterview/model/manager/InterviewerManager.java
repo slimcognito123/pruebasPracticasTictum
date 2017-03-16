@@ -107,7 +107,7 @@ public class InterviewerManager implements UserManager<Interviewer>{
     }
 
     public void sendInvitation(long idCandidate, long idInterviewer) {
-        //implementar
+        // TODO implementar
     }
 
     public void valorationAnswer(long idInterview, long idInterviewer) {
