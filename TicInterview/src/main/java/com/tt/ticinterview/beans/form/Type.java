@@ -13,7 +13,7 @@ package com.tt.ticinterview.beans.form;
 public enum Type {
     
     CHECKBOX,TEXT,NUMBER,DATE,RESET,SELECT,
-    OPTION,RADIOBUTTON,RANGE,URL,VIDEO
+    OPTION,RADIOBUTTON,RANGE,URL,VIDEO,ATTACHED
     
     
 }
