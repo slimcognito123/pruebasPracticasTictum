@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.batch:spring-batch-core:1.1.3.RELEASE-A">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/batch/spring-batch-core/1.1.3.RELEASE-A/spring-batch-core-1.1.3.RELEASE-A.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/batch/spring-batch-core/1.1.3.RELEASE-A/spring-batch-core-1.1.3.RELEASE-A-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/batch/spring-batch-core/1.1.3.RELEASE-A/spring-batch-core-1.1.3.RELEASE-A-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
