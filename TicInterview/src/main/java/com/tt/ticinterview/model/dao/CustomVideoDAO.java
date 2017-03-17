@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Tictum on 13/03/2017.
  */
-@Repository
+@Repository("CustomVideoDAO")
 public class CustomVideoDAO implements VideoDAO<CustomVideo> {
 
     @Override

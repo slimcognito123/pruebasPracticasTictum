@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Tictum on 10/03/2017.
  */
-@Repository
+@Repository(value = "QuestionDAO")
 public class QuestionDAO implements CrudDAO<Question>{
     public Question getById(Long id){
         return entityManager.find(Question.class,id);

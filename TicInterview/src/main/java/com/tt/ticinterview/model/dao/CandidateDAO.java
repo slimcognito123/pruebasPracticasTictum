@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Tictum on 13/03/2017.
  */
-@Repository
+@Repository("CandidateDAO")
 public class CandidateDAO implements BasicUserDAO<Candidate> {
     public Candidate GetUserMail(String mail) throws Exception {
         String sql = "Select user from Candidate user where user.mail = :mail";

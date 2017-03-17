@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author tictumTarde
  */
-@Repository
+@Repository("InterviewDAO")
 public class InterviewDAO implements CrudDAO<Interview> {
     public Interview getById(Long id){
         return entityManager.find(Interview.class,id);

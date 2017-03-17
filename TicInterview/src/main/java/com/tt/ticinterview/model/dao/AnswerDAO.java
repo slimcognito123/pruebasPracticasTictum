@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Tictum on 14/03/2017.
  */
-@Repository
+@Repository("AnswerDAO")
 public class AnswerDAO implements CrudDAO<Answer> {
     @Override
     public Answer getById(Long id) throws Exception {

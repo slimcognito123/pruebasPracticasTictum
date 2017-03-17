@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Tictum on 10/03/2017.
  */
-@Repository
+@Repository("FormDAO")
 public class FormDAO implements CrudDAO<Form> {
     public Form getById(Long id){
         return entityManager.find(Form.class,id);

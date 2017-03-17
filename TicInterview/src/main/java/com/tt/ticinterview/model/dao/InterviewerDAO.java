@@ -14,7 +14,7 @@ import java.util.List;
  * @version 0.1
  */
 
-@Repository
+@Repository("InterviewerDAO")
 public class InterviewerDAO  implements BasicUserDAO<Interviewer>{
 
     public Interviewer GetUserMail(String mail) throws Exception {
