@@ -20,5 +20,7 @@ public class AnswerDAO implements CrudDAO<Answer> {
         return null;
     }
 
-    //Crear metodo para Modificar Answer
+    public void modify(Answer answer){
+
+    }
 }

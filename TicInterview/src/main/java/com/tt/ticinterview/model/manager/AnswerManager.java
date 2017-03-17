@@ -68,7 +68,7 @@ public class AnswerManager {
 
     public void modify(Answer answer){
         try {
-            return answerDAO.modify(answer);
+            answerDAO.modify(answer);
         }catch (Exception e){
             System.err.println("ERROR modify " + e);
         }
