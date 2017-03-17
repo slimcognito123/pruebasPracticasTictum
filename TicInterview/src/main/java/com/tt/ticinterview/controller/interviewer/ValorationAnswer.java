@@ -26,7 +26,7 @@ public class ValorationAnswer {
         ModelAndView modelo =  new ModelAndView();
 
         int valoration = Integer.parseInt(request.getParameter("valoration"));
-        long  idAnswer = Long.parseLong(request.getParameter("idAnswer"));
+        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
         answerManager.valorationAnswer(idAnswer, valoration);
 
@@ -41,7 +41,7 @@ public class ValorationAnswer {
         ModelAndView modelo =  new ModelAndView();
 
         int valoration = Integer.parseInt(request.getParameter("valoration"));
-        long  idAnswer = Long.parseLong(request.getParameter("idAnswer"));
+        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
         answerManager.valorationAnswer(idAnswer, valoration);
 

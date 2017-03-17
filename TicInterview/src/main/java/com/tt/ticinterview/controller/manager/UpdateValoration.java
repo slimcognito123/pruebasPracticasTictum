@@ -31,7 +31,7 @@ public class UpdateValoration {
         ModelAndView modelo =  new ModelAndView();
 
         int updateValoration = Integer.parseInt(request.getParameter("updateValoration"));
-        long idAnswer = Long.parseLong(request.getParameter("updateValoration"));
+        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
         answerManager.valorationAnswer(idAnswer, updateValoration);
 
@@ -47,7 +47,7 @@ public class UpdateValoration {
         ModelAndView modelo =  new ModelAndView();
 
         int updateValoration = Integer.parseInt(request.getParameter("updateValoration"));
-        long idAnswer = Long.parseLong(request.getParameter("updateValoration"));
+        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
         answerManager.valorationAnswer(idAnswer, updateValoration);
 
