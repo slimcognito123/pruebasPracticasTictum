@@ -66,4 +66,12 @@ public class AnswerManager {
         return null;
     }
 
+    public void modify(Answer answer){
+        try {
+            return answerDAO.modify(answer);
+        }catch (Exception e){
+            System.err.println("ERROR modify " + e);
+        }
+    }
+
 }
