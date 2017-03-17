@@ -26,15 +26,14 @@ public class UpdateValoration {
     private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.POST)
-    public ModelAndView sendInvitationPost(HttpServletRequest request, Answer answer){
+    public ModelAndView sendInvitationPost(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();
 
         int updateValoration = Integer.parseInt(request.getParameter("updateValoration"));
+        long idAnswer = Long.parseLong(request.getParameter("updateValoration"));
 
-        answer.setValoration(updateValoration);
-
-        answerManager.modify(answer);
+        answerManager.valorationAnswer(idAnswer, updateValoration);
 
         modelo.setViewName("/Manager/PanelManager");
 
@@ -43,15 +42,14 @@ public class UpdateValoration {
     }
 
     @RequestMapping(method= RequestMethod.GET)
-    public ModelAndView sendInvitationGet(HttpServletRequest request, Answer answer){
+    public ModelAndView sendInvitationGet(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();
 
         int updateValoration = Integer.parseInt(request.getParameter("updateValoration"));
+        long idAnswer = Long.parseLong(request.getParameter("updateValoration"));
 
-        answer.setValoration(updateValoration);
-
-        answerManager.modify(answer);
+        answerManager.valorationAnswer(idAnswer, updateValoration);
 
         modelo.setViewName("/Manager/PanelManager");
 

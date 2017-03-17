@@ -20,7 +20,7 @@ public class AnswerDAO implements CrudDAO<Answer> {
         return null;
     }
 
-    public void modify(Answer answer){
+    public void valorationAnswer(long idAnswer, int valoration){
 
     }
 }
