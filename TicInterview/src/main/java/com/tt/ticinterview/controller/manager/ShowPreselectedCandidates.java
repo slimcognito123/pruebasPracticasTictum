@@ -21,11 +21,12 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/ShowPreselectedCandidates.do")
+@RequestMapping("/showPreselectedCandidates.do")
 public class ShowPreselectedCandidates {
 
     @Autowired
     private AnswerManager answerManager;
+    @Autowired
     private CandidateManager candidateManager;
 
     @RequestMapping(method= RequestMethod.GET)
@@ -37,14 +38,14 @@ public class ShowPreselectedCandidates {
         List<Answer> listaAnswers = answerManager.getAll();
 
         for (Answer answer:listaAnswers) {
-            if(answer.isSelected()){
+            if(answer.getValoration() > 5){
                 listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate()));
             }
 
         }
 
         modelo.addObject("listaPreseleccionados", listaPreseleccionados);
-        modelo.setViewName("/Manager/...");
+        modelo.setViewName("/Manager/PanelManager");
 
         return modelo;
     }
@@ -58,14 +59,14 @@ public class ShowPreselectedCandidates {
         List<Answer> listaAnswers = answerManager.getAll();
 
         for (Answer answer:listaAnswers) {
-            if(answer.isSelected()){
+            if(answer.getValoration() > 5){
                 listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate()));
             }
 
         }
 
         modelo.addObject("listaPreseleccionados", listaPreseleccionados);
-        modelo.setViewName("/Manager/...");
+        modelo.setViewName("/Manager/PanelManager");
 
         return modelo;
     }

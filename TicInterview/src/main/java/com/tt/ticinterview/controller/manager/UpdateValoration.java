@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @Controller
-@RequestMapping("/UpdateValoration.do")
+@RequestMapping("/updateValoration.do")
 public class UpdateValoration {
 
     @Autowired
@@ -28,12 +28,11 @@ public class UpdateValoration {
 
         ModelAndView modelo =  new ModelAndView();
 
-        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
-        long  idInterviewer = Long.parseLong(request.getParameter("idInterviewer"));
+        int updateValoration = Integer.parseInt(request.getParameter("updateValoration"));
 
-        interviewerManager.valorationAnswer(idInterview, idInterviewer);
 
-        modelo.setViewName("/Manager/...");
+
+        modelo.setViewName("/Manager/PanelManager");
 
         return  modelo;
 
