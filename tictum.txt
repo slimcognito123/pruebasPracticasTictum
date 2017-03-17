@@ -1,4 +1,3 @@
-
 hola 
-dola
-บบบบบบบบบบบบบบบบบบบhola 
+camera android sencilla:
+https://github.com/afollestad/material-camera
