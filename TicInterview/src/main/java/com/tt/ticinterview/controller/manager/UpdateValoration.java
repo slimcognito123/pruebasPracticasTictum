@@ -38,7 +38,6 @@ public class UpdateValoration {
         modelo.setViewName("/Manager/PanelManager");
 
         return  modelo;
-
     }
 
     @RequestMapping(method= RequestMethod.GET)
@@ -54,6 +53,6 @@ public class UpdateValoration {
         modelo.setViewName("/Manager/PanelManager");
 
         return  modelo;
-
     }
+
 }

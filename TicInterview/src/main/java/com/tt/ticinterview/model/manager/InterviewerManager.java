@@ -125,9 +125,10 @@ public class InterviewerManager implements UserManager<Interviewer>{
         }
         catch(Exception e){
             final String msg = "Excepción en el envío de emails con recursos incrustados.";
-            System.out.println("\033[33m"+msg);
-            System.out.print("\033[32m"+e.getStackTrace());
+            System.err.println("\033[33m"+msg);
+            System.err.print("\033[32m"+e.getStackTrace());
             e.printStackTrace();
         }
     }
+
 }
