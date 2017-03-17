@@ -3,6 +3,7 @@ package com.tt.ticinterview.model.dao;
 import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.user.Interviewer;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * @version 0.1
  */
 
-
+@Repository("InterviewerDAO")
 public class InterviewerDAO  implements BasicUserDAO<Interviewer>{
 
     public Interviewer GetUserMail(String mail) throws Exception {

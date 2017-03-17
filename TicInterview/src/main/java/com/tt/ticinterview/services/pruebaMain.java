@@ -3,6 +3,10 @@ import com.tt.ticinterview.services.*;
 /**
  * Created by Tictum on 15/03/2017.
  */
+
+/**
+ * En clase model.manager.InterviewerManager
+ */
 public class pruebaMain {
     public static void main(String[] args) {
         try {

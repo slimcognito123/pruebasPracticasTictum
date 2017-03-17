@@ -6,6 +6,7 @@
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.Interview.Interview;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author tictumTarde
  */
-
+@Repository("InterviewDAO")
 public class InterviewDAO implements CrudDAO<Interview> {
     public Interview getById(Long id){
         return entityManager.find(Interview.class,id);

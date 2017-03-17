@@ -1,5 +1,6 @@
 package com.tt.ticinterview.controller.interviewer;
 
+import com.tt.ticinterview.model.manager.AnswerManager;
 import com.tt.ticinterview.model.manager.InterviewerManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,24 +17,37 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/valorationAnswer.do")
 public class ValorationAnswer {
 
-
     @Autowired
-    private InterviewerManager interviewerManager;
+    private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)
-    public ModelAndView sendInvitationGet(HttpServletRequest request){
+    public ModelAndView valorationAnswerGet(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();
 
-        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
-        long  idInterviewer = Long.parseLong(request.getParameter("idInterviewer"));
+        int valoration = Integer.parseInt(request.getParameter("valoration"));
+        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
 
-        interviewerManager.valorationAnswer(idInterview, idInterviewer);
+        answerManager.valorationAnswer(idAnswer, valoration);
 
         modelo.setViewName("/Interviewer/PanelInterviewer");
 
         return  modelo;
+    }
 
+    @RequestMapping(method= RequestMethod.POST)
+    public ModelAndView valorationAnswerPost(HttpServletRequest request){
+
+        ModelAndView modelo =  new ModelAndView();
+
+        int valoration = Integer.parseInt(request.getParameter("valoration"));
+        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
+
+        answerManager.valorationAnswer(idAnswer, valoration);
+
+        modelo.setViewName("/Interviewer/PanelInterviewer");
+
+        return  modelo;
     }
 
 

@@ -1,7 +1,10 @@
 package com.tt.ticinterview.model.manager;
 
+import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.user.Interviewer;
+import com.tt.ticinterview.model.dao.CandidateDAO;
 import com.tt.ticinterview.model.dao.InterviewerDAO;
+import com.tt.ticinterview.services.MailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,13 @@ public class InterviewerManager implements UserManager<Interviewer>{
     @Autowired
     @Qualifier("InterviewerDAO")
     private InterviewerDAO interviewerDAO;
+
+    @Autowired
+    @Qualifier("CandidateDAO")
+    private CandidateDAO candidateDAO;
+
+    @Autowired
+    private MailServiceImpl mailService;
 
     @Transactional
     public void register(Interviewer interviewer){
@@ -107,10 +117,18 @@ public class InterviewerManager implements UserManager<Interviewer>{
     }
 
     public void sendInvitation(long idCandidate, long idInterview) {
-        // TODO implementar
+
+        try {
+            Candidate candidate = candidateDAO.getById(idCandidate);
+
+            mailService.send(candidate.getMail(), "Inviatacion Entrevista","Sie haben eine Termin mit uns");
+        }
+        catch(Exception e){
+            final String msg = "Excepción en el envío de emails con recursos incrustados.";
+            System.err.println("\033[33m"+msg);
+            System.err.print("\033[32m"+e.getStackTrace());
+            e.printStackTrace();
+        }
     }
 
-    public void valorationAnswer(long idInterview, long idInterviewer) {
-        //implementar
-    }
 }

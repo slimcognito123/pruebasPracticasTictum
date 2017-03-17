@@ -66,4 +66,12 @@ public class AnswerManager {
         return null;
     }
 
+    public void valorationAnswer(long idInterview, int valoration) {
+        try {
+            answerDAO.valorationAnswer(idInterview, valoration);
+        }catch (Exception e){
+            System.err.println("ERROR modify " + e);
+        }
+    }
+
 }

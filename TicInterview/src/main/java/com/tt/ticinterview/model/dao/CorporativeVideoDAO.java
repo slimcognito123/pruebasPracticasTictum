@@ -1,6 +1,7 @@
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.video.CorporativeVideo;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by Tictum on 13/03/2017.
  */
+@Repository
 public class CorporativeVideoDAO implements VideoDAO<CorporativeVideo> {
     @Override
     public CorporativeVideo getById(Long id) {
