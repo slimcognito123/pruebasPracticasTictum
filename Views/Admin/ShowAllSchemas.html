@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TIC Interviews | Entrevistas creadas</title>
+<title>TIC Interviews | Todas Entrevistas</title>
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
 <link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
@@ -13,10 +12,6 @@
 <link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
-
 <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
@@ -24,7 +19,7 @@
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="#">alvarito</a></h1>
+  <h1><a href="dashboard.html">alvarito</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -32,26 +27,33 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
  <ul class="nav">
-    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenido Entrevistador: XXXXX</span><b class="caret"></b></a>
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenido Administrador: XXXX</span><b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="#"><i class="icon-user"></i> Mi Perfil</a></li>
+        <li><a href="#"><i class="icon-user-md"></i> Mi Perfil</a></li>
         <li class="divider"></li>
-        <li><a href="../access/logInterviewer.html"><i class="icon-key"></i> Cerrar Sesión</a></li>
+        <li><a href="../Access/logAdmin.html"><i class="icon-key"></i> Cerrar Sesión</a></li>
       </ul>
+      <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-cog"></i> <span class="text"> Configuración de Usuarios</span> <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a  title="" href="CreateUser.html"><i class="icon-plus"></i> Crear Usuario</a></li>
+        <li class="divider"></li>
+        <li><a  title="" href="ManagerUsers.html"><i class="icon-wrench"></i> Gestión de Usuarios</a></li>
+      </ul>
+    </li>
 </div>
 <!--close-top-Header-menu-->
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Inicio</a>
   <ul>
-    <li class=""><a href="PanelInterviewer.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
+    <li class=""><a href="PanelAdmin.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
 
     <li class=""> <a href="NewSchema.html"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
 
-    <li class="active"> <a href="ShowMySchemas.html"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
+    <li class="active"> <a href="ShowAllSchemas.html"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
 
-    <li class=""> <a href="ShowMyAnswers.html"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
+    <li class=""> <a href="ShowAllAnswers.html"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
 
-    </ul>
+    
    
 </div>
 <!--sidebar-menu-->
@@ -60,7 +62,7 @@
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="PanelInterviewer.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a><a href="#" class="current">Entrevistas Creadas</a></div>
+    <div id="breadcrumb"> <a href="PanelAdmin.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a><a href="#" class="current">Entrevistas Creadas</a></div>
   <h1>Entrevistas Creadas</h1>
   </div>
    <hr>

@@ -206,7 +206,7 @@ function resetMenu() {
 		
 		$(".entrevista").droppable({
 			drop: function(event, ui) {
-				$(this).css('background', 'rgb(0,200,0)');
+				$(this).css('background', '#B3C2B2');
 				dragged = ui.draggable.attr('name');
 				encontrarElemento(dragged);
 				desactivar();
@@ -215,7 +215,7 @@ function resetMenu() {
 				$("#pregunta").focus();
 			},
 			over: function(event, ui) {
-				$(this).css('background', 'orange');
+				$(this).css('background', '#CFEAE9');
 			},
 			out: function(event, ui) {
 				$(this).css('background', '#eeeeee');  
