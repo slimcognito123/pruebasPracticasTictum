@@ -61,9 +61,9 @@
 
     <li class=""> <a href="NewSchema.html"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
 
-    <li class=""> <a href=""><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
+    <li class=""> <a href="ShowAllSchemas.html"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
 
-    <li class=""> <a href=""><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
+    <li class=""> <a href="ShowAllAnswers.html"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
 </div>
 <!--sidebar-menu-->
 
