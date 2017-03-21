@@ -106,6 +106,9 @@
 		</div>
 	</form>
 	<div id="listaPreguntas">
+	<tbody>
+        
+    </tbody>
 	</div>
     </div>
   </div>
@@ -206,7 +209,7 @@ function resetMenu() {
 		
 		$(".entrevista").droppable({
 			drop: function(event, ui) {
-				$(this).css('background', 'rgb(0,200,0)');
+				$(this).css('background', '#B3C2B2');
 				dragged = ui.draggable.attr('name');
 				encontrarElemento(dragged);
 				desactivar();
@@ -215,7 +218,7 @@ function resetMenu() {
 				$("#pregunta").focus();
 			},
 			over: function(event, ui) {
-				$(this).css('background', 'orange');
+				$(this).css('background', '#CFEAE9');
 			},
 			out: function(event, ui) {
 				$(this).css('background', '#eeeeee');  
@@ -283,9 +286,9 @@ function resetMenu() {
 			$("#terminar").hide();
 			var x = $("#listaPreguntas").html();
 			if(dragged == "video"){
-				$("#listaPreguntas").html(x + "Pregunta de video<br/>");
+				$("#listaPreguntas").html(x + "<tr><td class='taskDesc'><i class='icon-info-sign'></i>Pregunta Video</td><td class='taskOptions'><i class='icon-ok'></i></td></tr><br/>");
 			}else{
-				$("#listaPreguntas").html(x + "Formulario<br/>");
+				$("#listaPreguntas").html(x + "<tr><td class='taskDesc'><i class='icon-info-sign'></i>Formulario</td><td class='taskOptions'><i class='icon-ok'></i></td></tr><br/>");
 			}
 			video.draggable('enable');
 		});
@@ -295,7 +298,7 @@ function resetMenu() {
 			var txPreview = interview.html();
 			if(dragged=="video"){
 				var idVideo = pregunta.split("=");
-				interview.html(txPreview + "<iframe title='YouTube video player' class='youtube-player' type='text/html' width='250' height='250' src='http://www.youtube.com/embed/"+idVideo[1]+"' frameborder='0' allowFullScreen></iframe>");
+				interview.html(txPreview + "<p align='center'><iframe title='YouTube video player' class='youtube-player' type='text/html' width='650px' height='300px' src='http://www.youtube.com/embed/"+idVideo[1]+"' frameborder='0' allowFullScreen></iframe></p>");
 			}else{
 				interview.html(txPreview + "<label>" + pregunta + " &nbsp &nbsp &nbsp &nbsp &nbsp <input type='" + dragged + "' /></label>");
 			}

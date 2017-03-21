@@ -1,4 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ page import="java.util.List" %>
+<%@ page import="beans.Interview" %>
 <html lang="en">
 <head>
 <title>TIC Interviews</title>
@@ -16,6 +20,14 @@
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
+<%
+	List<Interview> listaEntrevistas;
+	if(request.getAttribute("listaEntrevistas") != null){
+		listaEntrevistas = request.getAttribute("listaEntrevistas");
+	}else{
+		response.sendRedirect("../java/com/tt/ticinterview/controller/admin/ShowAllInterviews.do");
+	}
+%>
 
 <!--Header-part-->
 <div id="header">
@@ -75,26 +87,18 @@
                 <tr>
                   <th>Descripción</th>
                   <th>Estado</th>
-                  <th>Realizar Entrevista</th>
+                  <th>Ver Entrevista</th>
                 </tr>
               </thead>
 
               <tbody>
+				<% for(entrevista : listaEntrevistas){ %>
                 <tr>
-                  <td class="taskDesc"><i class="icon-info-sign"></i>Desarrollador Front-End - Maquetación en nuevos estándares web, Posicionamiento SEO...</td>
-                  <td class="taskStatus"><span class="done">Activa</span></td>
-                  <td class="taskOptions"><a href="login.html" class="tip-top" data-original-title="¡Adelante!"><i class="icon-ok"></i></a></td>
+                  <td class="taskDesc"><i class="icon-info-sign"></i><%= entrevista.getName(); %></td>
+                  <td class="taskStatus"><span class="done"><%= (entrevista.isPrivate) ? ("Privada") : ("Publica");%></span></td>
+                  <td class="taskOptions"><a href="../java/com/tt/ticinterview/controller/interviewer/GetSchema.do?id="<%=entrevista.getId() %>" class="tip-top" data-original-title="¡Adelante!"><i class="icon-ok"></i></a></td>
                 </tr>
-                <tr>
-                <td class="taskDesc"><i class="icon-info-sign"></i>Desarrollador Back-End - Valoramos si eres capaz de pasar 48h. programando</td>
-                  <td class="taskStatus"><span class="done">Activa</span></td>
-                  <td class="taskOptions"><a href="login.html" class="tip-top" data-original-title="¡Adelante!"><i class="icon-ok"></i></a></td>
-                </tr>
-                <tr>
-                  <td class="taskDesc"><i class="icon-info-sign"></i>Camarero de cafés y limpia polvo de los teclados de la oficina</td>
-                  <td class="taskStatus"><span class="pending">No se aceptan más candidatos</span></td>
-                  <td class="taskOptions"><a href="#" class="tip-top" data-original-title="¡Lo sentimos!"><i class="icon-remove"></i></a></td>
-                </tr>
+				<% } %>
               </tbody>
             </table>
           </div>
