@@ -5,6 +5,8 @@
  */
 package com.tt.ticinterview.configuration;
 
+import com.tt.ticinterview.model.manager.InterviewManager;
+import com.tt.ticinterview.model.manager.InterviewerManager;
 import java.util.Properties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -22,8 +24,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @author pnaca
  */
 @Configuration
-@ComponentScan(basePackages = {
-        "com.tt.ticinterview"})
+@ComponentScan(basePackages = {"com.tt.ticinterview","com.tt.ticinterview.model.dao","com.tt.ticinterview.model.manager"})
 @EnableWebMvc
 
 @EnableTransactionManagement
@@ -72,4 +73,9 @@ public class AppConfig {
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         return properties;
     }
+     
+//     @Bean
+//     public InterviewerManager I(){
+//         return new InterviewerManager();
+//     }
 }
