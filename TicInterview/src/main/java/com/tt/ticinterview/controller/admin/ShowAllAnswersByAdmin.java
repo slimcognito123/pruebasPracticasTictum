@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by Tictum on 14/03/2017.
@@ -15,13 +16,14 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/ShowAllAnswersByAdmin.do")
 public class ShowAllAnswersByAdmin {
-//    @Autowired
-//    private AnswerManager business;
-//
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String createUser(Interviewer interviewer, HttpSession session) {
-//        if (session == null) return "index";
-//        business.getAll();
-//        return "adminGlobal";
-//    }
+    @Autowired
+    @Qualifier("AnswerManager")
+    private AnswerManager business;
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String createUser(Interviewer interviewer, HttpSession session) {
+        if (session == null) return "index";
+        business.getAll();
+        return "adminGlobal";
+    }
 }

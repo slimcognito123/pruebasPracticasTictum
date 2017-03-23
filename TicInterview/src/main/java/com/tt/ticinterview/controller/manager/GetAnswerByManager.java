@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @since 09/03/2017
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GetAnswerByManager {
 
     @Autowired
+    @Qualifier("AnswerManager")
     private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)

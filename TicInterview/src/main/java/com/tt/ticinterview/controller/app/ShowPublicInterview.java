@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 13/03/2017.
@@ -21,6 +22,7 @@ public class ShowPublicInterview {
 
 
     @Autowired
+    @Qualifier("InterviewManager")
     private InterviewManager interviewManager;
 
     @RequestMapping(method= RequestMethod.GET)

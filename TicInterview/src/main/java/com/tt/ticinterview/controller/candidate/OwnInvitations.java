@@ -20,25 +20,30 @@ import com.tt.ticinterview.model.manager.CandidateManager;
 import com.tt.ticinterview.model.manager.InterviewManager;
 import com.tt.ticinterview.model.manager.UserManager;
 import com.tt.ticinterview.model.manager.VideoManager;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Controller
 @RequestMapping("/OwnsInvitations.do")
 @SessionAttributes("user")
 public class OwnInvitations {
-	@Autowired
-	InterviewManager interviewManager;
-	@Autowired
-	CandidateManager candidateManager;
-	@RequestMapping(method = RequestMethod.GET)
-	public String showPublicGet(@ModelAttribute("user") Candidate user,Model modelo) {
-		
-		modelo.addAttribute("list", candidateManager.getOwnInterviews(user));
-		return "PanelCandidate.jsp";
 
-	}
+    @Autowired
+    @Qualifier("InterviewManager")
+    InterviewManager interviewManager;
+    @Autowired
+    @Qualifier("CandidateManager")
+    CandidateManager candidateManager;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String saveVideoPost( @ModelAttribute("user") Candidate user,Model modelo) {
-		return showPublicGet(user,modelo);
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String showPublicGet(@ModelAttribute("user") Candidate user, Model modelo) {
+
+        modelo.addAttribute("list", candidateManager.getOwnInterviews(user));
+        return "PanelCandidate.jsp";
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveVideoPost(@ModelAttribute("user") Candidate user, Model modelo) {
+        return showPublicGet(user, modelo);
+    }
 }

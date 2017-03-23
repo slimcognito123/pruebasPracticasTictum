@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @since 09/03/2017
@@ -19,26 +20,27 @@ import java.util.List;
  * @version 0.1
  * @
  */
-
 @Controller
 @RequestMapping("/showPreselectedCandidates.do")
 public class ShowPreselectedCandidates {
 
     @Autowired
+    @Qualifier("AnswerManager")
     private AnswerManager answerManager;
     @Autowired
+    @Qualifier("CandidateManager")
     private CandidateManager candidateManager;
 
-    @RequestMapping(method= RequestMethod.GET)
-    public ModelAndView showPreselectedCandidatesGet(){
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView showPreselectedCandidatesGet() {
 
-        ModelAndView modelo =  new ModelAndView();
+        ModelAndView modelo = new ModelAndView();
         List<Candidate> listaPreseleccionados = new ArrayList<>();
 
         List<Answer> listaAnswers = answerManager.getAll();
 
-        for (Answer answer:listaAnswers) {
-            if(answer.getValoration() > 5){
+        for (Answer answer : listaAnswers) {
+            if (answer.getValoration() > 5) {
                 listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate().getId()));
             }
 
@@ -50,16 +52,16 @@ public class ShowPreselectedCandidates {
         return modelo;
     }
 
-    @RequestMapping(method= RequestMethod.POST)
-    public ModelAndView showPreselectedCandidatesPost(){
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView showPreselectedCandidatesPost() {
 
-        ModelAndView modelo =  new ModelAndView();
+        ModelAndView modelo = new ModelAndView();
         List<Candidate> listaPreseleccionados = new ArrayList<>();
 
         List<Answer> listaAnswers = answerManager.getAll();
 
-        for (Answer answer:listaAnswers) {
-            if(answer.getValoration() > 5){
+        for (Answer answer : listaAnswers) {
+            if (answer.getValoration() > 5) {
                 listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate().getId()));
             }
 

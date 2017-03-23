@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @since 09/03/2017
@@ -23,6 +24,7 @@ import java.util.List;
 public class SelectCandidate {
 
     @Autowired
+    @Qualifier("AnswerManager")
     private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)

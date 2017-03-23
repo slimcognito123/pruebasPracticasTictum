@@ -3,6 +3,7 @@ package com.tt.ticinterview.controller.interviewer;
 import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.model.manager.InterviewManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class CreateInterviewByInterviewer {
 
     @Autowired
+    @Qualifier("InterviewManager")
     private InterviewManager interviewManager;
 
     public ModelAndView createInterview(Interview interview){

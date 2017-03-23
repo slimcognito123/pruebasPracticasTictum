@@ -41,7 +41,7 @@ public class AttachedManager {
         }
     }
 
-    @Transactional
+    
     public Attached getById(long id){
         try{
             return attachedDAO.getById(id);
@@ -51,7 +51,7 @@ public class AttachedManager {
         return null;
     }
 
-    @Transactional
+    
     public List<Attached> getAll(){
         try{
             return attachedDAO.getAll();

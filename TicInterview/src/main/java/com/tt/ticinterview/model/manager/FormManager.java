@@ -43,7 +43,7 @@ public class FormManager {
 
     }
 
-    @Transactional
+ 
     public Form getById(long id){
         try{
             return formDAO.getById(id);
@@ -53,7 +53,7 @@ public class FormManager {
         return null;
     }
 
-    @Transactional
+ 
     public List<Form> getAll(){
         try {
             return formDAO.getAll();

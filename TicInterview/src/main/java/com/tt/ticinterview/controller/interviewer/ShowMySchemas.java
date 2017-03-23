@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 14/03/2017.
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 public class ShowMySchemas {
 
     @Autowired
+    @Qualifier("InterviewManager")
     private InterviewManager interviewManager;
 
     @RequestMapping(method= RequestMethod.GET)

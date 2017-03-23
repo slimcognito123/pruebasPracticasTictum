@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 14/03/2017.
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ValorationAnswer {
 
     @Autowired
+    @Qualifier("AnswerManager")
     private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)

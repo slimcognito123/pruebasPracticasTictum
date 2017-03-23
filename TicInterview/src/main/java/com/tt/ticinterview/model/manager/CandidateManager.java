@@ -25,6 +25,7 @@ public class CandidateManager implements UserManager<Candidate> {
     private CandidateDAO candidateDAO;
 
     @Transactional
+    @Override
     public void register(Candidate candidate){
         try{
             candidateDAO.save(candidate);
@@ -33,7 +34,8 @@ public class CandidateManager implements UserManager<Candidate> {
         }
     }
 
-    @Transactional
+   
+    @Override
     public Candidate getById(long id){
         try{
             return candidateDAO.getById(id);
@@ -43,7 +45,8 @@ public class CandidateManager implements UserManager<Candidate> {
         return null;
     }
 
-    @Transactional
+  
+    @Override
     public Candidate getByMail(String mail){
         try{
             return candidateDAO.getUserMail(mail);
@@ -53,7 +56,8 @@ public class CandidateManager implements UserManager<Candidate> {
         return null;
     }
 
-    @Transactional
+  
+    @Override
     public List<Candidate> getAll(){
         try{
             return candidateDAO.getAll();
@@ -64,6 +68,7 @@ public class CandidateManager implements UserManager<Candidate> {
     }
 
     @Transactional
+    @Override
     public void modify(Candidate candidate){
         try{
             candidateDAO.modify(candidate);
@@ -73,6 +78,7 @@ public class CandidateManager implements UserManager<Candidate> {
     }
 
     @Transactional
+    @Override
     public void delete(Candidate candidate){
         try{
             candidateDAO.delete(candidate);
@@ -81,7 +87,7 @@ public class CandidateManager implements UserManager<Candidate> {
         }
     }
 
-    @Transactional
+   
     public List<Interview> getOwnInterviews(Candidate candidate){
         try{
             return candidateDAO.getOwnInterviews(candidate);

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 14/03/2017.
@@ -21,6 +22,7 @@ import java.util.List;
 public class ShowMyInterviews {
 
     @Autowired
+    @Qualifier("InterviewManager")
     private InterviewManager interviewManager;
 
     @RequestMapping(method= RequestMethod.GET)

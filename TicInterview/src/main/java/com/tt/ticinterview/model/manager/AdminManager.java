@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 /**
@@ -25,6 +24,7 @@ public class AdminManager implements UserManager<Admin> {
     private AdminDAO adminDAO;
 
     @Transactional
+    @Override
     public void register(Admin admin){
         try{
             adminDAO.save(admin);
@@ -33,7 +33,8 @@ public class AdminManager implements UserManager<Admin> {
         }
     }
 
-    @Transactional
+
+    @Override
     public Admin getById(long id){
         try{
             return adminDAO.getById(id);
@@ -43,7 +44,8 @@ public class AdminManager implements UserManager<Admin> {
         return null;
     }
 
-    @Transactional
+  
+    @Override
     public Admin getByMail(String mail){
         try{
             return adminDAO.getUserMail(mail);
@@ -53,7 +55,8 @@ public class AdminManager implements UserManager<Admin> {
         return null;
     }
 
-    @Transactional
+   
+    @Override
     public List<Admin> getAll(){
         try{
             return adminDAO.getAll();
@@ -64,6 +67,7 @@ public class AdminManager implements UserManager<Admin> {
     }
 
     @Transactional
+    @Override
     public void modify(Admin admin){
         try{
             adminDAO.modify(admin);
@@ -73,6 +77,7 @@ public class AdminManager implements UserManager<Admin> {
     }
 
     @Transactional
+    @Override
     public void delete(Admin admin){
         try{
             adminDAO.delete(admin);

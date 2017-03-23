@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 14/03/2017.
@@ -20,7 +21,10 @@ import java.util.stream.Collectors;
 public class MyAnswers {
 
     @Autowired
+    @Qualifier("InterviewManager")
     private InterviewManager interviewManager;
+    @Autowired
+    @Qualifier("AnswerManager")
     private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)

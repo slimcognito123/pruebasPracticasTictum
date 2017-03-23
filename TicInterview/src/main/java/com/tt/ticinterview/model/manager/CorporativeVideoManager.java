@@ -23,6 +23,7 @@ public class CorporativeVideoManager implements VideoManager<CorporativeVideo>{
     private CorporativeVideoDAO corporativeVideoDAO;
 
     @Transactional
+    @Override
     public void save(CorporativeVideo corporativeVideo){
         try{
             corporativeVideoDAO.save(corporativeVideo);
@@ -32,6 +33,7 @@ public class CorporativeVideoManager implements VideoManager<CorporativeVideo>{
     }
 
     @Transactional
+    @Override
     public void delete (CorporativeVideo corporativeVideo){
         try{
             corporativeVideoDAO.delete(corporativeVideo);
@@ -40,7 +42,8 @@ public class CorporativeVideoManager implements VideoManager<CorporativeVideo>{
         }
     }
 
-    @Transactional
+    
+    @Override
     public CorporativeVideo getById(long id){
         try{
             return corporativeVideoDAO.getById(id);
@@ -50,7 +53,8 @@ public class CorporativeVideoManager implements VideoManager<CorporativeVideo>{
         return null;
     }
 
-    @Transactional
+
+    @Override
     public List<CorporativeVideo> getAll(){
         try{
             return corporativeVideoDAO.getAll();
@@ -60,7 +64,8 @@ public class CorporativeVideoManager implements VideoManager<CorporativeVideo>{
         return null;
     }
 
-    @Transactional
+  
+    @Override
     public List<CorporativeVideo> searchVideo(String name){
         try{
             return corporativeVideoDAO.searchVideo(name);

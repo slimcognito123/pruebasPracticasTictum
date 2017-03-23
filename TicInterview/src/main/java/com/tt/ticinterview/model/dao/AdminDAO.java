@@ -5,11 +5,13 @@ import com.tt.ticinterview.beans.user.Interviewer;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Created by Tictum on 13/03/2017.
  */
-@Repository
+@Repository("AdminDAO")
+@Scope(value = "request")
 public class AdminDAO implements BasicUserDAO<Admin> {
 
     @Override

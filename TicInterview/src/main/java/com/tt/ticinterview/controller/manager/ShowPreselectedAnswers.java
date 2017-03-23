@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @since 09/03/2017
@@ -22,6 +23,7 @@ import java.util.List;
 public class ShowPreselectedAnswers {
 
     @Autowired
+    @Qualifier("AnswerManager")
     private AnswerManager answerManager;
 
     @RequestMapping(method= RequestMethod.GET)

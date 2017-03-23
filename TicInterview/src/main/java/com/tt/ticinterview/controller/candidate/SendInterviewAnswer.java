@@ -19,31 +19,36 @@ import com.tt.ticinterview.beans.video.CandidateVideo;
 import com.tt.ticinterview.model.manager.InterviewManager;
 import com.tt.ticinterview.model.manager.UserManager;
 import com.tt.ticinterview.model.manager.VideoManager;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Controller
 @RequestMapping("/SendInterviewAnswer.do")
 @SessionAttributes("user")
 public class SendInterviewAnswer {
-	@Autowired
-	VideoManager videoManager;
-	@Autowired
-	InterviewManager interviewManager;
-	@RequestMapping(method = RequestMethod.GET)
-	public String saveVideo(@RequestParam(value = "name") String name,@ModelAttribute("user") Candidate user, Model modelo) {
-		
-		CandidateVideo video = new CandidateVideo();	
-		video.setId(0);
-		video.setIdCandidate(user);
-		video.setPath(name);
-		video.setName(name);
-		videoManager.save(video);
-		System.out.println("Destinatario: "+video.getName());
-		return "GetInterview.do";
 
-	}
+    @Autowired
+    @Qualifier("VideoManager")
+    VideoManager videoManager;
+    @Autowired
+    @Qualifier("InterviewManager")
+    InterviewManager interviewManager;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String saveVideoPost(@RequestParam(value = "name") String name,@ModelAttribute("user") Candidate user, Model modelo) {
-		return saveVideo(name,user, modelo);
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String saveVideo(@RequestParam(value = "name") String name, @ModelAttribute("user") Candidate user, Model modelo) {
+
+        CandidateVideo video = new CandidateVideo();
+        video.setId(0);
+        video.setIdCandidate(user);
+        video.setPath(name);
+        video.setName(name);
+        videoManager.save(video);
+        System.out.println("Destinatario: " + video.getName());
+        return "GetInterview.do";
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveVideoPost(@RequestParam(value = "name") String name, @ModelAttribute("user") Candidate user, Model modelo) {
+        return saveVideo(name, user, modelo);
+    }
 }

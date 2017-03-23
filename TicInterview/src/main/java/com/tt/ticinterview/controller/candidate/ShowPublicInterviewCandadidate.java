@@ -14,22 +14,26 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tt.ticinterview.model.manager.InterviewManager;
 import com.tt.ticinterview.model.manager.UserManager;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Controller
 @RequestMapping("/ShowPublicInterviewsCandadidate.do")
 public class ShowPublicInterviewCandadidate {
-	@Autowired
-	InterviewManager interviewManager;
-	@RequestMapping(method = RequestMethod.GET)
-	public String showPublicGet(Model modelo) {
-		
-		modelo.addAttribute("list", interviewManager.getPublicInterview());
-		return "PanelCandidate.jsp";
 
-	}
+    @Autowired
+    @Qualifier("InterviewManager")       
+    InterviewManager interviewManager;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String saveVideoPost( Model modelo) {
-		return showPublicGet(modelo);
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String showPublicGet(Model modelo) {
+
+        modelo.addAttribute("list", interviewManager.getPublicInterview());
+        return "PanelCandidate.jsp";
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveVideoPost(Model modelo) {
+        return showPublicGet(modelo);
+    }
 }

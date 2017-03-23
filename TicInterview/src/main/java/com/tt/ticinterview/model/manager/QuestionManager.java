@@ -41,7 +41,7 @@ public class QuestionManager {
         }
     }
 
-    @Transactional
+    
     public Question getById(long id) {
         try {
             return questionDAO.getById(id);
@@ -51,7 +51,7 @@ public class QuestionManager {
         return null;
     }
 
-    @Transactional
+    
     public List<Question> getAll() {
         try {
             return questionDAO.getAll();

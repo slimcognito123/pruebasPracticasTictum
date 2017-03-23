@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @author tictumTarde
@@ -21,16 +22,17 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("/ShowAllInterviewsByAdmin.do")
 public class ShowAllInterviewsByAdmin {
-//    @Autowired
-//    private InterviewManager business;
-//
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String showAllInterviews(HttpSession session) {
-//
-//        if (session == null) return "index";
-//        ArrayList<Interview> listaInterviews = (ArrayList<Interview>) business.getAll();
-//        if (listaInterviews == null) listaInterviews = new ArrayList<>();
-//        session.setAttribute("listaInterviews",listaInterviews);
-//        return "showAllInterviews";
-//    }
+    @Autowired
+    @Qualifier("InterviewManager")
+    private InterviewManager business;
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String showAllInterviews(HttpSession session) {
+
+        if (session == null) return "index";
+        ArrayList<Interview> listaInterviews = (ArrayList<Interview>) business.getAll();
+        if (listaInterviews == null) listaInterviews = new ArrayList<>();
+        session.setAttribute("listaInterviews",listaInterviews);
+        return "showAllInterviews";
+    }
 }

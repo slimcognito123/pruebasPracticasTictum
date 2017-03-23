@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 13/03/2017.
@@ -18,7 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/Login.do")
 public class Login {
 
-    @Autowired    
+    @Autowired  
+    @Qualifier("AdminManager")
     private AdminManager userManager;
 
     @RequestMapping(method= RequestMethod.GET)

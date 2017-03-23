@@ -45,7 +45,7 @@ public class AnswerManager {
         }
     }
 
-    @Transactional
+  
     public Answer getById(long id){
         try{
             return answerDAO.getById(id);
@@ -56,7 +56,7 @@ public class AnswerManager {
         return null;
     }
 
-    @Transactional
+
     public List<Answer> getAll(){
         try {
             return answerDAO.getAll();
@@ -65,7 +65,7 @@ public class AnswerManager {
         }
         return null;
     }
-
+    @Transactional
     public void valorationAnswer(long idInterview, int valoration) {
         try {
             answerDAO.valorationAnswer(idInterview, valoration);

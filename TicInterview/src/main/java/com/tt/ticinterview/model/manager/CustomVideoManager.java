@@ -23,6 +23,7 @@ public class CustomVideoManager implements VideoManager<CustomVideo> {
     private CustomVideoDAO customVideoDAO;
 
     @Transactional
+    @Override
     public void save(CustomVideo customVideo){
         try{
             customVideoDAO.save(customVideo);
@@ -32,6 +33,7 @@ public class CustomVideoManager implements VideoManager<CustomVideo> {
     }
 
     @Transactional
+    @Override
     public void delete (CustomVideo customVideo){
         try{
             customVideoDAO.delete(customVideo);
@@ -40,7 +42,8 @@ public class CustomVideoManager implements VideoManager<CustomVideo> {
         }
     }
 
-    @Transactional
+
+    @Override
     public CustomVideo getById(long id){
         try{
             return customVideoDAO.getById(id);
@@ -50,7 +53,8 @@ public class CustomVideoManager implements VideoManager<CustomVideo> {
         return null;
     }
 
-    @Transactional
+
+    @Override
     public List<CustomVideo> getAll(){
         try{
             return customVideoDAO.getAll();
@@ -60,7 +64,8 @@ public class CustomVideoManager implements VideoManager<CustomVideo> {
         return null;
     }
 
-    @Transactional
+
+    @Override
     public List<CustomVideo> searchVideo(String name){
         try{
             return customVideoDAO.searchVideo(name);

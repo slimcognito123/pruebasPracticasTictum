@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by tictumTarde on 16/03/2017.
@@ -23,8 +24,10 @@ import java.util.List;
 public class WelcomeController {
 
     @Autowired
+    @Qualifier("AdminManager")
     private AdminManager userManager;
     @Autowired
+     @Qualifier("InterviewManagerr")
     private InterviewManager interviewManager;
 
     @RequestMapping(method= RequestMethod.GET)

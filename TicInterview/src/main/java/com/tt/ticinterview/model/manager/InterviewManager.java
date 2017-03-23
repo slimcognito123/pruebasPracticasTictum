@@ -41,7 +41,7 @@ public class InterviewManager {
         }
     }
 
-    @Transactional
+  
     public Interview getById(long id) {
         try {
             return interviewDAO.getById(id);
@@ -51,7 +51,7 @@ public class InterviewManager {
         return null;
     }
 
-    @Transactional
+
     public List<Interview> getAll(){
         try{
             return interviewDAO.getAll();
@@ -61,7 +61,7 @@ public class InterviewManager {
         return null;
     }
 
-    @Transactional
+
     public List<Interview> searchByInterviewName(String name) {
         try {
             return interviewDAO.searchByInterviewName(name);
@@ -71,7 +71,7 @@ public class InterviewManager {
         return null;
     }
 
-    @Transactional
+  
     public List<Interview> getPublicInterview(){
         try{
             return interviewDAO.getPublicInterview();
@@ -81,7 +81,7 @@ public class InterviewManager {
         return null;
     }
 
-    @Transactional
+   
     public List<Interview> searchByCreator(long id){
         try{
             return interviewDAO.searchByCreator(id);

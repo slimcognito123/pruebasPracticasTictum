@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Tictum on 13/03/2017.
  */
-@Repository
+@Repository("CorporativeVideoDAO")
 public class CorporativeVideoDAO implements VideoDAO<CorporativeVideo> {
     @Override
     public CorporativeVideo getById(Long id) {

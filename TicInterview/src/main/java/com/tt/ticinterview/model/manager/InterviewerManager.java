@@ -17,9 +17,8 @@ import java.util.List;
  * @author tictumTarde -JRB
  * @version 0.1
  */
-
 @Service("InterviewerManager")
-public class InterviewerManager implements UserManager<Interviewer>{
+public class InterviewerManager implements UserManager<Interviewer> {
 
     @Autowired
     @Qualifier("InterviewerDAO")
@@ -33,100 +32,95 @@ public class InterviewerManager implements UserManager<Interviewer>{
     private MailServiceImpl mailService;
 
     @Transactional
-    public void register(Interviewer interviewer){
-        try{
+    @Override
+    public void register(Interviewer interviewer) {
+        try {
             interviewerDAO.save(interviewer);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Error save: " + e);
         }
 
     }
 
     @Transactional
-    public void delete (Interviewer interviewer){
-        try{
+    @Override
+    public void delete(Interviewer interviewer) {
+        try {
             interviewerDAO.delete(interviewer);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Error delete: " + e);
         }
     }
 
-    @Transactional
-    public Interviewer getById(long id){
-        try{
+    @Override
+    public Interviewer getById(long id) {
+        try {
             return interviewerDAO.getById(id);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Error getById: " + e);
         }
         return null;
     }
 
     @Override
-    public Interviewer getByMail(String mail){
-        try{
+    public Interviewer getByMail(String mail) {
+        try {
             return interviewerDAO.getUserMail(mail);
-        }catch(Exception e){
+        } catch (Exception e) {
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }
         return null;
     }
 
-    @Transactional
-    public List<Interviewer> getAll(){
-        try{
+    @Override
+    public List<Interviewer> getAll() {
+        try {
             return interviewerDAO.getAll();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Error getAll: " + e);
         }
         return null;
     }
 
+    @Transactional
     @Override
     public void modify(Interviewer interviewer) {
-        try{
+        try {
             interviewerDAO.modify(interviewer);
-        }catch(Exception e){
+        } catch (Exception e) {
             System.err.println("ERROR modify " + e.getStackTrace());
         }
     }
 
-    @Transactional
-    public List<Interviewer> getManager(){
-        try{
+    public List<Interviewer> getManager() {
+        try {
             return interviewerDAO.getManagers();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Error getManager: " + e);
         }
         return null;
     }
 
-    @Transactional
-    public List<Interviewer> getInterviewers(){
-        try{
+    public List<Interviewer> getInterviewers() {
+        try {
             return interviewerDAO.getInterviewers();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println("Error getInterviewers: " + e);
         }
         return null;
     }
 
+    @Transactional
     public void sendInvitation(long idCandidate, long idInterview) {
 
         try {
             Candidate candidate = candidateDAO.getById(idCandidate);
 
-            mailService.send(candidate.getMail(), "Inviatacion Entrevista","Sie haben eine Termin mit uns");
-        }
-        catch(Exception e){
+            mailService.send(candidate.getMail(), "Inviatacion Entrevista", "Sie haben eine Termin mit uns");
+        } catch (Exception e) {
             final String msg = "Excepción en el envío de emails con recursos incrustados.";
-            System.err.println("\033[33m"+msg);
-            System.err.print("\033[32m"+e.getStackTrace());
+            System.err.println("\033[33m" + msg);
+            System.err.print("\033[32m" + e.getStackTrace());
             e.printStackTrace();
         }
     }
