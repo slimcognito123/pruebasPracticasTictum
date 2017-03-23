@@ -39,7 +39,7 @@ public class ShowPreselectedCandidates {
 
         for (Answer answer:listaAnswers) {
             if(answer.getValoration() > 5){
-                listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate()));
+                listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate().getId()));
             }
 
         }
@@ -60,7 +60,7 @@ public class ShowPreselectedCandidates {
 
         for (Answer answer:listaAnswers) {
             if(answer.getValoration() > 5){
-                listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate()));
+                listaPreseleccionados.add(candidateManager.getById(answer.getIdCandidate().getId()));
             }
 
         }

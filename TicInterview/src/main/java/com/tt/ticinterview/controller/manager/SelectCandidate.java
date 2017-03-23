@@ -30,17 +30,17 @@ public class SelectCandidate {
 
         ModelAndView modelo =  new ModelAndView();
 
-        long  idSelectCandidate = Long.parseLong(request.getParameter("idSelectCandidate"));
-
-        List<Answer> listaRespuestas = answerManager.getAll();
-        for (Answer answer : listaRespuestas) {
-            if (answer.getIdCandidate() == idSelectCandidate) {
-                answer.setIsSelected(true);
-                answerManager.modify(answer);
-            }
-        }
-
-        modelo.setViewName("/Manager/PanelManager");
+//        long  idSelectCandidate = Long.parseLong(request.getParameter("idSelectCandidate"));
+//
+//        List<Answer> listaRespuestas = answerManager.getAll();
+//        for (Answer answer : listaRespuestas) {
+//            if (answer.getIdCandidate() == idSelectCandidate) {
+//                answer.setIsSelected(true);
+//                answerManager.modify(answer);
+//            }
+//        }
+//
+//        modelo.setViewName("/Manager/PanelManager");
 
         return  modelo;
 
@@ -53,13 +53,13 @@ public class SelectCandidate {
 
         long  idSelectCandidate = Long.parseLong(request.getParameter("idSelectCandidate"));
 
-        List<Answer> listaRespuestas = answerManager.getAll();
-        for (Answer answer : listaRespuestas) {
-            if (answer.getIdCandidate() == idSelectCandidate) {
-                answer.setIsSelected(true);
-                answerManager.modify(answer);
-            }
-        }
+//        List<Answer> listaRespuestas = answerManager.getAll();
+//        for (Answer answer : listaRespuestas) {
+//            if (answer.getIdCandidate() == idSelectCandidate) {
+//                answer.setIsSelected(true);
+//                answerManager.modify(answer);
+//            }
+//        }
 
         modelo.setViewName("/Manager/PanelManager");
 

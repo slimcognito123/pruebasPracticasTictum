@@ -1,7 +1,8 @@
 package com.tt.ticinterview.beans.video;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,6 @@ import javax.persistence.Table;
  * @version 0.2
  */
 @Entity
-@Table (name = "CorporativeVideo" )
 public class CorporativeVideo extends GenericBean implements Video, Serializable {
 
     @Id

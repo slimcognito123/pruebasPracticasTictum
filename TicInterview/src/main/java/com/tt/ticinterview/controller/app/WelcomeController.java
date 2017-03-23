@@ -2,6 +2,7 @@ package com.tt.ticinterview.controller.app;
 
 import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.BasicUser;
+import com.tt.ticinterview.model.manager.AdminManager;
 import com.tt.ticinterview.model.manager.InterviewManager;
 import com.tt.ticinterview.model.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,8 @@ import java.util.List;
 public class WelcomeController {
 
     @Autowired
-    private UserManager userManager;
+    private AdminManager userManager;
+    @Autowired
     private InterviewManager interviewManager;
 
     @RequestMapping(method= RequestMethod.GET)

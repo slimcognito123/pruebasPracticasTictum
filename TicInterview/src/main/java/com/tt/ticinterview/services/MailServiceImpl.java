@@ -14,10 +14,12 @@ import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.Properties;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Tictum on 15/03/2017.
  */
+@Service(value = "Mail")
 public class MailServiceImpl implements MailService{
 
     private static final Log log = LogFactory.getLog(MailServiceImpl.class);

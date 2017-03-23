@@ -1,8 +1,11 @@
 package com.tt.ticinterview.beans.Interview;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
-import com.tt.ticinterview.beans.video.CandidateVideo;
 
+
+
+import com.tt.ticinterview.beans.basic.GenericBean;
+import com.tt.ticinterview.beans.user.Candidate;
+import com.tt.ticinterview.beans.video.CandidateVideo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,19 +32,16 @@ public class Answer extends GenericBean implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @OneToMany()
-    @JoinTable(name = "Candidate")
-    @JoinColumn(name = "idCandidate")
-    private long idCandidate;
-    @OneToMany()
-    @JoinTable(name = "Interviewer")
-    @JoinColumn(name = "idInterviewer")
-    private long idInterview;
+    @OneToOne()
+     private Candidate idCandidate;
+    @OneToOne()
+    private Interview idInterview;
     @Column(name = "videoAnswer", nullable = true)
     @OneToMany
     private List<CandidateVideo> videoAnswer;
     @Column(name = "textAnswer", nullable = true)
-    private List<String> textAnswer;
+    private String textAnswer; //Creat objeto text answer
+    
     @OneToMany
     @Column(name = "attached", nullable = true)
     private List<Attached> attached;
@@ -54,7 +55,7 @@ public class Answer extends GenericBean implements Serializable {
     public Answer() {
     }
 
-    public Answer(long idCandidate, long idInterview, List<CandidateVideo> videoAnswer, List<String> textAnswer, List<Attached> attached, int valoration, String observation, boolean isSelected) {
+    public Answer(Candidate idCandidate, Interview idInterview, List<CandidateVideo> videoAnswer, String textAnswer, List<Attached> attached, int valoration, String observation, boolean isSelected) {
         this.idCandidate = idCandidate;
         this.idInterview = idInterview;
         this.videoAnswer = videoAnswer;
@@ -66,7 +67,7 @@ public class Answer extends GenericBean implements Serializable {
     }
     
 
-    public Answer(long idCandidate, long idInterview, List<CandidateVideo> videoAnswer, List<String> textAnswer, int valoration, String observation, boolean isSelected) {
+    public Answer(Candidate idCandidate, Interview idInterview, List<CandidateVideo> videoAnswer, String textAnswer, int valoration, String observation, boolean isSelected) {
         this.idCandidate = idCandidate;
         this.idInterview = idInterview;
         this.videoAnswer = videoAnswer;
@@ -76,7 +77,7 @@ public class Answer extends GenericBean implements Serializable {
         this.isSelected = isSelected;
     }
 
-    public Answer(long idCandidate, long idInterview) {
+    public Answer(Candidate idCandidate, Interview idInterview) {
         this.idCandidate = idCandidate;
         this.idInterview = idInterview;
     }
@@ -89,19 +90,19 @@ public class Answer extends GenericBean implements Serializable {
         this.id = id;
     }
 
-    public long getIdCandidate() {
+    public Candidate getIdCandidate() {
         return idCandidate;
     }
 
-    public void setIdCandidate(long idCandidate) {
+    public void setIdCandidate(Candidate idCandidate) {
         this.idCandidate = idCandidate;
     }
 
-    public long getIdInterview() {
+    public Interview getIdInterview() {
         return idInterview;
     }
 
-    public void setIdInterviewer(long idInterview) {
+    public void setIdInterviewer(Interview idInterview) {
         this.idInterview = idInterview;
     }
 
@@ -113,11 +114,11 @@ public class Answer extends GenericBean implements Serializable {
         this.videoAnswer = videoAnswer;
     }
 
-    public List<String> getTextAnswer() {
+    public String getTextAnswer() {
         return textAnswer;
     }
 
-    public void setTextAnswer(List<String> textAnswer) {
+    public void setTextAnswer(String textAnswer) {
         this.textAnswer = textAnswer;
     }
 
@@ -153,7 +154,7 @@ public class Answer extends GenericBean implements Serializable {
         this.isSelected = isSelected;
     }
 
-    public void setIdInterview(long idInterview) {
+    public void setIdInterview(Interview idInterview) {
         this.idInterview = idInterview;
     }
 
@@ -166,8 +167,8 @@ public class Answer extends GenericBean implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 43 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 43 * hash + (int) (this.idCandidate ^ (this.idCandidate >>> 32));
-        hash = 43 * hash + (int) (this.idInterview ^ (this.idInterview >>> 32));
+       
+       
         hash = 43 * hash + Objects.hashCode(this.videoAnswer);
         hash = 43 * hash + Objects.hashCode(this.textAnswer);
         hash = 43 * hash + this.valoration;

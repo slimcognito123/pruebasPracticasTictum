@@ -1,7 +1,8 @@
 package com.tt.ticinterview.beans.Interview;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

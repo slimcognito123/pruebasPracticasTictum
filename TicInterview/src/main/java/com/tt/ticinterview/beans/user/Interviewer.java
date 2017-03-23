@@ -5,8 +5,10 @@
  */
 package com.tt.ticinterview.beans.user;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
+import com.tt.ticinterview.configuration.BasicUser;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

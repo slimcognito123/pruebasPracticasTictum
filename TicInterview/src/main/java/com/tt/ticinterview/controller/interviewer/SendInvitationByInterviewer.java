@@ -1,5 +1,6 @@
 package com.tt.ticinterview.controller.interviewer;
 
+import com.tt.ticinterview.beans.Interview.Answer;
 import com.tt.ticinterview.model.manager.AnswerManager;
 import com.tt.ticinterview.model.manager.InterviewerManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,41 +15,42 @@ import javax.servlet.http.HttpServletRequest;
  * Created by tictumTarde on 14/03/2017.
  */
 @Controller
-@RequestMapping("/ValorationAnswer.do")
-public class ValorationAnswer {
+@RequestMapping("/SendInvitationByInterviewer.do")
+public class SendInvitationByInterviewer {
 
     @Autowired
-    private AnswerManager answerManager;
+    private InterviewerManager interviewerManager;
 
     @RequestMapping(method= RequestMethod.GET)
-    public ModelAndView valorationAnswerGet(HttpServletRequest request){
+    public ModelAndView sendInvitationGet(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();
 
-        int valoration = Integer.parseInt(request.getParameter("valoration"));
-        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
+        long  idCandidate = Long.parseLong(request.getParameter("idCandidate"));
+        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
 
-        answerManager.valorationAnswer(idAnswer, valoration);
+        interviewerManager.sendInvitation(idCandidate, idInterview);
 
         modelo.setViewName("/Interviewer/PanelInterviewer");
 
         return  modelo;
+
     }
 
-    @RequestMapping(method= RequestMethod.POST)
-    public ModelAndView valorationAnswerPost(HttpServletRequest request){
+    @RequestMapping(method= RequestMethod.GET)
+    public ModelAndView sendInvitationPost(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();
 
-        int valoration = Integer.parseInt(request.getParameter("valoration"));
-        long idAnswer = Long.parseLong(request.getParameter("idAnswer"));
+        long  idCandidate = Long.parseLong(request.getParameter("idCandidate"));
+        long  idInterview = Long.parseLong(request.getParameter("idInterview"));
 
-        answerManager.valorationAnswer(idAnswer, valoration);
+        interviewerManager.sendInvitation(idCandidate, idInterview);
 
         modelo.setViewName("/Interviewer/PanelInterviewer");
 
         return  modelo;
-    }
 
+    }
 
 }

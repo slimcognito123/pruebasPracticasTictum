@@ -5,8 +5,11 @@
  */
 package com.tt.ticinterview.beans.user;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+
+import com.tt.ticinterview.beans.basic.GenericBean;
+import com.tt.ticinterview.configuration.BasicUser;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -27,6 +30,7 @@ import javax.persistence.Table;
 @Table (name = "Admin" ) 
 public class Admin  extends GenericBean implements BasicUser, Serializable{
     
+    
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
     private long id;
@@ -39,6 +43,11 @@ public class Admin  extends GenericBean implements BasicUser, Serializable{
     public Admin() {
     }
 
+    public Admin(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    
     public Admin(long id, String username, String password) {
         this.id = id;
         this.username = username;

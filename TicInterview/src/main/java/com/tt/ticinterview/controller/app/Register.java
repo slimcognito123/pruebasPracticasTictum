@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @Controller
-@RequestMapping("/register.do")
+@RequestMapping("/Register.do")
 public class Register {
 
     @Autowired

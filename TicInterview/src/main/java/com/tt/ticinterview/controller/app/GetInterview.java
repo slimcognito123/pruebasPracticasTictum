@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  */
 
 @Controller
-@RequestMapping("/getInterview.do")
+@RequestMapping("/GetInterview.do")
 public class GetInterview {
 
     @Autowired

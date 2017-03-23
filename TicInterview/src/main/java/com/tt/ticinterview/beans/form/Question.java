@@ -5,8 +5,9 @@
  */
 package com.tt.ticinterview.beans.form;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.HashMap;
@@ -21,9 +22,9 @@ import java.util.HashMap;
 public class Question extends GenericBean {
     @Id
     private long id;
-    private String Question;
-    private Type type;
-    private HashMap<Boolean, String> killingQuestion;
+    private String question;
+//    private Type type;
+//    private HashMap<Boolean, String> killingQuestion;
 
     public Question() {
     }
@@ -37,28 +38,28 @@ public class Question extends GenericBean {
     }
 
     public String getQuestion() {
-        return Question;
+        return question;
     }
 
     public void setQuestion(String question) {
-        Question = question;
+        question = question;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public HashMap<Boolean, String> getKillingQuestion() {
-        return killingQuestion;
-    }
-
-    public void setKillingQuestion(HashMap<Boolean, String> killingQuestion) {
-        this.killingQuestion = killingQuestion;
-    }
+//    public Type getType() {
+//        return type;
+//    }
+//
+//    public void setType(Type type) {
+//        this.type = type;
+//    }
+//
+//    public HashMap<Boolean, String> getKillingQuestion() {
+//        return killingQuestion;
+//    }
+//
+//    public void setKillingQuestion(HashMap<Boolean, String> killingQuestion) {
+//        this.killingQuestion = killingQuestion;
+//    }
 
     @Override
     public String getInstanceName() {

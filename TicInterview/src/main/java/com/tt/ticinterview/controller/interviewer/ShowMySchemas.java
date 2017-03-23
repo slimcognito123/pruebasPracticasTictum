@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
  */
 
 @Controller
-@RequestMapping("/showMySchemas.do")
+@RequestMapping("/ShowMySchemas.do")
 public class ShowMySchemas {
 
     @Autowired

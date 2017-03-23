@@ -5,8 +5,9 @@
  */
 package com.tt.ticinterview.beans.form;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +34,7 @@ public class Form extends GenericBean implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "questions",nullable = false)
+    @OneToMany
     private List<Question> questions;
 
     public Form() {

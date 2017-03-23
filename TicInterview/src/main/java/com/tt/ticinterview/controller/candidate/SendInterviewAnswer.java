@@ -33,7 +33,7 @@ public class SendInterviewAnswer {
 		
 		CandidateVideo video = new CandidateVideo();	
 		video.setId(0);
-		video.setIdCandidate(user.getId());
+		video.setIdCandidate(user);
 		video.setPath(name);
 		video.setName(name);
 		videoManager.save(video);

@@ -1,7 +1,8 @@
 package com.tt.ticinterview.beans.Interview;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,20 +21,20 @@ import javax.persistence.Table;
  * @author tictumTarde -JRB
  * @version 0.1
  */
-@Entity
+
 @Table(name = "Invitation")
 public class Invitation extends GenericBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinTable(name = "Interview")
-    @JoinColumn(name = "idInterview")
+    @JoinColumn(name = "id")
     private long idInterview;
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JoinTable(name = "Candidate")
-    @JoinColumn(name = "idCandidate")
+    @JoinColumn(name = "id")
     private long idCandidate;
 
     public Invitation() {

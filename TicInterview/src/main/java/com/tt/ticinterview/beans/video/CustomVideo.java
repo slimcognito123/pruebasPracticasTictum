@@ -6,8 +6,10 @@
  */
 package com.tt.ticinterview.beans.video;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
 
+
+import com.tt.ticinterview.beans.basic.GenericBean;
+import com.tt.ticinterview.beans.user.Interviewer;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -38,19 +41,15 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
     private String path;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @JoinTable(name = "Interviewer")
-    @JoinColumn(name = "idInterviewer")
-    public long idInterviewer;    
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @JoinTable(name = "Candidate")
-    @JoinColumn(name = "idCandidate")
-    public long idCandidate;
+    @OneToOne(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    public Interviewer idInterviewer;    
+
+
 
     public CustomVideo() {
     }
 
-    public CustomVideo(String path, String name, long idInterviewer) {
+    public CustomVideo(String path, String name, Interviewer idInterviewer) {
         this.path = path;
         this.name = name;
         this.idInterviewer = idInterviewer;
@@ -60,11 +59,11 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
         this.name = name;
     }
 
-    public long getIdInterviewer() {
+    public Interviewer getIdInterviewer() {
         return idInterviewer;
     }
 
-    public void setIdInterviewer(long idInterviewer) {
+    public void setIdInterviewer(Interviewer idInterviewer) {
         this.idInterviewer = idInterviewer;
     }
 
@@ -108,8 +107,7 @@ public class CustomVideo extends GenericBean implements Video, Serializable {
         int hash = 7;
         hash = 13 * hash + (int) (this.id ^ (this.id >>> 32));
         hash = 13 * hash + Objects.hashCode(this.path);
-        hash = 13 * hash + Objects.hashCode(this.name);
-        hash = 13 * hash + (int) (this.idInterviewer ^ (this.idInterviewer >>> 32));
+        hash = 13 * hash + Objects.hashCode(this.name);     
         return hash;
     }
 

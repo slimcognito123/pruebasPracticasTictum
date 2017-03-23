@@ -25,10 +25,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 
 
-@Configuration
-@ComponentScan(basePackages="com.tt.ticinterview")
-@EnableWebMvc
-@EnableTransactionManagement
+//@Configuration
+//@ComponentScan(basePackages="com.tt.ticinterview")
+//@EnableWebMvc
+//@EnableTransactionManagement
 
 public class AppConfiguration{
 

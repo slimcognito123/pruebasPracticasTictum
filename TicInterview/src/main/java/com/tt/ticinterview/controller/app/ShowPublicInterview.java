@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/showPublicInterview.do")
+@RequestMapping("/ShowPublicInterview.do")
 public class ShowPublicInterview {
 
 

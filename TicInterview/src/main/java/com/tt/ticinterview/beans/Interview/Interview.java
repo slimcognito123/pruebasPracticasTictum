@@ -1,9 +1,11 @@
 package com.tt.ticinterview.beans.Interview;
 
+
+
 import com.tt.ticinterview.beans.basic.GenericBean;
 import com.tt.ticinterview.beans.form.Form;
-import com.tt.ticinterview.beans.video.Video;
-
+import com.tt.ticinterview.beans.user.Interviewer;
+import com.tt.ticinterview.beans.video.CustomVideo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,12 +30,11 @@ public class Interview extends GenericBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idInterview;
-    @OneToMany()
-    @JoinTable(name = "Interviewer")
-    @JoinColumn(name = "idInterviewer")
-    private long idInterviewer;
-    private List<Video> video;
+    private long id;
+    @OneToOne()  
+    private Interviewer idInterviewer;
+     @OneToMany
+    private List<CustomVideo> video;
     @OneToOne
     private Form form;
     @Column(name = "isPrivate",nullable = true)
@@ -44,14 +45,14 @@ public class Interview extends GenericBean implements Serializable {
     public Interview() {
     }
 
-    public Interview(long idInterviewer, boolean isPrivate, boolean isSchema) {
+    public Interview(Interviewer idInterviewer, boolean isPrivate, boolean isSchema) {
         this.idInterviewer = idInterviewer;
         this.isPrivate = isPrivate;
         this.isSchema = isSchema;
     }
     
     
-    public Interview(long idInterviewer, List<Video> video, Form form, boolean isPrivate, boolean isSchema) {
+    public Interview(Interviewer idInterviewer, List<CustomVideo> video, Form form, boolean isPrivate, boolean isSchema) {
         this.idInterviewer = idInterviewer;
         this.video = video;
         this.form = form;
@@ -59,7 +60,7 @@ public class Interview extends GenericBean implements Serializable {
         this.isSchema = isSchema;
     }
 
-    public Interview(long idInterviewer, List<Video> video, Form form) {
+    public Interview(Interviewer idInterviewer, List<CustomVideo> video, Form form) {
         this.idInterviewer = idInterviewer;
         this.video = video;
         this.form = form;
@@ -68,7 +69,7 @@ public class Interview extends GenericBean implements Serializable {
     
     
     public long getIdInterview() {
-        return idInterview;
+        return id;
     }
 
     public boolean isIsSchema() {
@@ -80,22 +81,22 @@ public class Interview extends GenericBean implements Serializable {
     }
 
     public void setIdInterview(long idInterview) {
-        this.idInterview = idInterview;
+        this.id = id;
     }
 
-    public long getIdInterviewer() {
+    public Interviewer getIdInterviewer() {
         return idInterviewer;
     }
 
-    public void setIdInterviewer(long idInterviewer) {
+    public void setIdInterviewer(Interviewer idInterviewer) {
         this.idInterviewer = idInterviewer;
     }
 
-    public List<Video> getVideo() {
+    public List<CustomVideo> getVideo() {
         return video;
     }
 
-    public void setVideo(List<Video> video) {
+    public void setVideo(List<CustomVideo> video) {
         this.video = video;
     }
 
@@ -133,17 +134,21 @@ public class Interview extends GenericBean implements Serializable {
 
     @Override
     public String toString() {
-        return "Interview{" + "idInterview=" + idInterview + ", idInterviewer=" + idInterviewer + ", video=" + video + ", form=" + form + ", isPrivate=" + isPrivate + ", isSchema=" + isSchema + '}';
+        return "Interview{" + "idInterview=" + id+ ", idInterviewer=" + idInterviewer + ", video=" + video + ", form=" + form + ", isPrivate=" + isPrivate + ", isSchema=" + isSchema + '}';
+    }
+
+    public Interview(long id, Interviewer idInterviewer, List<CustomVideo> video, Form form, boolean isPrivate, boolean isSchema) {
+        this.id = id;
+        this.idInterviewer = idInterviewer;
+        this.video = video;
+        this.form = form;
+        this.isPrivate = isPrivate;
+        this.isSchema = isSchema;
     }
 
 
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 19 * hash + (int) (this.idInterviewer ^ (this.idInterviewer >>> 32));
-        return hash;
-    }
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -157,7 +162,7 @@ public class Interview extends GenericBean implements Serializable {
             return false;
         }
         final Interview other = (Interview) obj;
-        if (this.idInterview != other.idInterview) {
+        if (this.id != other.id) {
             return false;
         }
         if (this.idInterviewer != other.idInterviewer) {
@@ -166,6 +171,7 @@ public class Interview extends GenericBean implements Serializable {
         return true;
     }
 
+   
     @Override
     public String getInstanceName() {
         return "interview";

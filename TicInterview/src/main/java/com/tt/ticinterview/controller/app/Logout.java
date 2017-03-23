@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @SessionAttributes("user")
-@RequestMapping("/logout.do")
+@RequestMapping("/Logout.do")
 public class Logout {
 
     @RequestMapping(method= RequestMethod.GET)

@@ -17,7 +17,7 @@ import java.util.List;
  * Created by tictumTarde on 14/03/2017.
  */
 @Controller
-@RequestMapping("/showMyInterviews.do")
+@RequestMapping("/ShowMyInterviews.do")
 public class ShowMyInterviews {
 
     @Autowired

@@ -1,7 +1,5 @@
 package com.tt.ticinterview.beans.video;
 
-import com.tt.ticinterview.beans.basic.GenericBean;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,48 +12,47 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import com.tt.ticinterview.beans.basic.GenericBean;
+import com.tt.ticinterview.beans.user.Candidate;
 /**
  * @since 09/03/2017
  * @author tictumTarde -JRB
  * @version 0.1
  */
-
 @Entity
-@Table (name = "CandidateVideo" )
-public class CandidateVideo extends GenericBean implements Video, Serializable{
+//@Table (name = "candidate_video" )
+public class CandidateVideo extends GenericBean implements Video, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-   @Column(name = "path", nullable = false, unique = true)
+    @Column(name = "path", nullable = false, unique = true)
     private String path;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
     @Column(name = "tMax", nullable = true)
     private int tMax;
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    @JoinTable(name = "Candidate")
-    @JoinColumn(name = "idCandidate")
-    private long idCandidate;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Candidate idCandidate;
 
     public CandidateVideo() {
     }
 
-    public CandidateVideo(String path, String name, int tMax, long idCandidate) {
+    public CandidateVideo(String path, String name, int tMax, Candidate idCandidate) {
         this.path = path;
         this.name = name;
         this.tMax = tMax;
         this.idCandidate = idCandidate;
     }
 
-    public CandidateVideo(String path, String name, long idCandidate) {
+    public CandidateVideo(String path, String name, Candidate idCandidate) {
         this.path = path;
         this.name = name;
         this.idCandidate = idCandidate;
     }
-    
+
     @Override
     public long getId() {
         return id;
@@ -94,11 +91,11 @@ public class CandidateVideo extends GenericBean implements Video, Serializable{
         this.tMax = tMax;
     }
 
-    public long getIdCandidate() {
+    public Candidate getIdCandidate() {
         return idCandidate;
     }
 
-    public void setIdCandidate(long idCandidate) {
+    public void setIdCandidate(Candidate idCandidate) {
         this.idCandidate = idCandidate;
     }
 
@@ -109,12 +106,11 @@ public class CandidateVideo extends GenericBean implements Video, Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 59 * hash + Objects.hashCode(this.path);
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + this.tMax;
-        hash = 59 * hash + (int) (this.idCandidate ^ (this.idCandidate >>> 32));
+        int hash = 7;
+        hash = 37 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.path);
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + Objects.hashCode(this.idCandidate);
         return hash;
     }
 
@@ -144,8 +140,7 @@ public class CandidateVideo extends GenericBean implements Video, Serializable{
         }
         return true;
     }
-    
-    
+
     @Override
     public String getInstanceName() {
         return "candidatevideo";

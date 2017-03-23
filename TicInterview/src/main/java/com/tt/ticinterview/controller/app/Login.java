@@ -1,6 +1,7 @@
 package com.tt.ticinterview.controller.app;
 
 import com.tt.ticinterview.beans.user.BasicUser;
+import com.tt.ticinterview.model.manager.AdminManager;
 import com.tt.ticinterview.model.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @Controller
-@RequestMapping("/login.do")
+@RequestMapping("/Login.do")
 public class Login {
 
-    @Autowired
-    private UserManager userManager;
+    @Autowired    
+    private AdminManager userManager;
 
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView loginGet(HttpServletRequest request) {

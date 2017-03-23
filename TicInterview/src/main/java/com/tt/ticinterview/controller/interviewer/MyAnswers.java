@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * Created by tictumTarde on 14/03/2017.
  */
 @Controller
-@RequestMapping("/myAnswers.do")
+@RequestMapping("/MyAnswers.do")
 public class MyAnswers {
 
     @Autowired
@@ -30,7 +30,7 @@ public class MyAnswers {
 
         long  idInterview = Long.parseLong(request.getParameter("idInterview"));
 
-        List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview()==idInterview).collect(Collectors.toList());
+        List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview().getId()==idInterview).collect(Collectors.toList());
 
         modelo.addObject("respuestasEntrevistaSeleccionada", respuestasEntrevistaSeleccionada);
         modelo.setViewName("/Interviewer/ShowMuyAnwers");
@@ -46,7 +46,7 @@ public class MyAnswers {
         long  idInterview = Long.parseLong(request.getParameter("idInterview"));
 //        List<Answer> respuestaEntrevistaSeleccionada = interviewManager.getById(idInterview).getA
 
-        List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview()==idInterview).collect(Collectors.toList());
+        List<Answer> respuestasEntrevistaSeleccionada = answerManager.getAll().stream().filter(answer -> answer.getIdInterview().getId()==idInterview).collect(Collectors.toList());
 
         modelo.addObject("respuestasEntrevistaSeleccionada", respuestasEntrevistaSeleccionada);
         modelo.setViewName("/Interviewer/ShowMuyAnwers");
