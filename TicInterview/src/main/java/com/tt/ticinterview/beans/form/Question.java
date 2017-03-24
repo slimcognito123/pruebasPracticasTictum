@@ -29,6 +29,17 @@ public class Question extends GenericBean {
     public Question() {
     }
 
+    public Question(long id, String question) {
+        this.id = id;
+        this.question = question;
+    }
+
+    public Question(String question) {
+        this.question = question;
+    }
+    
+    
+
     public long getId() {
         return id;
     }

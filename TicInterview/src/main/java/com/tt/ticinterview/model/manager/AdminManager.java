@@ -2,6 +2,7 @@ package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.user.Admin;
 import com.tt.ticinterview.model.dao.AdminDAO;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,10 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public void register(Admin admin){
         try{
-            adminDAO.save(admin);
+            //Datos de prueba
+            System.out.println("usuario guradado");
+            System.out.println(admin.toString());
+          //  adminDAO.save(admin);
         }catch(Exception e){
             System.err.println("ERROR save " + e.getStackTrace());
         }
@@ -37,7 +41,8 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public Admin getById(long id){
         try{
-            return adminDAO.getById(id);
+            return new Admin("admin", "admin");
+           // return adminDAO.getById(id);
         }catch(Exception e){
             System.err.println("ERROR getById " + e.getStackTrace());
         }
@@ -48,7 +53,8 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public Admin getByMail(String mail){
         try{
-            return adminDAO.getUserMail(mail);
+            return new Admin("admin", "admin");
+            //return adminDAO.getUserMail(mail);
         }catch(Exception e){
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -59,7 +65,11 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public List<Admin> getAll(){
         try{
-            return adminDAO.getAll();
+            List l = new ArrayList();
+            Admin a= new Admin("admin", "admin");
+            l.add(a);
+            return l;
+            //return adminDAO.getAll();
         }catch(Exception e){
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -70,7 +80,8 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public void modify(Admin admin){
         try{
-            adminDAO.modify(admin);
+            System.out.println("modificadi");
+           // adminDAO.modify(admin);
         }catch(Exception e){
             System.err.println("ERROR modify " + e.getStackTrace());
         }
@@ -80,7 +91,8 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public void delete(Admin admin){
         try{
-            adminDAO.delete(admin);
+            System.out.println("borrado");
+           // adminDAO.delete(admin);
         }catch(Exception e){
             System.err.println("ERROR delete " + e.getStackTrace());
         }

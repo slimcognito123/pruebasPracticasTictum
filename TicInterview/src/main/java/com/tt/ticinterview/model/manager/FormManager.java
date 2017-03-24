@@ -2,6 +2,7 @@ package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.form.Form;
 import com.tt.ticinterview.model.dao.FormDAO;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,8 @@ public class FormManager {
     @Transactional
     public void save(Form form){
         try{
-            formDAO.save(form);
+            System.out.println("form guardado");
+            //formDAO.save(form);
         }catch (Exception e){
             System.err.println("ERROR save " + e);
         }
@@ -36,7 +38,8 @@ public class FormManager {
     @Transactional
     public void delete (Form form){
         try{
-            formDAO.delete(form);
+            System.out.println("form guardado");
+            //formDAO.delete(form);
         }catch(Exception e){
             System.err.println("ERROR delete " + e);
         }
@@ -46,7 +49,8 @@ public class FormManager {
  
     public Form getById(long id){
         try{
-            return formDAO.getById(id);
+            return new Form();
+          //  return formDAO.getById(id);
         }catch (Exception e){
             System.err.println("ERROR getById " + e);
         }
@@ -56,7 +60,8 @@ public class FormManager {
  
     public List<Form> getAll(){
         try {
-            return formDAO.getAll();
+            return new ArrayList<>();
+         //   return formDAO.getAll();
         }catch (Exception e){
             System.err.println("ERROR getAll " + e);
         }

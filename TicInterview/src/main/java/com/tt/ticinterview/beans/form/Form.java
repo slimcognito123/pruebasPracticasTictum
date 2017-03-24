@@ -40,6 +40,11 @@ public class Form extends GenericBean implements Serializable{
     public Form() {
     }
 
+    public Form(long id, List<Question> questions) {
+        this.id = id;
+        this.questions = questions;
+    }
+    
     public Form(List<Question> questions) {
         this.questions = questions;
     }

@@ -5,6 +5,7 @@ import com.tt.ticinterview.beans.user.Interviewer;
 import com.tt.ticinterview.model.dao.CandidateDAO;
 import com.tt.ticinterview.model.dao.InterviewerDAO;
 import com.tt.ticinterview.services.MailServiceImpl;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public void register(Interviewer interviewer) {
         try {
-            interviewerDAO.save(interviewer);
+            System.out.println("Guardado");
+            //interviewerDAO.save(interviewer);
         } catch (Exception e) {
             System.err.println("Error save: " + e);
         }
@@ -46,7 +48,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public void delete(Interviewer interviewer) {
         try {
-            interviewerDAO.delete(interviewer);
+            System.out.println("borrado");
+           // interviewerDAO.delete(interviewer);
         } catch (Exception e) {
             System.err.println("Error delete: " + e);
         }
@@ -55,7 +58,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public Interviewer getById(long id) {
         try {
-            return interviewerDAO.getById(id);
+            return new Interviewer(555, "Pablo", "sdfdfg", "sadfsdf", true);
+           // return interviewerDAO.getById(id);
         } catch (Exception e) {
             System.err.println("Error getById: " + e);
         }
@@ -65,7 +69,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public Interviewer getByMail(String mail) {
         try {
-            return interviewerDAO.getUserMail(mail);
+             return new Interviewer(234, "Pablo", "sdfdfg", "sadfsdf", true);
+         //   return interviewerDAO.getUserMail(mail);
         } catch (Exception e) {
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }
@@ -75,7 +80,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public List<Interviewer> getAll() {
         try {
-            return interviewerDAO.getAll();
+             return new ArrayList<>();
+           // return interviewerDAO.getAll();
         } catch (Exception e) {
             System.err.println("Error getAll: " + e);
         }
@@ -86,7 +92,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public void modify(Interviewer interviewer) {
         try {
-            interviewerDAO.modify(interviewer);
+            System.out.println("modificado");
+           // interviewerDAO.modify(interviewer);
         } catch (Exception e) {
             System.err.println("ERROR modify " + e.getStackTrace());
         }
@@ -94,7 +101,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
 
     public List<Interviewer> getManager() {
         try {
-            return interviewerDAO.getManagers();
+             return new ArrayList<>();
+            //return interviewerDAO.getManagers();
         } catch (Exception e) {
             System.err.println("Error getManager: " + e);
         }
@@ -103,7 +111,8 @@ public class InterviewerManager implements UserManager<Interviewer> {
 
     public List<Interviewer> getInterviewers() {
         try {
-            return interviewerDAO.getInterviewers();
+             return new ArrayList<>();
+           // return interviewerDAO.getInterviewers();
         } catch (Exception e) {
             System.err.println("Error getInterviewers: " + e);
         }
