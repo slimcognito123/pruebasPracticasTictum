@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TIC Interviews | Procesos Superados</title>
+<title>TIC Interviews</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
 <link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="../css/fullcalendar.css" />
 <link rel="stylesheet" href="../css/matrix-style.css" />
 <link rel="stylesheet" href="../css/matrix-media.css" />
 <link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -15,10 +16,18 @@
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
+<%
+	List<Interview> listaEntrevistas;
+	if(request.getAttribute("listaEntrevistas") != null){
+		listaEntrevistas = request.getAttribute("listaEntrevistas");
+	}else{
+		response.sendRedirect("../java/com/tt/ticinterview/controller/admin/ShowAllInterviews.do");
+	}
+%>
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="#">alvarito</a></h1>
+  <h1><a href="dashboard.html">alvarito</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -26,23 +35,31 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
  <ul class="nav">
-    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenido Usuario: XXXXX</span><b class="caret"></b></a>
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenido Administrador: XXX</span><b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="#"><i class="icon-user"></i> Mi Perfil</a></li>
+        <li><a href="#"><i class="icon-user-md"></i> Mi Perfil</a></li>
         <li class="divider"></li>
-        <li><a href="../access/log.html"><i class="icon-key"></i> Cerrar Sesión</a></li>
+        <li><a href="../Access/logAdmin.html"><i class="icon-key"></i> Cerrar Sesión</a></li>
       </ul>
+     <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-cog"></i> <span class="text"> Configuración de Usuarios</span> <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a  title="" href="CreateUser.html"><i class="icon-plus"></i> Crear Usuario</a></li>
+        <li class="divider"></li>
+        <li><a  title="" href="ManagerUsers.html"><i class="icon-wrench"></i> Gestión de Usuarios</a></li>
+      </ul>
+    </li>
 </div>
 <!--close-top-Header-menu-->
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Inicio</a>
   <ul>
-    <li class=""><a href="PanelCandidate.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
+    <li class="active"><a href="PanelAdmin.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
 
-    <li class=""> <a href="MyInvitations.html"><i class="icon icon-sitemap"></i> <span>Mis Invitaciones</span></a></li>
+    <li class=""> <a href="NewSchema.html"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
 
-    <li class="active"> <a href="MyProcess.html"><i class="icon icon-ok-circle"></i> <span>Procesos Superados</span></a></li>
-   
+    <li class=""> <a href="ShowAllSchemas.html"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
+
+    <li class=""> <a href="ShowAllAnswers.html"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
 </div>
 <!--sidebar-menu-->
 
@@ -50,18 +67,36 @@
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="PanelCandidate.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a><a href="#" class="current">Procesos Superados</a></div>
-    <h1>Procesos Superados</h1>
+    <div id="breadcrumb"> <a href="PanelAdmin.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a></div>
   </div>
-  <hr>
-    <div class="container-fluid">
-    <p>Aquí podrás ver todos los procesos en los que te han seleccionado <b>¡Enhorabuena!</b></p>
-        <ul class="list" style="color: #28b779">
-            <li><h5>Desarrollador Front-End</h5></li>
-            <li><h5>Camarero de cafés y limpia polvo de teclados</h5></li>
-        </ul>
 <!--End-breadcrumbs-->
+<div class="container-fluid">
+<center><h3>Aquí puedes ver todas las entrevistas publicadas</h3></center>
 
+<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-reorder"></i></span>
+            <h5>Entrevistas publicadas en TIC Interviews</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Descripción</th>
+                  <th>Ver</th>
+                </tr>
+              </thead>
+
+              <tbody>
+				<% for(entrevista : listaEntrevistas){ %>
+                <tr>
+                  <td class="taskDesc"><i class="icon-info-sign"></i><%= entrevista.getName()%></td>
+                  <td class="taskOptions"><a href="../java/com/tt/ticinterview/controller/interviewer/GetAnswer.do?id=<%=entrevista.getId()%>" class="tip-top"><button class="btn btn-success"> <span class="icon-arrow-right"></span></button></a></td>
+                </tr>
+				<% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       </div>
@@ -99,7 +134,7 @@
 <script src="../js/select2.min.js"></script> 
 <script src="../js/matrix.popover.js"></script> 
 <script src="../js/jquery.dataTables.min.js"></script> 
-<script src="../js/matrix.tables.js"></script>
+<script src="../js/matrix.tables.js"></script> 
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to

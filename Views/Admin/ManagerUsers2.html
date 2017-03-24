@@ -1,14 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TIC Interviews</title>
+<title>TIC Interviews | Gestión Usuarios</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
 <link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="../css/fullcalendar.css" />
 <link rel="stylesheet" href="../css/matrix-style.css" />
 <link rel="stylesheet" href="../css/matrix-media.css" />
 <link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -18,14 +15,6 @@
 <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-<%
-	ArrayList<Interview> listaEntrevistas;
-	if(request.getAttribute("listaEntrevistas") != null){
-		listaEntrevistas = request.getAttribute("listaEntrevistas");
-	}else{
-		response.sendRedirect("../java/com/tt/ticinterview/controller/admin/ShowAllInterviews.do");
-	}
-%>
 
 <!--Header-part-->
 <div id="header">
@@ -47,7 +36,7 @@
       <ul class="dropdown-menu">
         <li><a  title="" href="CreateUser.html"><i class="icon-plus"></i> Crear Usuario</a></li>
         <li class="divider"></li>
-        <li><a  title="" href="ManagerUsers.html"><i class="icon-wrench"></i> Gestión de Usuarios</a></li>
+        <li class="active"><a  title="" href="ManagerUsers.html"><i class="icon-wrench"></i> Gestión de Usuarios</a></li>
       </ul>
     </li>
 </div>
@@ -55,7 +44,7 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Inicio</a>
   <ul>
-    <li class="active"><a href="PanelAdmin.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
+    <li class=""><a href="PanelAdmin.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
 
     <li class=""> <a href="NewSchema.html"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
 
@@ -69,37 +58,18 @@
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="PanelAdmin.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a></div>
+    <div id="breadcrumb"> <a href="PanelAdmin.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a><a href="#" class="current"> Gestión de Usuarios</a></div>
+    <h1><b>Panel de Administrador</b> | Gestión Usuarios</h1>
   </div>
+  <hr>
 <!--End-breadcrumbs-->
 <div class="container-fluid">
-<center><h3>Aquí puedes ver todas las entrevistas publicadas</h3></center>
 
-<div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-reorder"></i></span>
-            <h5>Entrevistas publicadas en TIC Interviews</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>Descripción</th>
-                  <th>Estado</th>
-                  <th>Ver Entrevista</th>
-                </tr>
-              </thead>
 
-              <tbody>
-				<% for(entrevista : listaEntrevistas){ %>
-                <tr>
-                  <td class="taskDesc"><i class="icon-info-sign"></i><%= entrevista.getName(); %></td>
-                  <td class="taskStatus"><span class="done"><%= (entrevista.isPrivate) ? ("Privada") : ("Publica");%></span></td>
-                  <td class="taskOptions"><a href="login.html" class="tip-top" data-original-title="¡Adelante!"><i class="icon-ok"></i></a></td>
-                </tr>
-				<% } %>
-              </tbody>
-            </table>
-          </div>
+
+
+
+
         </div>
       </div>
 

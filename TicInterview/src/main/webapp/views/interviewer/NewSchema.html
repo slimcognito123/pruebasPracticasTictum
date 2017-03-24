@@ -47,9 +47,9 @@
 
     <li class="active"> <a href="NewSchema.html"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
 
-    <li class=""> <a href=""><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
+    <li class=""> <a href="ShowMySchemas.html"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
 
-    <li class=""> <a href=""><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
+    <li class=""> <a href="ShowMyAnswers.html"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
 
     </ul>
    
@@ -100,15 +100,12 @@
 
 
     </div>
-	<form action="" method="" align="right">
+	<form action="intermedia.jsp" method="get" align="right">
 		<button type="submit" >Crear Maqueta</button>
 		<div id="respuesta" hidden>
 		</div>
 	</form>
 	<div id="listaPreguntas">
-	<tbody>
-        
-    </tbody>
 	</div>
     </div>
   </div>
@@ -179,7 +176,7 @@ function resetMenu() {
 	}
 	
 	$(document).ready(function(){
-		var dragged;
+		var dragged = "";
 		var pregunta;
 		var elementoSeleccionado;
 		var video = $("#video");
@@ -210,6 +207,9 @@ function resetMenu() {
 		$(".entrevista").droppable({
 			drop: function(event, ui) {
 				$(this).css('background', '#B3C2B2');
+				if(dragged == ""){
+					$(".entrevista").html("<br/>");
+				}
 				dragged = ui.draggable.attr('name');
 				encontrarElemento(dragged);
 				desactivar();
@@ -286,9 +286,9 @@ function resetMenu() {
 			$("#terminar").hide();
 			var x = $("#listaPreguntas").html();
 			if(dragged == "video"){
-				$("#listaPreguntas").html(x + "<tr><td class='taskDesc'><i class='icon-info-sign'></i>Pregunta Video</td><td class='taskOptions'><i class='icon-ok'></i></td></tr><br/>");
+				$("#listaPreguntas").html(x + "Pregunta de video<br/>");
 			}else{
-				$("#listaPreguntas").html(x + "<tr><td class='taskDesc'><i class='icon-info-sign'></i>Formulario</td><td class='taskOptions'><i class='icon-ok'></i></td></tr><br/>");
+				$("#listaPreguntas").html(x + "Formulario<br/>");
 			}
 			video.draggable('enable');
 		});
@@ -298,7 +298,7 @@ function resetMenu() {
 			var txPreview = interview.html();
 			if(dragged=="video"){
 				var idVideo = pregunta.split("=");
-				interview.html(txPreview + "<p align='center'><iframe title='YouTube video player' class='youtube-player' type='text/html' width='650px' height='300px' src='http://www.youtube.com/embed/"+idVideo[1]+"' frameborder='0' allowFullScreen></iframe></p>");
+				interview.html(txPreview + "<iframe title='YouTube video player' class='youtube-player' type='text/html' width='250' height='250' src='http://www.youtube.com/embed/"+idVideo[1]+"' frameborder='0' allowFullScreen></iframe>");
 			}else{
 				interview.html(txPreview + "<label>" + pregunta + " &nbsp &nbsp &nbsp &nbsp &nbsp <input type='" + dragged + "' /></label>");
 			}
