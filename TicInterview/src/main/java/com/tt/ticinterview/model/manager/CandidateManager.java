@@ -3,6 +3,7 @@ package com.tt.ticinterview.model.manager;
 import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.model.dao.CandidateDAO;
+import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,8 @@ public class CandidateManager implements UserManager<Candidate> {
     @Override
     public void register(Candidate candidate){
         try{
-            candidateDAO.save(candidate);
+            System.out.println("Registrado");
+            //candidateDAO.save(candidate);
         }catch(Exception e){
             System.err.println("ERROR save " + e.getStackTrace());
         }
@@ -38,7 +40,8 @@ public class CandidateManager implements UserManager<Candidate> {
     @Override
     public Candidate getById(long id){
         try{
-            return candidateDAO.getById(id);
+            return new Candidate("pablo", "sdfgdf", "dsf", "sdf", LocalDateTime.MAX, 0, "pablo", "pablo");
+            //return candidateDAO.getById(id);
         }catch(Exception e){
             System.err.println("ERROR getById " + e.getStackTrace());
         }

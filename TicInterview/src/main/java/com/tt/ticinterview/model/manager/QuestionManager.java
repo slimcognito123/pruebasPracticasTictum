@@ -2,6 +2,7 @@ package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.form.Question;
 import com.tt.ticinterview.model.dao.QuestionDAO;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,8 @@ public class QuestionManager {
     @Transactional
     public void save(Question question) {
         try {
-            questionDAO.save(question);
+            System.out.println("Guardado");
+         //   questionDAO.save(question);
         } catch (Exception e) {
             System.err.println("ERROR save " + e.getStackTrace());
         }
@@ -35,7 +37,8 @@ public class QuestionManager {
     @Transactional
     public void delete(Question question) {
         try {
-            questionDAO.delete(question);
+            System.out.println("Borrado");
+          //  questionDAO.delete(question);
         } catch (Exception e) {
             System.err.println("ERROR delete " + e.getStackTrace());
         }
@@ -44,7 +47,8 @@ public class QuestionManager {
     
     public Question getById(long id) {
         try {
-            return questionDAO.getById(id);
+            return new Question();
+         //   return questionDAO.getById(id);
         } catch (Exception e) {
             System.err.println("ERROR getById " + e.getStackTrace());
         }
@@ -54,7 +58,8 @@ public class QuestionManager {
     
     public List<Question> getAll() {
         try {
-            return questionDAO.getAll();
+        return new ArrayList<>();
+          //  return questionDAO.getAll();
         } catch (Exception e) {
             System.err.println("ERROR getAll " + e.getStackTrace());
         }
