@@ -39,7 +39,7 @@ public class SendInvitationByInterviewer {
 
     }
 
-    @RequestMapping(method= RequestMethod.GET)
+    @RequestMapping(method= RequestMethod.POST)
     public ModelAndView sendInvitationPost(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();

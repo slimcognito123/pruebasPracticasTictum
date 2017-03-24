@@ -27,7 +27,7 @@ public class WelcomeController {
     @Qualifier("AdminManager")
     private AdminManager userManager;
     @Autowired
-     @Qualifier("InterviewManagerr")
+     @Qualifier("InterviewManager")
     private InterviewManager interviewManager;
 
     @RequestMapping(method= RequestMethod.GET)

@@ -11,6 +11,7 @@ import java.util.Properties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -28,13 +29,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 
 @EnableTransactionManagement
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class AppConfig {
     @Bean(name = "dataSource")
     public DriverManagerDataSource getDriverManagerDatasource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
         dataSource.setPassword("root");
-        dataSource.setUrl("jdbc:mysql://localhost:3307/tt");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/tt");
         dataSource.setUsername("root");
         return dataSource;
     }

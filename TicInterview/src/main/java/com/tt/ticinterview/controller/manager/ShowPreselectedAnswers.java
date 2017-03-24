@@ -39,7 +39,7 @@ public class ShowPreselectedAnswers {
         return  modelo;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
+    @RequestMapping(method= RequestMethod.POST)
     public ModelAndView AnswersPost(){
 
         ModelAndView modelo =  new ModelAndView();

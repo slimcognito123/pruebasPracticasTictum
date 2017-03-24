@@ -2,6 +2,7 @@ package com.tt.ticinterview.controller.app;
 
 import com.tt.ticinterview.beans.user.BasicUser;
 import com.tt.ticinterview.beans.user.Candidate;
+import com.tt.ticinterview.model.manager.CandidateManager;
 import com.tt.ticinterview.model.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class Register {
 
     @Autowired
-    @Qualifier("UserManager")
-    private UserManager userManager;
+    @Qualifier("CandidateManager")
+    private CandidateManager userManager;
 
     @RequestMapping(method=RequestMethod.GET)
     public String registerGet(@ModelAttribute("registro") Candidate usuarioRecibido) {

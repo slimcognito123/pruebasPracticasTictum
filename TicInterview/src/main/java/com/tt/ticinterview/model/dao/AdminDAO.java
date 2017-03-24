@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Scope;
  * Created by Tictum on 13/03/2017.
  */
 @Repository("AdminDAO")
-@Scope(value = "request")
 public class AdminDAO implements BasicUserDAO<Admin> {
 
     @Override

@@ -42,7 +42,7 @@ public class MyAnswers {
         return  modelo;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
+    @RequestMapping(method= RequestMethod.POST)
     public ModelAndView myAnswersPost(HttpServletRequest request){
 
         ModelAndView modelo =  new ModelAndView();

@@ -11,6 +11,7 @@ import javax.servlet.ServletRegistration;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  *
  * @author tictumTarde
  */
+
 public class SpringWebInitializer implements WebApplicationInitializer {
 
     @Override
