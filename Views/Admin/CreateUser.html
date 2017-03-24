@@ -65,31 +65,24 @@
 <!--End-breadcrumbs-->
 <div class="container-fluid">
 
-    <form id="recoverform" action="#">
+    <form id="recoverform" action="createUser.do" method="post">
                     <div class="controls">
                         <div class="main_input_box">
                             <p>Elige el rol del usuario que vas a crear:</p>
                             <input type="radio" name="rol" value="Entrevistador"> <b>Entrevistador</b><br>
                             <input type="radio" name="rol" value="Manager"> <b>Manager</b><br><br>
                             <p>Rellena el formulario con los datos del usuario:</p>
+							<font color="red" id="info"></font><br/>
                             <input type="text" placeholder="Nombre" />
                             <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Contraseña" />
-                            <input type="password" placeholder="Repetir Contraseña" />
+                            <input id="pass" type="password" placeholder="Contraseña" />
+                            <input id="vpass" type="password" placeholder="Repetir Contraseña" onchange="verificar()" />
                         </div>
                     </div><br>
-               
-                    
-                    <button type="submit" class="btn btn-info"/>Añadir Usuario </button>
-                
+                    <button id="boton" type="submit" class="btn btn-info" disabled/>Añadir Usuario </button>                
             </form>
-
-
-
-
         </div>
       </div>
-
       </div>
     </div>
   </div>
@@ -145,6 +138,18 @@
           }
       }
   }
+  
+	function verificar() {
+		//Recoger los datos introducidos
+		var contraseña = document.getElementById("pass").value;
+		var vcontraseña = document.getElementById("vpass").value;
+		if (contraseña != vcontraseña) {
+			document.getElementById("info").innerHTML = "Las contraseñas no coinciden.";
+		} else {
+			document.getElementById("boton").disabled = false;
+			document.getElementById("info").innerHTML = "";
+		}
+	}
 
 // resets the menu selection upon entry to this page:
 function resetMenu() {

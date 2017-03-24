@@ -176,7 +176,7 @@ function resetMenu() {
 	}
 	
 	$(document).ready(function(){
-		var dragged;
+		var dragged = "";
 		var pregunta;
 		var elementoSeleccionado;
 		var video = $("#video");
@@ -207,6 +207,9 @@ function resetMenu() {
 		$(".entrevista").droppable({
 			drop: function(event, ui) {
 				$(this).css('background', '#B3C2B2');
+				if(dragged == ""){
+					$(".entrevista").html("<br/>");
+				}
 				dragged = ui.draggable.attr('name');
 				encontrarElemento(dragged);
 				desactivar();
