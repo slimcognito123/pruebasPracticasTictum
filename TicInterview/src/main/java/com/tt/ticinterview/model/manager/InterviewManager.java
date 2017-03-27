@@ -23,6 +23,7 @@ public class InterviewManager {
     @Autowired
     @Qualifier("InterviewDAO")
     private InterviewDAO interviewDAO;
+    private ArrayList<Interview> interviews;
 
     @Transactional
     public void save(Interview interview){
@@ -58,7 +59,9 @@ public class InterviewManager {
 
     public List<Interview> getAll(){
         try{
-            return new ArrayList<>();
+            interviews = new ArrayList<>();
+            Interview interview = new Interview(1,"pene",null,null,null, false, false);
+            return interviews;
            // return interviewDAO.getAll();
         } catch (Exception e) {
             System.err.println("ERROR getAll " + e.getStackTrace());

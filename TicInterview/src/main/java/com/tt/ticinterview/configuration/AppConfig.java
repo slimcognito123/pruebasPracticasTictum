@@ -52,7 +52,7 @@ public class AppConfig {
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3307/tictalen");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/tt");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;
