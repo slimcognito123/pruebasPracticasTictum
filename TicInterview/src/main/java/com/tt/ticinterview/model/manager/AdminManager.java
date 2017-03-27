@@ -29,9 +29,10 @@ public class AdminManager implements UserManager<Admin> {
     public void register(Admin admin) {
         try {
             //Datos de prueba
+
+            adminDAO.save(admin);
             System.out.println("usuario guradado");
             System.out.println(admin.toString());
-            //  adminDAO.save(admin);
         } catch (Exception e) {
             System.err.println("ERROR save " + e.getStackTrace());
         }
