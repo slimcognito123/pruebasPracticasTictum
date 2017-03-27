@@ -1,7 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.user.Admin;
-import com.tt.ticinterview.model.dao.AdminDAO;
+import old.tt.ticinterview.model.dao.AdminDAO;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,9 +20,9 @@ import java.util.List;
 @Service("AdminManager")
 public class AdminManager implements UserManager<Admin> {
 
-    @Autowired
-    @Qualifier("AdminDAO")
-    private AdminDAO adminDAO;
+//    @Autowired
+//    @Qualifier("AdminDAO")
+//    private AdminDAO adminDAO;
 
     @Transactional
     @Override

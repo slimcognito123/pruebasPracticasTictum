@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tt.ticinterview.model.dao;
+package old.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.basic.GenericBean;
 import com.tt.ticinterview.beans.basic.InstanceEntityManager;

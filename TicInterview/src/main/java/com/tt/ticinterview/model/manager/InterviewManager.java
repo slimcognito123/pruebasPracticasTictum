@@ -1,7 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.Interview.Interview;
-import com.tt.ticinterview.model.dao.InterviewDAO;
+import old.tt.ticinterview.model.dao.InterviewDAO;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

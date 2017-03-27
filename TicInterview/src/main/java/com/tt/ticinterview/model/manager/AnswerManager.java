@@ -3,7 +3,7 @@ package com.tt.ticinterview.model.manager;
 import com.tt.ticinterview.beans.Interview.Answer;
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.user.Interviewer;
-import com.tt.ticinterview.model.dao.AnswerDAO;
+import old.tt.ticinterview.model.dao.AnswerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

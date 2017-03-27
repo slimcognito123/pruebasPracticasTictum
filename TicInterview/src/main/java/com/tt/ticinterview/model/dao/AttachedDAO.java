@@ -1,29 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.Interview.Attached;
+import java.util.List;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
-import java.util.List;
-
 /**
- * Created by Tictum on 10/03/2017.
+ *
+ * @author TictumTarde
  */
-@Repository(value = "AttachedDAO")
-public class AttachedDAO implements CrudDAO<Attached> {
 
-    public Attached getById(Long id){
+@Repository("AttachedDAO")
+public class AttachedDAO extends CrudDAOImplementation<Attached>{
 
-        return entityManager.find(Attached.class,id);
+    @Override
+    public void save(Attached object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public List<Attached> getAll(){
-
-        List<Attached> lista;
-        Class<Attached> object = null;
-
-        String prepareQuery = "select something from Attached something";
-        Query query = entityManager.createQuery(prepareQuery);
-        return query.getResultList();
+    @Override
+    public Attached getById(Long id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Attached> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
