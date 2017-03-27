@@ -1,7 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.video.CorporativeVideo;
-import old.tt.ticinterview.model.dao.CorporativeVideoDAO;
+import com.tt.ticinterview.model.dao.CorpotativeVideoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class CorporativeVideoManager implements VideoManager<CorporativeVideo>{
 
     @Autowired
     @Qualifier("CorporativeVideoDAO")
-    private CorporativeVideoDAO corporativeVideoDAO;
+    private CorpotativeVideoDAO corporativeVideoDAO;
 
     @Transactional
     @Override

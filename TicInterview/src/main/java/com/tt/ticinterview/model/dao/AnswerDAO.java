@@ -1,6 +1,6 @@
 package com.tt.ticinterview.model.dao;
 
-import old.tt.ticinterview.model.dao.*;
+
 import com.tt.ticinterview.beans.Interview.Answer;
 import org.springframework.stereotype.Repository;
 
