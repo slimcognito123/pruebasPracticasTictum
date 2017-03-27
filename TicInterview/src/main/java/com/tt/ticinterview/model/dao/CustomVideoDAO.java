@@ -1,34 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.video.CustomVideo;
+import java.util.List;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
-import java.util.List;
-
 /**
- * Created by Tictum on 13/03/2017.
+ *
+ * @author TictumTarde
  */
+
 @Repository("CustomVideoDAO")
-public class CustomVideoDAO implements VideoDAO<CustomVideo> {
+public class CustomVideoDAO extends VideoDAO<CustomVideo>{
 
     @Override
     public CustomVideo getById(Long id) {
-        return entityManager.find(CustomVideo.class, id);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<CustomVideo> getAll() {
-        String prepareQuery = "select something from CustomVideo something";
-        Query query = entityManager.createQuery(prepareQuery);
-        return query.getResultList();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<CustomVideo> searchVideo(String nombreVideo) {
-        String sql = "Select cosa from CustomVideo cosa where cosa.name like :nombre";
-        Query query = entityManager.createQuery(sql);
-        query.setParameter("nombre", "%" + nombreVideo + "%");
-        return query.getResultList();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void save(CustomVideo object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

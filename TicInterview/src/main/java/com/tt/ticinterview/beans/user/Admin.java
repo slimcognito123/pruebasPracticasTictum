@@ -9,7 +9,7 @@ package com.tt.ticinterview.beans.user;
 
 
 import com.tt.ticinterview.beans.basic.GenericBean;
-import com.tt.ticinterview.configuration.BasicUser;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;

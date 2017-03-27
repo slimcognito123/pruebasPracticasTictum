@@ -1,24 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.form.Form;
+import java.util.List;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
-import java.util.List;
-
 /**
- * Created by Tictum on 10/03/2017.
+ *
+ * @author TictumTarde
  */
 @Repository("FormDAO")
-public class FormDAO implements CrudDAO<Form> {
-    public Form getById(Long id){
-        return entityManager.find(Form.class,id);
+public class FormDAO extends CrudDAOImplementation<Form>{
+
+    @Override
+    public void save(Form object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public List<Form> getAll(){
-
-        String prepareQuery = "select something from Form something";
-        Query query = entityManager.createQuery(prepareQuery);
-        return query.getResultList();
+    @Override
+    public Form getById(Long id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Form> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

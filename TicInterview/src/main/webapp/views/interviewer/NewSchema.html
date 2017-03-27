@@ -5,20 +5,20 @@
 <meta charset="UTF-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="../css/fullcalendar.css" />
-<link rel="stylesheet" href="../css/matrix-style.css" />
-<link rel="stylesheet" href="../css/matrix-media.css" />
-<link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link rel="stylesheet" href="../css/jquery.gritter.css" />
+<link rel="stylesheet" href="views/css/bootstrap.min.css" />
+<link rel="stylesheet" href="views/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="views/css/fullcalendar.css" />
+<link rel="stylesheet" href="views/css/matrix-style.css" />
+<link rel="stylesheet" href="views/css/matrix-media.css" />
+<link href="views/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="views/css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
 
-<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="views/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="views/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -36,20 +36,20 @@
       <ul class="dropdown-menu">
         <li><a href="#"><i class="icon-user"></i> Mi Perfil</a></li>
         <li class="divider"></li>
-        <li><a href="../access/logInterviewer.html"><i class="icon-key"></i> Cerrar Sesión</a></li>
+        <li><a href="/Logout.do"><i class="icon-key"></i> Cerrar Sesión</a></li>
       </ul>
 </div>
 <!--close-top-Header-menu-->
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Inicio</a>
   <ul>
-    <li class=""><a href="PanelInterviewer.html"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
+    <li class=""><a href="PanelInterviewer.jsp"><i class="icon icon-home"></i> <span>Inicio</span></a> </li>
 
-    <li class="active"> <a href="NewSchema.html"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
+    <li class="active"> <a href="NewSchema.jsp"><i class="icon icon-plus"></i> <span>Nueva Entrevista</span></a></li>
 
-    <li class=""> <a href="ShowMySchemas.html"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
+    <li class=""> <a href="ShowMySchemas.jsp"><i class="icon icon-info-sign"></i> <span>Entrevistas Creadas</span></a></li>
 
-    <li class=""> <a href="ShowMyAnswers.html"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
+    <li class=""> <a href="ShowMyAnswers.jsp"><i class="icon icon-sitemap"></i> <span>Respuestas de Candidatos</span></a></li>
 
     </ul>
    
@@ -60,15 +60,15 @@
 <div id="content">
 <!--breadcrumbs-->
   <div id="content-header">
-    <div id="breadcrumb"> <a href="PanelInterviewer.html" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a><a href="#" class="current">Nueva Entrevista</a></div>
+    <div id="breadcrumb"> <a href="PanelInterviewer.jsp" title="Ir a Inicio" class="tip-bottom"><i class="icon-home"></i> Inicio</a><a href="NewSchema.jsp" class="current">Nueva Entrevista</a></div>
   <h1><b>Generador de Entrevistas</b> | Puedes arrastrar los elementos</h1>
   </div>
    <hr>
    <div class="container-fluid">
    
-  <form method="" action="" id="pregunta" hidden>
+  <form method="POST" action="" id="pregunta" hidden>
 	<input type="text" placeholder="Escribe la pregunta" id="textoPregunta" />
-	<button type="button" id="enviarPregunta" class="btn btn-large btn-success" ><i class="icon-ok"></i> </button>
+	<button type="button" id="enviarPregunta" >Aceptar</button>
   </form>
    <div  class="quick-actions_homepage" id="elementos">
     <ul class="quick-actions">
@@ -85,8 +85,8 @@
       <!--<button class="btn btn-danger" id="reset" > <span class="icon-trash"></span> Deshacer</button>-->
     </ul>
   </div>
-  <form method="" action="" id="terminar" hidden><br><br>
-	<button type="button" id="terminarPregunta" class="btn btn-large btn-success"><i class="icon-ok"></i> Terminar</button><br><br>
+  <form method="POST" action="" id="terminar" hidden>
+	<button type="button" id="terminarPregunta" >Terminar pregunta</button>
   </form>
   </div>
   <!--End-breadcrumbs-->
@@ -100,11 +100,13 @@
 
 
     </div>
-	<form action="intermedia.jsp" method="get" align="right"><br>
-		<button type="submit" class="btn btn-large btn-info"><i class="icon-bolt"></i> Crear Maqueta de Entrevista</button>
-		<div id="respuesta" hidden>
-		</div>
-	</form>
+        <div align="right">
+            <form action="intermedia.jsp" method="get">
+                <button type="submit" >Crear Maqueta</button>
+                <div id="respuesta" hidden>
+                </div>
+            </form>
+        </div>
 	<div id="listaPreguntas">
 	</div>
     </div>
@@ -119,10 +121,10 @@
 
 <!--end-Footer-part-->
 
-<script src="../js/excanvas.min.js"></script> 
-<script src="../js/jquery.min.js"></script> 
-<script src="../js/jquery.ui.custom.js"></script> 
-<script src="../js/bootstrap.min.js"></script> 
+<script src="views/js/excanvas.min.js"></script> 
+<script src="views/js/jquery.min.js"></script> 
+<script src="views/js/jquery.ui.custom.js"></script> 
+<script src="views/js/bootstrap.min.js"></script> 
 <!--
 <script src="../js/jquery.flot.min.js"></script> 
 <script src="../js/jquery.flot.resize.min.js"></script> 

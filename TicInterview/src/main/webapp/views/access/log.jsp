@@ -8,17 +8,17 @@
 <head>
         <title>TIC Interviews | Login</title><meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" href="../css/matrix-login.css" />
-        <link href="../font-awesome/css/font-awesome.css" rel="stylesheet" />
+		<link rel="stylesheet" href="views/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="views/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="views/css/matrix-login.css" />
+        <link href="views/font-awesome/css/font-awesome.css" rel="stylesheet" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
     </head>
     <body>
         <div id="loginbox">            
             <form id="loginform" class="form-vertical" action="login.do">
-				 <div class="control-group normal_text"><a href="../index.html"><img src="../img/logoo.png" alt="Logo" /></a></div>
+				 <div class="control-group normal_text"><a href="views/index.html"><img src="views/img/logoo.png" alt="Logo" /></a></div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-actions">
                     <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover"> Regístrate</a></span>
-                    <span class="pull-right"><a type="submit" href="../Candidate/PanelCandidate.html" class="btn btn-success" /> Entrar</a></span>
+                    <span class="pull-right"><a type="submit" href="views/candidate/PanelCandidate.jsp" class="btn btn-success" /> Entrar</a></span>
                 </div>
             </form>
             <form:form modelAttribute="registro" method="POST" id="recoverform" action="Register.do" class="form-vertical">
@@ -61,8 +61,8 @@
             </form:form>
         </div>
         
-        <script src="../js/jquery.min.js"></script>  
-        <script src="../js/matrix.login.js"></script> 
+        <script src="views/js/jquery.min.js"></script>  
+        <script src="views/js/matrix.login.js"></script> 
     </body>
 
 </html>

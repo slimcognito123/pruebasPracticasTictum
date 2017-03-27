@@ -25,6 +25,13 @@ public class CreateInterviewByAdmin {
     public String createUser(Interview interview, HttpSession session) {
         if (session == null) return "index";
         business.save(interview);
-        return "adminGlobal";
+        return "/views/admin/PanelAdmin.jsp";
+    }
+    
+     @RequestMapping(method = RequestMethod.GET)
+    public String getcreateUser(Interview interview, HttpSession session) {
+           if (session == null) return "index";
+        business.save(interview);
+        return "/views/admin/PanelAdmin.jsp";
     }
 }

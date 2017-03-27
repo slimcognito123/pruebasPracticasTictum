@@ -1,4 +1,4 @@
-package com.tt.ticinterview.model.dao;
+package old.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.video.CorporativeVideo;
 import org.springframework.stereotype.Repository;

@@ -46,11 +46,11 @@ public class Answer extends GenericBean implements Serializable {
     @Column(name = "attached", nullable = true)
     private List<Attached> attached;
     @Column(name = "valoration", nullable = true)
-    private int valoration;
+    private Integer valoration;
     @Column(name = "observation", nullable = true, length = 500)
     private String observation;
     @Column(name = "isSelected", nullable = true)
-    private boolean isSelected;
+    private Boolean isSelected;
 
     public Answer() {
     }

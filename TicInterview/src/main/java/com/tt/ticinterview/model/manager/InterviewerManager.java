@@ -2,8 +2,8 @@ package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.user.Interviewer;
-import com.tt.ticinterview.model.dao.CandidateDAO;
-import com.tt.ticinterview.model.dao.InterviewerDAO;
+import old.tt.ticinterview.model.dao.CandidateDAO;
+import old.tt.ticinterview.model.dao.InterviewerDAO;
 import com.tt.ticinterview.services.MailServiceImpl;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;

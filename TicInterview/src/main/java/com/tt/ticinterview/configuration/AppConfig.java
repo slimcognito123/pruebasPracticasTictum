@@ -5,79 +5,81 @@
  */
 package com.tt.ticinterview.configuration;
 
-import com.tt.ticinterview.model.manager.InterviewManager;
-import com.tt.ticinterview.model.manager.InterviewerManager;
 import java.util.Properties;
+import javax.sql.DataSource;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
- *,
-        "com.tt.ticinterview.model.dao"
+ * ,
+ * "com.tt.ticinterview.model.dao"
+ *
  * @author pnaca
  */
 @Configuration
-@ComponentScan(basePackages = {"com.tt.ticinterview","com.tt.ticinterview.model.dao","com.tt.ticinterview.model.manager"})
-@EnableWebMvc
+@ComponentScan(basePackages = {"com.tt.ticinterview"})
+//@EnableWebMvc
 
 @EnableTransactionManagement
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+
 public class AppConfig {
-    @Bean(name = "dataSource")
-    public DriverManagerDataSource getDriverManagerDatasource() {
+    /**
+     * ViewResolver
+     * @return 
+     */
+    @Bean
+    public ViewResolver getViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/views");
+        resolver.setSuffix(".jsp");
+
+        return resolver;
+    }
+
+    @Bean
+    public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-        dataSource.setPassword("root");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/tt");
+        dataSource.setUrl("jdbc:mysql://localhost:3307/tictalen");
         dataSource.setUsername("root");
+        dataSource.setPassword("root");
         return dataSource;
     }
 
-    @Bean(name = "myEmf")
-    public LocalContainerEntityManagerFactoryBean getLocalContainerEntityManagerFactoryBean() {
-        LocalContainerEntityManagerFactoryBean local = new LocalContainerEntityManagerFactoryBean();
-        local.setDataSource(getDriverManagerDatasource());
-        local.setPackagesToScan("com.tt.ticinterview.beans");
-//        Properties props = new Properties();
-//        props.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-//        props.put("hibernate.hbm2ddl.auto", "update");
-        local.setJpaProperties(getHibernateProperties());
-    
-        local.setJpaVendorAdapter(getHibernateJpaVendorAdapter());
-
-        return local;
+    @Bean
+    public LocalSessionFactoryBean getSessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(getDataSource());
+        sessionFactory.setPackagesToScan(new String[]{"com.tt.ticinterview.beans"});
+        sessionFactory.setHibernateProperties(getHibernateProperties());
+        return sessionFactory;
     }
 
-    @Bean(name = "vendorAdapter")
-    public HibernateJpaVendorAdapter getHibernateJpaVendorAdapter() {
-        HibernateJpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
-        return vendor;
-    }
-
-    @Bean(name = "transactionManager")
-    public JpaTransactionManager getJpaTransactionManager() {
-        JpaTransactionManager tm = new JpaTransactionManager();
-        tm.setEntityManagerFactory(getLocalContainerEntityManagerFactoryBean().getNativeEntityManagerFactory());
-        return tm;
-    }
-     private Properties getHibernateProperties() {
+    private Properties getHibernateProperties() {
         Properties properties = new Properties();
-        properties.put("hibernate.show_sql", "true");
-        properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        properties.put("hibernate.show_sql", "true");
+
+        properties.put("hibernate.hbm2ddl.auto", "update");
+
         return properties;
     }
-     
-//     @Bean
-//     public InterviewerManager I(){
-//         return new InterviewerManager();
-//     }
+
+    @Bean
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+        HibernateTransactionManager txManager = new HibernateTransactionManager();
+        txManager.setSessionFactory(sessionFactory);
+        return txManager;
+    }
+
 }

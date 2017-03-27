@@ -31,6 +31,8 @@ public class Interview extends GenericBean implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "Name",nullable = false)
+    private String name;
     @OneToOne()  
     private Interviewer idInterviewer;
      @OneToMany
@@ -45,14 +47,9 @@ public class Interview extends GenericBean implements Serializable {
     public Interview() {
     }
 
-    public Interview(Interviewer idInterviewer, boolean isPrivate, boolean isSchema) {
-        this.idInterviewer = idInterviewer;
-        this.isPrivate = isPrivate;
-        this.isSchema = isSchema;
-    }
-    
-    
-    public Interview(Interviewer idInterviewer, List<CustomVideo> video, Form form, boolean isPrivate, boolean isSchema) {
+    public Interview(long id, String name, Interviewer idInterviewer, List<CustomVideo> video, Form form, boolean isPrivate, boolean isSchema) {
+        this.id = id;
+        this.name = name;
         this.idInterviewer = idInterviewer;
         this.video = video;
         this.form = form;
@@ -60,11 +57,21 @@ public class Interview extends GenericBean implements Serializable {
         this.isSchema = isSchema;
     }
 
-    public Interview(Interviewer idInterviewer, List<CustomVideo> video, Form form) {
+    public Interview(String name, Interviewer idInterviewer, List<CustomVideo> video, Form form, boolean isPrivate, boolean isSchema) {
+        this.name = name;
         this.idInterviewer = idInterviewer;
         this.video = video;
         this.form = form;
+        this.isPrivate = isPrivate;
+        this.isSchema = isSchema;
     }
+
+    public Interview(String name, Interviewer idInterviewer) {
+        this.name = name;
+        this.idInterviewer = idInterviewer;
+    }
+
+    
     
     
     
@@ -132,6 +139,22 @@ public class Interview extends GenericBean implements Serializable {
         this.isSchema = isSchema;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     @Override
     public String toString() {
         return "Interview{" + "idInterview=" + id+ ", idInterviewer=" + idInterviewer + ", video=" + video + ", form=" + form + ", isPrivate=" + isPrivate + ", isSchema=" + isSchema + '}';
@@ -146,7 +169,7 @@ public class Interview extends GenericBean implements Serializable {
         this.isSchema = isSchema;
     }
 
-
+    
 
     
 

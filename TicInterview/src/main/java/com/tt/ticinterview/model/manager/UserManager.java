@@ -1,6 +1,6 @@
 package com.tt.ticinterview.model.manager;
 
-import com.tt.ticinterview.model.dao.BasicUserDAO;
+import old.tt.ticinterview.model.dao.BasicUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
