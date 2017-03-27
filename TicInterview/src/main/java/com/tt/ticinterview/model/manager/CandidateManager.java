@@ -2,7 +2,7 @@ package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.Interview.Interview;
 import com.tt.ticinterview.beans.user.Candidate;
-import old.tt.ticinterview.model.dao.CandidateDAO;
+import com.tt.ticinterview.model.dao.CandidateDAO;
 import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -93,7 +93,7 @@ public class CandidateManager implements UserManager<Candidate> {
    
     public List<Interview> getOwnInterviews(Candidate candidate){
         try{
-            return candidateDAO.getOwnInterviews(candidate);
+           // return candidateDAO.getOwnInterviews(candidate);
         }catch(Exception e){
             System.err.println("ERROR delete " + e.getStackTrace());
         }

@@ -1,7 +1,7 @@
 package com.tt.ticinterview.model.manager;
 
 import com.tt.ticinterview.beans.Interview.Attached;
-import old.tt.ticinterview.model.dao.AttachedDAO;
+import com.tt.ticinterview.model.dao.AttachedDAO;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,9 +20,9 @@ import java.util.List;
 @Service("AttachedManager")
 public class AttachedManager {
 
-//    @Autowired
-//    @Qualifier("AttachedDAO")
-//    private AttachedDAO attachedDAO;
+    @Autowired
+    @Qualifier("AttachedDAO")
+    private AttachedDAO attachedDAO;
 
     @Transactional
     public void save(Attached attached){

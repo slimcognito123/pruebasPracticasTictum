@@ -3,7 +3,8 @@ package com.tt.ticinterview.model.manager;
 import com.tt.ticinterview.beans.Interview.Answer;
 import com.tt.ticinterview.beans.user.Candidate;
 import com.tt.ticinterview.beans.user.Interviewer;
-import old.tt.ticinterview.model.dao.AnswerDAO;
+import com.tt.ticinterview.model.dao.AnswerDAO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -74,7 +75,7 @@ public class AnswerManager {
     @Transactional
     public void valorationAnswer(long idInterview, int valoration) {
         try {
-            answerDAO.valorationAnswer(idInterview, valoration);
+      //      answerDAO.valorationAnswer(idInterview, valoration);
         }catch (Exception e){
             System.err.println("ERROR modify " + e);
         }
