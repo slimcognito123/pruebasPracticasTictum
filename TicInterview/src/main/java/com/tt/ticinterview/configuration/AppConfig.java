@@ -40,11 +40,15 @@ public class AppConfig {
     @Bean
     public ViewResolver getViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/views");
+        resolver.setPrefix("/views/");
         resolver.setSuffix(".jsp");
 
         return resolver;
     }
+	     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("/views/");
+    }
+
 
     @Bean
     public DataSource getDataSource() {

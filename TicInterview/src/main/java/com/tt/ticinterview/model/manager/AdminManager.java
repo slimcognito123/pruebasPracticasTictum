@@ -53,7 +53,7 @@ public class AdminManager implements UserManager<Admin> {
     @Override
     public Admin getByMail(String mail){
         try{
-            return new Admin("admin", "admin");
+            return new Admin("admin@", "admin");
             //return adminDAO.getUserMail(mail);
         }catch(Exception e){
             System.err.println("ERROR getByMail " + e.getStackTrace());

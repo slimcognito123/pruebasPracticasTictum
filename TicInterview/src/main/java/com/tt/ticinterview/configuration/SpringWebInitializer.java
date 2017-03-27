@@ -29,7 +29,7 @@ public class SpringWebInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-        appContext.register(AppConfigOld.class);
+        appContext.register(AppConfig.class);
 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
                 "SpringDispatcher", new DispatcherServlet(appContext));
@@ -37,6 +37,7 @@ public class SpringWebInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/");
 
     }
+
 
 //
 //public void configure(HttpSessionEvent http) throws Exception {
