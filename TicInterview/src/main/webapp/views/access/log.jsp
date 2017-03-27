@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="loginbox">
-    <form id="loginform" class="form-vertical" action="/Login.do" method="get">
+    <form id="loginform" class="form-vertical" action="/Login.do" method="post">
         <div class="control-group normal_text"><a href="views/index.html"><img src="views/img/logoo.png" alt="Logo" /></a></div>
         <div class="control-group">
             <div class="controls">
@@ -37,25 +37,26 @@
 
         </div>
     </form>
-    <form id="recoverform" action="#" class="form-vertical">
+    <form id="recoverform" class="form-vertical" action="/Register.do" method="post">
         <p class="normal_text">Rellena el formulario si quieres registrarte como candidato.</p>
 
         <div class="controls">
             <div class="main_input_box">
-                <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Nombre" />
-                <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Apellidos" />
-                <span class="add-on bg_lg"><i class="icon-envelope"></i></span><input type="email" placeholder="Email" />
-                <span class="add-on bg_lo"><i class="icon-book"></i></span><input type="text" placeholder="DNI" />
-                <span class="add-on bg_lo"><i class="icon-calendar"></i></span><input type="date" placeholder="Fecha Nacimiento" />
-                <span class="add-on bg_lo"><i class="icon-map-marker"></i></span><input type="text" placeholder="Dirección" />
-                <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseña" />
+                <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Nombre" name="username"/>
+                <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Apellidos" name="surname"/>
+                <span class="add-on bg_lg"><i class="icon-envelope"></i></span><input type="email" placeholder="Email" name="mail" />
+                <span class="add-on bg_lo"><i class="icon-book"></i></span><input type="text" placeholder="DNI" name="dni"/>
+                <span class="add-on bg_lo"><i class="icon-book"></i></span><input type="text" placeholder="Teléfono" name="phoneNumber"/>
+                <span class="add-on bg_lo"><i class="icon-calendar"></i></span><input type="date" placeholder="Fecha Nacimiento" name="date"/>
+                <span class="add-on bg_lo"><i class="icon-map-marker"></i></span><input type="text" placeholder="Dirección" name="address"/>
+                <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseña" name="password"/>
                 <span class="add-on bg_ly"><i class="icon-unlock"></i></span><input type="password" placeholder="Repetir Contraseña" />
             </div>
         </div>
 
         <div class="form-actions">
             <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Volver</a></span>
-            <span class="pull-right"><a class="btn btn-info">Registrar </a></span>
+            <span class="pull-right"><input type="submit"  class="btn btn-success" value="Registrarse" /></span>
         </div>
     </form>
 </div>
