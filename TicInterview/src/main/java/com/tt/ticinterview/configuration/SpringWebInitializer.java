@@ -34,14 +34,11 @@ public class SpringWebInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
                 "SpringDispatcher", new DispatcherServlet(appContext));
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("*.do");
+        dispatcher.addMapping("/");
 
     }
 
 
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-//    }
 //
 //public void configure(HttpSessionEvent http) throws Exception {
 //        http.getSession().setMaxInactiveInterval(30);

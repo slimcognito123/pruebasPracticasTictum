@@ -6,45 +6,29 @@
 package com.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.Interview.Interview;
-import org.springframework.stereotype.Repository;
-
-import javax.persistence.Query;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author tictumTarde
+ * @author TictumTarde
  */
 @Repository("InterviewDAO")
-public class InterviewDAO implements CrudDAO<Interview> {
-    public Interview getById(Long id){
-        return entityManager.find(Interview.class,id);
+public class InterviewDAO extends CrudDAOImplementation<Interview>{
+
+    @Override
+    public void save(Interview object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public List<Interview> getAll(){
-        String prepareQuery = "select something from Interview something";
-        Query query = entityManager.createQuery(prepareQuery);
-        return query.getResultList();
+    @Override
+    public Interview getById(Long id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-    public List<Interview> searchByInterviewName(String name) {
-        String prepareQuery = "select something from Interview something where something.name like :name";
-        Query query = entityManager.createQuery(prepareQuery);
-        query.setParameter("name","%"+name+"%");
-        return query.getResultList();
+    @Override
+    public List<Interview> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public List<Interview> getPublicInterview() {
-        String prepareQuery = "select something from Interview something where something.isPrivate = 0";
-        Query query = entityManager.createQuery(prepareQuery);
-        return query.getResultList();
-    }
-
-    public List<Interview> searchByCreator(long id) {
-        String prepareQuery = "select something from Interview something where something.id = :idInterview";
-        Query query = entityManager.createQuery(prepareQuery);
-        query.setParameter("idInterview",id);
-        return query.getResultList();
-    }
+    
 }

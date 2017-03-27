@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <title>TIC Interviews | Login</title><meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="views/css/bootstrap.min.css" />
@@ -21,6 +22,7 @@
             <div class="controls">
                 <div class="main_input_box">
                     <span class="add-on bg_lg"><i class="icon-envelope"> </i></span><input type="email" placeholder="Email" name="mail" required/>
+
                 </div>
             </div>
         </div>
@@ -36,6 +38,7 @@
             <span class="pull-right"><input type="submit"  class="btn btn-success" value="Login " /> </span>
 
         </div>
+
     </form>
     <form id="recoverform" class="form-vertical" action="/Register.do" method="post">
         <p class="normal_text">Rellena el formulario si quieres registrarte como candidato.</p>
@@ -64,5 +67,6 @@
 <script src="views/js/jquery.min.js"></script>
 <script src="views/js/matrix.login.js"></script>
 </body>
+
 
 </html>

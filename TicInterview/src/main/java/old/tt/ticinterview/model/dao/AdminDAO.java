@@ -1,4 +1,4 @@
-package com.tt.ticinterview.model.dao;
+package old.tt.ticinterview.model.dao;
 
 import com.tt.ticinterview.beans.user.Admin;
 import com.tt.ticinterview.beans.user.Interviewer;

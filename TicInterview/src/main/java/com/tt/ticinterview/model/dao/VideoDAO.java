@@ -1,17 +1,21 @@
 package com.tt.ticinterview.model.dao;
 
-import javax.persistence.Query;
+
+
 import java.util.List;
 
 /**
  * Created by Tictum on 10/03/2017.
+ * @param <T>
  */
-public interface VideoDAO<T> extends CrudDAO<T> {
+public abstract class VideoDAO<T> extends CrudDAOImplementation<T> {
 
-    public T getById(Long id);
+    @Override
+    public abstract T getById(Long id);
 
-    public List<T> getAll();
+    @Override
+    public abstract List<T> getAll();
 
-    List<T> searchVideo(String nombreVideo);
+    public abstract List<T> searchVideo(String nombreVideo);
 
 }
