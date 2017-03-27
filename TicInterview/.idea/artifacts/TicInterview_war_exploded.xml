@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="TicInterview:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/TicInterview_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/TicInterview-1.0-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -43,6 +43,9 @@
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.1" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/TicInterview-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="TicInterview/web/Web" />
     </root>
