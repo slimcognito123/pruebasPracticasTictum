@@ -100,7 +100,7 @@ public class Login {
         String mail = request.getParameter("mail");
         String password = request.getParameter("password");
 
-
+        modelo.setViewName("/access/log");
 
         if (adminManager.getByMail(mail) != null) {
 
@@ -136,6 +136,8 @@ public class Login {
                 modelo.addObject("user",userCandidate);
             }
         }
+
+
 
         return modelo;
     }

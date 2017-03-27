@@ -97,10 +97,54 @@
             </table>
           </div>
         </div>
-      </div>
+        <!--End-breadcrumbs-->
+        <div class="container-fluid">
+            <center><h3>Aquí puedes ver todas las entrevistas publicadas</h3></center>
 
-      </div>
+            <div class="widget-box">
+                <div class="widget-title"><span class="icon"><i class="icon-reorder"></i></span>
+                    <h5>Entrevistas publicadas en TIC Interviews</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Ver</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <% for(entrevista : listaEntrevistas){ %>
+                        <tr>
+                            <td class="taskDesc"><i class="icon-info-sign"></i><%= entrevista.getName()%></td>
+                            <td class="taskOptions"><a
+                                    href="../java/com/tt/ticinterview/controller/interviewer/GetAnswer.do?id=<%=entrevista.getId()%>"
+                                    class="tip-top">
+                                <button class="btn btn-success"><span class="icon-arrow-right"></span></button>
+                            </a></td>
+                        </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
+    </div>
+    </div>
+    </div>
+
+    <!--end-main-container-part-->
+
+    <!--Footer-part-->
+
+    <div class="row-fluid">
+        <div id="footer" class="span12"> 2017 &copy; Josevi | Alvaro | Manuel | Pablo | Fran | Toni | Jesús | Jorge
+        </div>
+    </div>
+
   </div>
 </div>
 

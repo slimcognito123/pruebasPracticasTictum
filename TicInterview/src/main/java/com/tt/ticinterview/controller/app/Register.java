@@ -35,6 +35,8 @@ public class Register {
 
         ModelAndView modelo = new ModelAndView();
 
+        modelo.setViewName("/access/log");
+
         try {
 
             Candidate candidate = new Candidate(request.getParameter("username"),request.getParameter("surname"),
@@ -54,7 +56,9 @@ public class Register {
     @RequestMapping(method= RequestMethod.POST)
     public ModelAndView registerPost(HttpServletRequest request) {
 
-        ModelAndView modelo = new ModelAndView();;
+        ModelAndView modelo = new ModelAndView();
+
+        modelo.setViewName("/access/log");
 
         try {
 
