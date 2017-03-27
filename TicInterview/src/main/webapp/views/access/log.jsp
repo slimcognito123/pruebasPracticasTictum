@@ -17,7 +17,7 @@
 <body>
 <div id="loginbox">
     <form id="loginform" class="form-vertical" action="/Login.do" method="post">
-        <div class="control-group normal_text"><a href="views/index.html"><img src="views/img/logoo.png" alt="Logo" /></a></div>
+        <div class="control-group normal_text"><a href="views/index.jsp"><img src="views/img/logoo.png" alt="Logo" /></a></div>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
@@ -29,12 +29,12 @@
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseña" name="password" required/>
+                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseï¿½a" name="password" required/>
                 </div>
             </div>
         </div>
         <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover"> Regístrate</a></span>
+            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover"> Regï¿½strate</a></span>
             <span class="pull-right"><input type="submit"  class="btn btn-success" value="Login " /> </span>
 
         </div>
@@ -49,11 +49,11 @@
                 <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Apellidos" name="surname"/>
                 <span class="add-on bg_lg"><i class="icon-envelope"></i></span><input type="email" placeholder="Email" name="mail" />
                 <span class="add-on bg_lo"><i class="icon-book"></i></span><input type="text" placeholder="DNI" name="dni"/>
-                <span class="add-on bg_lo"><i class="icon-book"></i></span><input type="text" placeholder="Teléfono" name="phoneNumber"/>
+                <span class="add-on bg_lo"><i class="icon-book"></i></span><input type="text" placeholder="Telï¿½fono" name="phoneNumber"/>
                 <span class="add-on bg_lo"><i class="icon-calendar"></i></span><input type="date" placeholder="Fecha Nacimiento" name="date"/>
-                <span class="add-on bg_lo"><i class="icon-map-marker"></i></span><input type="text" placeholder="Dirección" name="address"/>
-                <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseña" name="password"/>
-                <span class="add-on bg_ly"><i class="icon-unlock"></i></span><input type="password" placeholder="Repetir Contraseña" />
+                <span class="add-on bg_lo"><i class="icon-map-marker"></i></span><input type="text" placeholder="Direcciï¿½n" name="address"/>
+                <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseï¿½a" name="password"/>
+                <span class="add-on bg_ly"><i class="icon-unlock"></i></span><input type="password" placeholder="Repetir Contraseï¿½a" />
             </div>
         </div>
 

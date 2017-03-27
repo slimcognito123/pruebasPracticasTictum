@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,20 +18,28 @@ import javax.servlet.http.HttpSession;
 public class Logout {
 
     @RequestMapping(method= RequestMethod.GET)
-    public String logoutGet(HttpSession sesion) {
+    public ModelAndView logoutGet(HttpSession sesion) {
+
+        ModelAndView modelo = new ModelAndView();
 
         sesion.invalidate();
 
-        return "redirect: index.do";
+        modelo.setViewName("index");
+
+        return modelo;
     }
 
 
     @RequestMapping(method= RequestMethod.POST)
-    public String logoutPost(HttpSession sesion) {
+    public ModelAndView logoutPost(HttpSession sesion) {
+
+        ModelAndView modelo = new ModelAndView();
 
         sesion.invalidate();
 
-        return "redirect: index.do";
+        modelo.setViewName("index");
+
+        return modelo;
     }
 
 }
