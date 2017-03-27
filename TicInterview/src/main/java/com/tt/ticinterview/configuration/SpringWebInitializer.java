@@ -37,18 +37,11 @@ public class SpringWebInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("*.do");
 
     }
-      @Bean
-    public ViewResolver getViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/");
-        resolver.setSuffix(".jsp");
- 
-        return resolver;
-    }
 
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
+
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+//    }
 //
 //public void configure(HttpSessionEvent http) throws Exception {
 //        http.getSession().setMaxInactiveInterval(30);

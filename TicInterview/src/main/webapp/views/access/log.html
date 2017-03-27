@@ -15,25 +15,26 @@
     </head>
     <body>
         <div id="loginbox">            
-            <form id="loginform" class="form-vertical" action="index.html">
+            <form id="loginform" class="form-vertical" action="/Login.do" method="get">
 				 <div class="control-group normal_text"><a href="../index.html"><img src="../img/logoo.png" alt="Logo" /></a></div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_lg"><i class="icon-envelope"> </i></span><input type="email" placeholder="Email" />
+                            <span class="add-on bg_lg"><i class="icon-envelope"> </i></span><input type="email" placeholder="Email" name="mail" required/>
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseña" />
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Contraseña" name="password" required/>
                         </div>
                     </div>
                 </div>
                 <div class="form-actions">
                     <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover"> Regístrate</a></span>
-                    <span class="pull-right"><a type="submit" href="../Candidate/PanelCandidate.html" class="btn btn-success" /> Entrar</a></span>
+                    <span class="pull-right"><input type="submit"  class="btn btn-success" value="Login " /> </span>
+
                 </div>
             </form>
             <form id="recoverform" action="#" class="form-vertical">
