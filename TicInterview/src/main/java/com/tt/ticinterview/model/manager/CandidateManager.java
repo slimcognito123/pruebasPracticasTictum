@@ -40,7 +40,8 @@ public class CandidateManager implements UserManager<Candidate> {
     @Override
     public Candidate getById(long id){
         try{
-            return new Candidate("pablo", "sdfgdf", "dsf", "sdf", LocalDateTime.MAX, 0, "pablo", "pablo");
+            System.out.println("hola");
+            return new Candidate("pablo", "sdfgdf", "dsf", "sdf", LocalDateTime.MAX, 0, "candidato@candidato", "candidato");
             //return candidateDAO.getById(id);
         }catch(Exception e){
             System.err.println("ERROR getById " + e.getStackTrace());
@@ -52,7 +53,8 @@ public class CandidateManager implements UserManager<Candidate> {
     @Override
     public Candidate getByMail(String mail){
         try{
-            return candidateDAO.getUserMail(mail);
+            return new Candidate("pablo", "sdfgdf", "dsf", "sdf", LocalDateTime.MAX, 0, "candidato@candidato", "candidato");
+            //return candidateDAO.getUserMail(mail);
         }catch(Exception e){
             System.err.println("ERROR getByMail " + e.getStackTrace());
         }

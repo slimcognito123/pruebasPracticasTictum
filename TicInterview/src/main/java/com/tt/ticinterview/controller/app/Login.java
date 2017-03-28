@@ -78,7 +78,7 @@ public class Login {
                     modelo.addObject("user",userManager);
                 }else {
                     modelo.addObject("misEntrevistas", Arrays.asList(entrevistasPublicas.stream().filter(item -> item.getId()==userManager.getId()).toArray()));
-                    modelo.setViewName("/interview/PanelInterviewer");
+                    modelo.setViewName("/interviewer/PanelInterviewer");
                     modelo.addObject("user",userManager);
                 }
             }
@@ -87,7 +87,7 @@ public class Login {
         if (candidateManager.getByMail(mail) != null) {
 
             Candidate userCandidate = candidateManager.getByMail(mail);
-
+            System.out.println(userCandidate.toString());
             if (userCandidate.getPassword().equals(password)){
                 modelo.addObject("entrevistasPublicas", entrevistasPublicas);
                 modelo.setViewName("/candidate/PanelCandidate");
@@ -113,11 +113,14 @@ public class Login {
 
         modelo.setViewName("/access/log");
 
+        List<Interview> entrevistasPublicas = interviewManager.getAll();
+
         if (adminManager.getByMail(mail) != null) {
 
             Admin userAdmin = adminManager.getByMail(mail);
 
             if (userAdmin.getPassword().equals(password)){
+                modelo.addObject("misEntrevistas", Arrays.asList(entrevistasPublicas.stream().filter(item -> item.getId()==userAdmin.getId()).toArray()));
                 modelo.setViewName("/admin/PanelAdmin");
                 modelo.addObject("user",userAdmin);
             }
@@ -129,10 +132,12 @@ public class Login {
 
             if (userManager.getPassword().equals(password)){
                 if (userManager.isIsManager()) {
+                    modelo.addObject("misEntrevistas", Arrays.asList(entrevistasPublicas.stream().filter(item -> item.getId()==userManager.getId()).toArray()));
                     modelo.setViewName("/manager/PanelManager");
                     modelo.addObject("user",userManager);
                 }else {
-                    modelo.setViewName("/interview/PanelInterviewer");
+                    modelo.addObject("misEntrevistas", Arrays.asList(entrevistasPublicas.stream().filter(item -> item.getId()==userManager.getId()).toArray()));
+                    modelo.setViewName("/interviewer/PanelInterviewer");
                     modelo.addObject("user",userManager);
                 }
             }
@@ -143,6 +148,7 @@ public class Login {
             Candidate userCandidate = candidateManager.getByMail(mail);
 
             if (userCandidate.getPassword().equals(password)){
+                modelo.addObject("entrevistasPublicas", entrevistasPublicas);
                 modelo.setViewName("/candidate/PanelCandidate");
                 modelo.addObject("user",userCandidate);
             }

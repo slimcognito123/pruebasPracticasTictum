@@ -69,7 +69,7 @@ public class InterviewerManager implements UserManager<Interviewer> {
     @Override
     public Interviewer getByMail(String mail) {
         try {
-             return new Interviewer(234, "Pablo", "sdfdfg", "sadfsdf", true);
+             return new Interviewer(234, "Pablo", "pablo", "pablo@pablo", true);
          //   return interviewerDAO.getUserMail(mail);
         } catch (Exception e) {
             System.err.println("ERROR getByMail " + e.getStackTrace());
